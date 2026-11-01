@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { 
-  Sparkles, Calendar, Heart, Camera, MessageCircle, 
-  CheckCircle2, Info, ArrowRight, HelpCircle 
-} from 'lucide-react';
+import { Calendar, Camera, MessageCircle, CheckCircle2 } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { generateCustomCakeWhatsAppUrl } from '../utils/whatsapp';
 import { createCustomInquiry } from '../services/api';
+import { NouveauFloralDivider, NouveauArchCrest, NouveauCorner } from '../components/ArtNouveauDecorations';
 
 export const CustomOrders = () => {
   const [formData, setFormData] = useState({
@@ -23,31 +21,29 @@ export const CustomOrders = () => {
   const [errors, setErrors] = useState({});
   const [submittedUrl, setSubmittedUrl] = useState(null);
 
-  // Gallery of bespoke cake styles for inspiration
   const inspirationGallery = [
     {
       title: 'Botanical & Fresh Floral',
-      description: 'Organic garden roses, delicate eucalyptus sprigs, and subtle pastel textures.',
+      description: 'Organic garden roses, delicate eucalyptus sprigs & subtle pastel textures.',
       image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Vintage Lambeth Piping',
-      description: 'Intricate royal frills, romantic overpiping, maraschino cherries, and nostalgic ribbons.',
+      description: 'Intricate royal frills, romantic overpiping, maraschino cherries & nostalgic ribbons.',
       image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Decadent Chocolate Drip',
-      description: 'Belgian ganache dripping over tall tiers, loaded with brownies and gold leaf.',
+      description: 'Belgian ganache dripping over tall tiers, loaded with brownies & edible gold leaf.',
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Minimalist Modern Buttercream',
-      description: 'Textured stucco knife strokes, monochrome palettes, and modern typography plaques.',
+      description: 'Textured stucco knife strokes, monochrome palettes & calligraphy typography.',
       image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80',
     },
   ];
 
-  // Flavour inspirations
   const popularFlavors = [
     'Belgian Dark Chocolate & Raspberry',
     'Madagascar Vanilla Bean & Strawberry Compote',
@@ -58,7 +54,6 @@ export const CustomOrders = () => {
     'Custom / Other (discuss with baker)'
   ];
 
-  // Size guidelines
   const sizeOptions = [
     '500g (Serves 4 - 6 guests)',
     '1 kg (Serves 8 - 12 guests)',
@@ -83,8 +78,8 @@ export const CustomOrders = () => {
     if (!formData.customerPhone.trim() || formData.customerPhone.length < 8) {
       errs.customerPhone = 'Valid WhatsApp number is required';
     }
-    if (!formData.occasion.trim()) errs.occasion = 'Please specify the occasion';
-    if (!formData.requiredDate) errs.requiredDate = 'Please select your required celebration date';
+    if (!formData.occasion.trim()) errs.occasion = 'Please specify the celebration occasion';
+    if (!formData.requiredDate) errs.requiredDate = 'Please select celebration date required';
     return errs;
   };
 
@@ -97,8 +92,7 @@ export const CustomOrders = () => {
       return;
     }
 
-    // Save inquiry to backend SQLite DB / API
-    createCustomInquiry(formData).catch((err) => console.warn('Inquiry save notice:', err));
+    createCustomInquiry(formData).catch((err) => console.warn('Inquiry notice:', err));
 
     const url = generateCustomCakeWhatsAppUrl(formData);
     setSubmittedUrl(url);
@@ -108,25 +102,26 @@ export const CustomOrders = () => {
   return (
     <div className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
-      {/* Page Header */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush/60 text-rose-700 text-xs font-semibold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Bespoke Celebration Studio</span>
-        </div>
-        <h1 className="font-serif text-4xl sm:text-5xl font-bold text-chocolate leading-tight">
-          Bespoke & Custom Cakes
+      {/* Header Cartouche */}
+      <div className="text-center max-w-3xl mx-auto space-y-3">
+        <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
+        <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
+          Commandes Sur Mesure
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-tight">
+          Bespoke Custom Cakes
         </h1>
-        <p className="text-sm sm:text-base text-chocolate/75 leading-relaxed font-light">
-          Every celebration is singular. Whether you are envisioning a whimsical first birthday, a romantic botanical wedding cake, or an anniversary centerpiece, our home studio crafts custom designs tailored precisely to your story.
+        <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
+        <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
+          Commission a singular, 100% pure vegetarian & eggless centerpiece tailored to your personal aesthetic, flavor profile, and celebration story in Chennai.
         </p>
       </div>
 
       {/* Inspiration Gallery */}
       <section className="space-y-6">
         <div className="text-center space-y-1">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">Design Portfolio</span>
-          <h2 className="font-serif text-2xl sm:text-3xl font-bold text-chocolate">
+          <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">Portfolio d'Inspiration</span>
+          <h2 className="font-serif text-2xl sm:text-3xl font-normal text-espresso">
             Aesthetic Styles We Love To Create
           </h2>
         </div>
@@ -135,80 +130,65 @@ export const CustomOrders = () => {
           {inspirationGallery.map((style, index) => (
             <div
               key={index}
-              className="group bg-white rounded-3xl overflow-hidden border border-blush/70 shadow-soft hover:shadow-soft-lg transition-all"
+              className="group bg-white rounded-[32px] overflow-hidden border border-gold-500/40 shadow-nouveau hover:shadow-nouveau-lg transition-all p-2"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-cream">
+              <div className="aspect-[4/3] rounded-[24px] overflow-hidden bg-parchment-200">
                 <img
                   src={style.image}
                   alt={style.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
-              <div className="p-4 space-y-1">
-                <h3 className="font-serif text-base font-bold text-chocolate">{style.title}</h3>
-                <p className="text-xs text-chocolate/70 leading-relaxed">{style.description}</p>
+              <div className="p-3.5 space-y-1">
+                <h3 className="font-serif text-base font-bold text-espresso">{style.title}</h3>
+                <p className="text-xs font-serif text-espresso/70 leading-relaxed">{style.description}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Notice & How it Works Banner */}
-      <div className="bg-cream/80 border border-blush rounded-3xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-chocolate/80">
-        <div className="space-y-1.5">
-          <h4 className="font-bold text-chocolate text-sm flex items-center gap-1.5">
-            <Calendar className="w-4 h-4 text-rose-500" />
-            <span>Advance Notice</span>
-          </h4>
-          <p>
-            Custom tiered and sculpted cakes require a minimum of <strong>48 to 72 hours</strong> notice for design preparation and baking slots.
-          </p>
+      {/* Advance Notice Box */}
+      <div className="bg-parchment-100/80 border border-gold-500/40 rounded-[32px] p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-serif text-espresso/80 shadow-nouveau">
+        <div className="space-y-1">
+          <h4 className="font-bold text-espresso text-sm">✦ Advance Notice</h4>
+          <p>Bespoke tiered and sculpted cakes require a minimum of <strong>48 to 72 hours</strong> notice for design consultation and slot booking.</p>
         </div>
-        <div className="space-y-1.5">
-          <h4 className="font-bold text-chocolate text-sm flex items-center gap-1.5">
-            <Heart className="w-4 h-4 text-rose-500" />
-            <span>Taste Before Everything</span>
-          </h4>
-          <p>
-            We don't use fondants that taste like sugar paste. We specialize in silky Swiss meringue buttercream, velvet chocolate ganache, and light sponge layers.
-          </p>
+        <div className="space-y-1">
+          <h4 className="font-bold text-emerald-800 text-sm">🌱 100% Pure Veg & Eggless</h4>
+          <p>Every cake is prepared with pure dairy butter in our dedicated vegetarian studio. Zero gelatin, zero eggs.</p>
         </div>
-        <div className="space-y-1.5">
-          <h4 className="font-bold text-chocolate text-sm flex items-center gap-1.5">
-            <MessageCircle className="w-4 h-4 text-rose-500" />
-            <span>Direct Baker Consultation</span>
-          </h4>
-          <p>
-            Submitting this form connects you directly to our baker on WhatsApp, where you can share reference pictures and fine-tune flavors.
-          </p>
+        <div className="space-y-1">
+          <h4 className="font-bold text-espresso text-sm">✦ Studio Location</h4>
+          <p>Tower 4, North Town Apartment, Perambur, Chennai. Self-pickup or air-conditioned doorstep delivery.</p>
         </div>
       </div>
 
-      {/* Main Form or Submission View */}
+      {/* Main Commission Form */}
       {submittedUrl ? (
-        <div className="max-w-2xl mx-auto bg-white rounded-3xl p-8 sm:p-10 border border-blush shadow-soft-xl text-center space-y-6">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-            <CheckCircle2 className="w-9 h-9" />
+        <div className="max-w-2xl mx-auto bg-white rounded-[36px] p-8 sm:p-12 border border-gold-500 shadow-nouveau-lg text-center space-y-6">
+          <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-400 flex items-center justify-center mx-auto">
+            <CheckCircle2 className="w-8 h-8" />
           </div>
           <div className="space-y-2">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
+            <span className="text-xs font-serif uppercase tracking-widest text-gold-700 font-bold">
               Inquiry Drafted
             </span>
-            <h2 className="font-serif text-3xl font-bold text-chocolate">
-              Your Custom Cake Inquiry is Ready
+            <h2 className="font-serif text-3xl font-bold text-espresso">
+              Your Cake Inquiry is Ready
             </h2>
-            <p className="text-sm text-chocolate/80">
-              Thank you, <strong>{formData.customerName}</strong>! Please click below to send your cake request on WhatsApp.
+            <p className="text-sm font-serif text-espresso/80">
+              Thank you, <strong>{formData.customerName}</strong>! Please click below to open WhatsApp and send your consultation details directly to our baker.
             </p>
           </div>
 
-          <div className="p-4 rounded-2xl bg-cream border border-blush text-xs space-y-3">
+          <div className="p-4 rounded-2xl bg-parchment-100 border border-gold-500/40 text-xs">
             <a
               href={submittedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:bg-[#1ebc59] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-serif font-bold tracking-wider uppercase shadow-md transition-all text-xs"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Send Custom Cake Request via WhatsApp</span>
@@ -218,29 +198,29 @@ export const CustomOrders = () => {
           <button
             type="button"
             onClick={() => setSubmittedUrl(null)}
-            className="text-xs text-rose-600 hover:text-rose-700 underline font-semibold"
+            className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 underline"
           >
             Edit Custom Order Inquiry
           </button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-blush shadow-soft space-y-8">
+        <form onSubmit={handleSubmit} className="max-w-3xl mx-auto bg-white rounded-[40px] p-6 sm:p-12 border border-gold-500 shadow-nouveau space-y-8 relative">
+          <NouveauCorner position="top-left" className="absolute top-4 left-4 w-10 h-10 text-gold-400" />
+          <NouveauCorner position="top-right" className="absolute top-4 right-4 w-10 h-10 text-gold-400" />
           
-          <div className="border-b border-blush/60 pb-4">
-            <h2 className="font-serif text-2xl font-bold text-chocolate">
-              Custom Cake Inquiry Form
+          <div className="text-center border-b border-gold-500/30 pb-4 space-y-1">
+            <h2 className="font-serif text-3xl font-normal text-espresso">
+              Bespoke Cake Commission
             </h2>
-            <p className="text-xs text-chocolate/70 mt-1">
-              Fill in what you envision. We will reply with availability, flavor recommendations, and an exact quotation.
+            <p className="text-xs font-serif text-espresso/70 italic">
+              Share your celebration vision. We will review slot availability and respond with a tailored quotation.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            
-            {/* Customer Name */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-                Your Name *
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+                Your Full Name *
               </label>
               <input
                 type="text"
@@ -248,17 +228,16 @@ export const CustomOrders = () => {
                 value={formData.customerName}
                 onChange={handleChange}
                 placeholder="e.g. Diya Sen"
-                className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none ${
-                  errors.customerName ? 'border-rose-500' : 'border-blush focus:border-rose-400'
+                className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
+                  errors.customerName ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                 }`}
               />
               {errors.customerName && <p className="text-xs text-rose-600 mt-1">{errors.customerName}</p>}
             </div>
 
-            {/* WhatsApp Contact */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-                WhatsApp Number *
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+                WhatsApp Contact Number *
               </label>
               <input
                 type="tel"
@@ -266,34 +245,32 @@ export const CustomOrders = () => {
                 value={formData.customerPhone}
                 onChange={handleChange}
                 placeholder="e.g. +91 98765 43210"
-                className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none ${
-                  errors.customerPhone ? 'border-rose-500' : 'border-blush focus:border-rose-400'
+                className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
+                  errors.customerPhone ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                 }`}
               />
               {errors.customerPhone && <p className="text-xs text-rose-600 mt-1">{errors.customerPhone}</p>}
             </div>
 
-            {/* Occasion */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-                Occasion *
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+                Celebration Occasion *
               </label>
               <input
                 type="text"
                 name="occasion"
                 value={formData.occasion}
                 onChange={handleChange}
-                placeholder="e.g. 1st Birthday, Wedding, Baby Shower, Farewell"
-                className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none ${
-                  errors.occasion ? 'border-rose-500' : 'border-blush focus:border-rose-400'
+                placeholder="e.g. 1st Birthday, Wedding, 25th Anniversary"
+                className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
+                  errors.occasion ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                 }`}
               />
               {errors.occasion && <p className="text-xs text-rose-600 mt-1">{errors.occasion}</p>}
             </div>
 
-            {/* Required Date */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
                 Celebration Date Required *
               </label>
               <input
@@ -301,55 +278,51 @@ export const CustomOrders = () => {
                 name="requiredDate"
                 value={formData.requiredDate}
                 onChange={handleChange}
-                min={new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0]} // Min 48h notice
-                className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none ${
-                  errors.requiredDate ? 'border-rose-500' : 'border-blush focus:border-rose-400'
+                min={new Date(Date.now() + 86400000 * 2).toISOString().split('T')[0]}
+                className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
+                  errors.requiredDate ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                 }`}
               />
               {errors.requiredDate && <p className="text-xs text-rose-600 mt-1">{errors.requiredDate}</p>}
             </div>
 
-            {/* Cake Flavour */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-                Preferred Flavour
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+                Preferred Flavour Profile
               </label>
               <select
                 name="cakeFlavor"
                 value={formData.cakeFlavor}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400 cursor-pointer"
+                className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600 cursor-pointer"
               >
-                <option value="">Select a preferred flavour or choose later</option>
+                <option value="">Select a preferred flavour</option>
                 {popularFlavors.map((fl) => (
                   <option key={fl} value={fl}>{fl}</option>
                 ))}
               </select>
             </div>
 
-            {/* Cake Size */}
             <div>
-              <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
+              <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
                 Estimated Size / Guest Count
               </label>
               <select
                 name="cakeSize"
                 value={formData.cakeSize}
                 onChange={handleChange}
-                className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400 cursor-pointer"
+                className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600 cursor-pointer"
               >
-                <option value="">Select estimated size or guest count</option>
+                <option value="">Select estimated weight / guests</option>
                 {sizeOptions.map((sz) => (
                   <option key={sz} value={sz}>{sz}</option>
                 ))}
               </select>
             </div>
-
           </div>
 
-          {/* Preferred Design / Theme Idea */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
+            <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
               Design Preference & Theme Description
             </label>
             <textarea
@@ -358,52 +331,49 @@ export const CustomOrders = () => {
               value={formData.preferredDesign}
               onChange={handleChange}
               placeholder="e.g. Pastel peach and ivory palette with dried bunny tails, pearl borders, and vintage cursive text 'Thirty & Thriving'."
-              className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400"
+              className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600"
             />
           </div>
 
-          {/* Reference Image URL (Optional) */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5 flex items-center gap-1.5">
-              <Camera className="w-3.5 h-3.5 text-rose-500" />
-              <span>Reference Image Link / Pinterest / Instagram URL (Optional)</span>
+            <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5 flex items-center gap-1.5">
+              <Camera className="w-3.5 h-3.5 text-gold-600" />
+              <span>Reference Image / Pinterest URL (Optional)</span>
             </label>
             <input
               type="url"
               name="referenceImageUrl"
               value={formData.referenceImageUrl}
               onChange={handleChange}
-              placeholder="https://pinterest.com/pin/... or photo link (You can also send pictures directly on WhatsApp)"
-              className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400"
+              placeholder="https://pinterest.com/pin/... (You can also send photos directly on WhatsApp)"
+              className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600"
             />
           </div>
 
-          {/* Additional Notes */}
           <div>
-            <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-              Dietary Preferences / Special Instructions
+            <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+              Dietary Instructions & Inscription Message
             </label>
             <textarea
               rows={2}
               name="additionalNotes"
               value={formData.additionalNotes}
               onChange={handleChange}
-              placeholder="e.g. Must be 100% eggless, low sugar, or nut allergy notes."
-              className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400"
+              placeholder="e.g. Inscription on plaque, low sugar preference, or nut allergy notes."
+              className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600"
             />
           </div>
 
-          {/* Submit */}
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-4 rounded-2xl bg-chocolate hover:bg-chocolate-600 text-ivory text-sm font-semibold tracking-wide transition-all shadow-soft flex items-center justify-center gap-2 group"
+              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-rose-300 group-hover:scale-110 transition-transform" />
-              <span>Submit Custom Cake Inquiry via WhatsApp</span>
+              <MessageCircle className="w-4 h-4 text-gold-300" />
+              <span>Submit Bespoke Cake Inquiry via WhatsApp</span>
             </button>
-            <p className="text-center text-[11px] text-chocolate/60 mt-3">
-              This sends your details to our baker on WhatsApp. We typically respond within 2 to 4 hours with design suggestions and a final quote.
+            <p className="text-center text-[11px] font-serif text-espresso/60 mt-3">
+              Your inquiry will be logged in our studio database and opened in WhatsApp for personalized consultation.
             </p>
           </div>
 

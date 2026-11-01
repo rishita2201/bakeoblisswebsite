@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { 
-  ArrowLeft, MessageCircle, MapPin, Calendar, Clock, 
-  CheckCircle2, AlertCircle, ShoppingBag, Info, ExternalLink 
+  ArrowLeft, MessageCircle, Calendar, Clock, 
+  CheckCircle2, AlertCircle, ExternalLink 
 } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { BAKERY_CONFIG } from '../data/config';
 import { formatCurrency } from '../utils/currency';
 import { generateCartOrderWhatsAppUrl } from '../utils/whatsapp';
 import { createOrder } from '../services/api';
+import { NouveauArchCrest, NouveauFloralDivider, NouveauCorner } from '../components/ArtNouveauDecorations';
 
 export const Checkout = () => {
   const { cartItems, subtotal, totalItemsCount, clearCart } = useCart();
   const navigate = useNavigate();
 
-  // Form states
   const [formData, setFormData] = useState({
     customerName: '',
     customerPhone: '',
-    fulfillmentType: 'pickup', // 'pickup' or 'delivery'
+    fulfillmentType: 'pickup',
     deliveryAddress: '',
     preferredDate: '',
     preferredTime: '',
@@ -28,17 +28,16 @@ export const Checkout = () => {
   const [errors, setErrors] = useState({});
   const [submittedWhatsAppUrl, setSubmittedWhatsAppUrl] = useState(null);
 
-  // If cart is empty and not submitted yet
   if (cartItems.length === 0 && !submittedWhatsAppUrl) {
     return (
-      <div className="py-20 max-w-md mx-auto px-4 text-center space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-chocolate">Your basket is empty</h2>
-        <p className="text-sm text-chocolate/70">
-          Please add items to your basket before checking out.
+      <div className="py-24 max-w-md mx-auto px-4 text-center space-y-4">
+        <h2 className="font-serif text-2xl font-bold text-espresso">Your basket is empty</h2>
+        <p className="text-sm font-serif text-espresso/70">
+          Please add creations to your basket before checking out.
         </p>
         <Link
           to="/menu"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-chocolate text-ivory text-xs font-semibold"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-button text-gold-100 text-xs font-serif uppercase tracking-wider"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Browse Our Menu</span>
@@ -47,24 +46,21 @@ export const Checkout = () => {
     );
   }
 
-  // Input change
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: null }));
     }
   };
 
-  // Validation
   const validateForm = () => {
     const newErrors = {};
     if (!formData.customerName.trim()) {
       newErrors.customerName = 'Please enter your full name';
     }
     if (!formData.customerPhone.trim() || formData.customerPhone.length < 8) {
-      newErrors.customerPhone = 'Please enter a valid WhatsApp contact number';
+      newErrors.customerPhone = 'Please enter a valid WhatsApp number';
     }
     if (!formData.preferredDate) {
       newErrors.preferredDate = 'Please select your preferred date';
@@ -75,7 +71,6 @@ export const Checkout = () => {
     return newErrors;
   };
 
-  // Form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
@@ -85,7 +80,6 @@ export const Checkout = () => {
       return;
     }
 
-    // Save order to SQLite Database / Backend API
     createOrder({
       customerName: formData.customerName,
       customerPhone: formData.customerPhone,
@@ -98,7 +92,6 @@ export const Checkout = () => {
       totalAmount: subtotal,
     }).catch((err) => console.warn('Order save notice:', err));
 
-    // Generate WhatsApp click-to-chat URL
     const url = generateCartOrderWhatsAppUrl({
       customerName: formData.customerName,
       customerPhone: formData.customerPhone,
@@ -112,57 +105,65 @@ export const Checkout = () => {
     });
 
     setSubmittedWhatsAppUrl(url);
-
-    // Open WhatsApp in a new tab/window
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (
     <div className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
       
-      {/* Breadcrumb / Back */}
-      <div className="flex items-center justify-between pb-4 border-b border-blush/60">
+      {/* Header Cartouche */}
+      <div className="text-center max-w-xl mx-auto space-y-2">
+        <NouveauArchCrest className="w-14 h-7 text-gold-500 mx-auto" />
+        <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
+          Finalisation de Commande
+        </span>
+        <h1 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
+          Checkout & Order Confirmation
+        </h1>
+        <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-1 mx-auto" />
+      </div>
+
+      <div className="flex items-center justify-between pb-3 border-b border-gold-500/30">
         <Link
           to="/cart"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-rose-600 hover:text-rose-700 transition-colors"
+          className="inline-flex items-center gap-1.5 text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Basket</span>
         </Link>
-        <span className="text-xs text-chocolate/60">
-          Step 2 of 2: Delivery & WhatsApp Confirmation
+        <span className="text-xs font-serif text-espresso/60">
+          Studio: North Town Apartment, Perambur, Chennai
         </span>
       </div>
 
-      {/* Confirmation State View after submission */}
       {submittedWhatsAppUrl ? (
-        <div className="max-w-2xl mx-auto bg-white rounded-3xl p-8 sm:p-10 border border-blush shadow-soft-xl text-center space-y-6">
-          <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-            <CheckCircle2 className="w-9 h-9" />
+        <div className="max-w-2xl mx-auto bg-white rounded-[36px] p-8 sm:p-12 border border-gold-500 shadow-nouveau-lg text-center space-y-6 relative">
+          <NouveauCorner position="top-left" className="absolute top-4 left-4 w-10 h-10 text-gold-400" />
+          <NouveauCorner position="top-right" className="absolute top-4 right-4 w-10 h-10 text-gold-400" />
+
+          <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-400 flex items-center justify-center mx-auto">
+            <CheckCircle2 className="w-8 h-8" />
           </div>
 
           <div className="space-y-2">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-              Inquiry Prepared
+            <span className="text-xs font-serif uppercase tracking-widest text-gold-700 font-bold">
+              Order Registered
             </span>
-            <h2 className="font-serif text-3xl font-bold text-chocolate">
-              Order Inquiry Sent to WhatsApp
+            <h2 className="font-serif text-3xl font-bold text-espresso">
+              Order Dispatched to WhatsApp & Database
             </h2>
-            <p className="text-sm text-chocolate/80 leading-relaxed max-w-md mx-auto">
-              Thank you, <strong className="text-chocolate">{formData.customerName}</strong>! A pre-filled WhatsApp message has been generated.
+            <p className="text-sm font-serif text-espresso/80 max-w-md mx-auto leading-relaxed">
+              Thank you, <strong className="text-espresso">{formData.customerName}</strong>! Your order has been saved in our bakery system and pre-filled in WhatsApp.
             </p>
           </div>
 
-          {/* Direct Link in case popup blocked */}
-          <div className="p-4 rounded-2xl bg-cream border border-blush/80 text-xs text-chocolate/85 space-y-3">
-            <p>
-              If WhatsApp didn't open automatically on your device, click the button below to send your order:
-            </p>
+          <div className="p-4 rounded-2xl bg-parchment-100 border border-gold-500/40 text-xs font-serif text-espresso space-y-3">
+            <p>If WhatsApp did not open automatically, click the button below to send your order summary:</p>
             <a
               href={submittedWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#25D366] text-white font-semibold shadow-md hover:bg-[#1ebc59] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white font-serif font-bold tracking-wider uppercase shadow-md transition-all text-xs"
             >
               <MessageCircle className="w-4 h-4" />
               <span>Open WhatsApp & Send Order</span>
@@ -170,53 +171,50 @@ export const Checkout = () => {
             </a>
           </div>
 
-          {/* Order Confirmation Notice - Strict Requirement */}
           <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 text-left flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5" />
-            <div className="text-xs text-amber-900 space-y-1">
-              <p className="font-bold">Important Notice:</p>
+            <div className="text-xs font-serif text-amber-900 space-y-1">
+              <p className="font-bold">Confirmation Notice:</p>
               <p>
-                Sending your WhatsApp message does not immediately confirm your order. Our baker will review your requested date, check slot availability, confirm delivery fees (if applicable), and reply to finalize your booking.
+                Sending your WhatsApp message submits your request. Our baker at North Town Apartment will review slot availability, confirm delivery details, and reply to finalize your booking.
               </p>
             </div>
           </div>
 
-          {/* Action to complete or clear */}
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               type="button"
               onClick={() => {
                 clearCart();
                 navigate('/');
               }}
-              className="w-full sm:w-auto px-6 py-3 rounded-full bg-chocolate text-ivory text-xs font-semibold hover:bg-chocolate-600 transition-colors"
+              className="w-full sm:w-auto px-7 py-3 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
             >
-              Complete & Return to Home
+              Complete & Return Home
             </button>
             <Link
               to="/menu"
-              className="text-xs font-semibold text-rose-600 hover:text-rose-700 underline"
+              className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 underline"
             >
-              Browse More Menu
+              Browse More Confections
             </Link>
           </div>
         </div>
       ) : (
-        /* Order Checkout Form Layout */
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
           
-          {/* Left Column: Checkout Details Form */}
-          <form onSubmit={handleSubmit} className="lg:col-span-7 space-y-8">
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="lg:col-span-7 space-y-6">
             
             {/* Customer Details */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-blush/80 shadow-soft space-y-5">
-              <h2 className="font-serif text-xl font-bold text-chocolate border-b border-blush/60 pb-3 flex items-center gap-2">
-                <span>1. Contact Information</span>
+            <div className="bg-white rounded-[32px] p-6 sm:p-8 border border-gold-500/40 shadow-nouveau space-y-5">
+              <h2 className="font-serif text-xl font-bold text-espresso border-b border-gold-500/25 pb-3">
+                1. Customer Details
               </h2>
 
-              <div className="space-y-4">
+              <div className="space-y-4 font-serif">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-espresso mb-1.5">
                     Your Full Name *
                   </label>
                   <input
@@ -225,17 +223,15 @@ export const Checkout = () => {
                     value={formData.customerName}
                     onChange={handleChange}
                     placeholder="e.g. Aadhya Sharma"
-                    className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none transition-all ${
-                      errors.customerName ? 'border-rose-500 ring-1 ring-rose-300' : 'border-blush focus:border-rose-400'
+                    className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm text-espresso outline-none ${
+                      errors.customerName ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                     }`}
                   />
-                  {errors.customerName && (
-                    <p className="text-xs text-rose-600 mt-1">{errors.customerName}</p>
-                  )}
+                  {errors.customerName && <p className="text-xs text-rose-600 mt-1">{errors.customerName}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-espresso mb-1.5">
                     WhatsApp Mobile Number *
                   </label>
                   <input
@@ -244,29 +240,23 @@ export const Checkout = () => {
                     value={formData.customerPhone}
                     onChange={handleChange}
                     placeholder="e.g. +91 98765 43210"
-                    className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none transition-all ${
-                      errors.customerPhone ? 'border-rose-500 ring-1 ring-rose-300' : 'border-blush focus:border-rose-400'
+                    className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm text-espresso outline-none ${
+                      errors.customerPhone ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                     }`}
                   />
-                  {errors.customerPhone && (
-                    <p className="text-xs text-rose-600 mt-1">{errors.customerPhone}</p>
-                  )}
-                  <p className="text-[11px] text-chocolate/60 mt-1">
-                    The baker will communicate directly with this WhatsApp number for confirmation.
-                  </p>
+                  {errors.customerPhone && <p className="text-xs text-rose-600 mt-1">{errors.customerPhone}</p>}
                 </div>
               </div>
             </div>
 
             {/* Fulfilment & Timing */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-blush/80 shadow-soft space-y-5">
-              <h2 className="font-serif text-xl font-bold text-chocolate border-b border-blush/60 pb-3 flex items-center gap-2">
-                <span>2. Fulfillment & Schedule</span>
+            <div className="bg-white rounded-[32px] p-6 sm:p-8 border border-gold-500/40 shadow-nouveau space-y-5">
+              <h2 className="font-serif text-xl font-bold text-espresso border-b border-gold-500/25 pb-3">
+                2. Fulfillment & Schedule
               </h2>
 
-              {/* Fulfilment Toggle */}
-              <div className="space-y-3">
-                <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80">
+              <div className="space-y-3 font-serif">
+                <label className="block text-xs font-bold uppercase tracking-wider text-espresso">
                   Select Order Fulfillment *
                 </label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -275,13 +265,13 @@ export const Checkout = () => {
                     onClick={() => setFormData({ ...formData, fulfillmentType: 'pickup' })}
                     className={`p-4 rounded-2xl border text-left transition-all ${
                       formData.fulfillmentType === 'pickup'
-                        ? 'bg-chocolate text-ivory border-chocolate shadow-sm'
-                        : 'bg-ivory hover:bg-blush/40 text-chocolate border-blush'
+                        ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
+                        : 'bg-parchment-50 hover:bg-gold-50 text-espresso border-gold-500/40'
                     }`}
                   >
-                    <p className="font-semibold text-sm">Studio Self-Pickup</p>
-                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'pickup' ? 'text-cream/80' : 'text-chocolate/60'}`}>
-                      Free collection from our boutique kitchen in {BAKERY_CONFIG.location.city}.
+                    <p className="font-bold text-sm">Studio Self-Pickup</p>
+                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'pickup' ? 'text-gold-200/80' : 'text-espresso/70'}`}>
+                      Free collection from Tower 4, North Town Apartment, Perambur.
                     </p>
                   </button>
 
@@ -290,45 +280,41 @@ export const Checkout = () => {
                     onClick={() => setFormData({ ...formData, fulfillmentType: 'delivery' })}
                     className={`p-4 rounded-2xl border text-left transition-all ${
                       formData.fulfillmentType === 'delivery'
-                        ? 'bg-chocolate text-ivory border-chocolate shadow-sm'
-                        : 'bg-ivory hover:bg-blush/40 text-chocolate border-blush'
+                        ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
+                        : 'bg-parchment-50 hover:bg-gold-50 text-espresso border-gold-500/40'
                     }`}
                   >
-                    <p className="font-semibold text-sm">Doorstep Delivery</p>
-                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'delivery' ? 'text-cream/80' : 'text-chocolate/60'}`}>
-                      Delivered via temperature-safe courier (Charges billed at actuals).
+                    <p className="font-bold text-sm">Chennai Doorstep Delivery</p>
+                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'delivery' ? 'text-gold-200/80' : 'text-espresso/70'}`}>
+                      Delivered safely via AC courier (Charges at actuals).
                     </p>
                   </button>
                 </div>
               </div>
 
-              {/* Delivery Address if delivery */}
               {formData.fulfillmentType === 'delivery' && (
-                <div className="space-y-1.5 animate-fadeIn">
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80">
-                    Full Delivery Address *
+                <div className="space-y-1.5 font-serif">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-espresso">
+                    Full Chennai Delivery Address *
                   </label>
                   <textarea
                     rows={3}
                     name="deliveryAddress"
                     value={formData.deliveryAddress}
                     onChange={handleChange}
-                    placeholder="Apartment/House number, Street, Area landmark, Pincode"
-                    className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none transition-all ${
-                      errors.deliveryAddress ? 'border-rose-500 ring-1 ring-rose-300' : 'border-blush focus:border-rose-400'
+                    placeholder="Apartment/House, Street, Area landmark, Chennai Pincode"
+                    className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
+                      errors.deliveryAddress ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                     }`}
                   />
-                  {errors.deliveryAddress && (
-                    <p className="text-xs text-rose-600 mt-1">{errors.deliveryAddress}</p>
-                  )}
+                  {errors.deliveryAddress && <p className="text-xs text-rose-600 mt-1">{errors.deliveryAddress}</p>}
                 </div>
               )}
 
-              {/* Date and Time Pickers */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-serif">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-rose-500" />
+                  <label className="block text-xs font-bold uppercase tracking-wider text-espresso mb-1.5 flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-gold-600" />
                     <span>Preferred Date *</span>
                   </label>
                   <input
@@ -336,29 +322,25 @@ export const Checkout = () => {
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleChange}
-                    min={new Date(Date.now() + 86400000).toISOString().split('T')[0]} // Min tomorrow
-                    className={`w-full px-4 py-3 rounded-xl bg-ivory border text-sm text-chocolate outline-none ${
-                      errors.preferredDate ? 'border-rose-500' : 'border-blush focus:border-rose-400'
+                    min={new Date(Date.now() + 86400000).toISOString().split('T')[0]}
+                    className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm text-espresso outline-none ${
+                      errors.preferredDate ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                     }`}
                   />
-                  {errors.preferredDate && (
-                    <p className="text-xs text-rose-600 mt-1">{errors.preferredDate}</p>
-                  )}
-                  <p className="text-[10px] text-chocolate/60 mt-1">
-                    *Requires minimum 24 hours advance baking notice.
-                  </p>
+                  {errors.preferredDate && <p className="text-xs text-rose-600 mt-1">{errors.preferredDate}</p>}
+                  <p className="text-[10px] text-espresso/60 mt-1">*Requires minimum 24 hours baking notice.</p>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-rose-500" />
-                    <span>Preferred Time Slot</span>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-espresso mb-1.5 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-gold-600" />
+                    <span>Preferred Time Window</span>
                   </label>
                   <select
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400 cursor-pointer"
+                    className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600 cursor-pointer"
                   >
                     <option value="">Select a convenient time window</option>
                     <option value="11:00 AM – 1:00 PM">Morning (11:00 AM – 1:00 PM)</option>
@@ -369,100 +351,86 @@ export const Checkout = () => {
                 </div>
               </div>
 
-              {/* Special Instructions */}
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-chocolate/80 mb-1.5">
-                  Special Instructions / Cake Inscription Plaque (Optional)
+                <label className="block text-xs font-serif font-bold uppercase tracking-wider text-espresso mb-1.5">
+                  Special Instructions / Plaque Inscription (Optional)
                 </label>
                 <textarea
                   rows={2}
                   name="specialInstructions"
                   value={formData.specialInstructions}
                   onChange={handleChange}
-                  placeholder="e.g. Please pipe 'Happy 25th Anniversary' or note specific dietary requests."
-                  className="w-full px-4 py-3 rounded-xl bg-ivory border border-blush text-sm text-chocolate outline-none focus:border-rose-400"
+                  placeholder="e.g. Please pipe 'Happy 25th Anniversary' on chocolate plaque."
+                  className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm font-serif text-espresso outline-none focus:border-gold-600"
                 />
               </div>
 
             </div>
 
-            {/* Disclaimer Alert */}
-            <div className="bg-blush/30 border border-rose-300/50 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 text-xs text-chocolate/80">
-              <Info className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
-              <div className="space-y-1">
-                <p className="font-semibold text-chocolate">How WhatsApp Ordering Works:</p>
-                <p>{BAKERY_CONFIG.orderDisclaimer}</p>
-              </div>
-            </div>
-
-            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-4 rounded-2xl bg-[#25D366] hover:bg-[#1ebc59] text-white text-base font-semibold shadow-soft hover:shadow-soft-lg transition-all flex items-center justify-center gap-2 group"
+              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-5 h-5 fill-current" />
-              <span>Review & Submit Order on WhatsApp</span>
+              <MessageCircle className="w-4 h-4 text-gold-300" />
+              <span>Submit Order to WhatsApp & Bakery System</span>
             </button>
 
           </form>
 
-          {/* Right Column: Order Items Summary */}
+          {/* Right Column: Order Summary */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-3xl p-6 sm:p-7 border border-blush shadow-soft space-y-5 sticky top-28">
-              <div className="flex items-center justify-between border-b border-blush/60 pb-3">
-                <h3 className="font-serif text-lg font-bold text-chocolate">
-                  Order Items ({totalItemsCount})
+            <div className="bg-white rounded-[32px] p-6 sm:p-7 border border-gold-500/40 shadow-nouveau space-y-5 sticky top-28">
+              <div className="flex items-center justify-between border-b border-gold-500/30 pb-3">
+                <h3 className="font-serif text-lg font-bold text-espresso">
+                  Basket Items ({totalItemsCount})
                 </h3>
-                <Link to="/cart" className="text-xs text-rose-600 hover:underline">
+                <Link to="/cart" className="text-xs font-serif font-bold text-gold-700 hover:underline uppercase tracking-wider">
                   Edit Basket
                 </Link>
               </div>
 
-              {/* Items List */}
               <div className="space-y-3.5 max-h-80 overflow-y-auto pr-1">
                 {cartItems.map((item) => (
-                  <div key={item.cartItemId} className="flex items-center justify-between text-xs gap-3">
+                  <div key={item.cartItemId} className="flex items-center justify-between text-xs font-serif gap-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-lg bg-cream overflow-hidden flex-shrink-0 border border-blush/40">
+                      <div className="w-12 h-12 rounded-xl bg-parchment-100 overflow-hidden flex-shrink-0 border border-gold-500/30">
                         <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                       </div>
                       <div>
-                        <p className="font-bold text-chocolate line-clamp-1">{item.name}</p>
+                        <p className="font-bold text-espresso line-clamp-1">{item.name}</p>
                         {item.selectedVariant && (
-                          <p className="text-[11px] text-chocolate/60">{item.selectedVariant.label}</p>
+                          <p className="text-[11px] text-espresso/60 italic">{item.selectedVariant.label}</p>
                         )}
-                        <p className="text-chocolate/60">Qty: {item.quantity}</p>
+                        <p className="text-espresso/60">Qty: {item.quantity}</p>
                       </div>
                     </div>
-                    <span className="font-bold text-chocolate whitespace-nowrap">
+                    <span className="font-bold text-espresso whitespace-nowrap">
                       {formatCurrency(item.price * item.quantity)}
                     </span>
                   </div>
                 ))}
               </div>
 
-              {/* Total Calculation */}
-              <div className="pt-4 border-t border-blush/60 space-y-2 text-sm">
-                <div className="flex justify-between text-chocolate/70 text-xs">
+              <div className="pt-4 border-t border-gold-500/30 space-y-2 text-xs font-serif">
+                <div className="flex justify-between text-espresso/70">
                   <span>Subtotal</span>
-                  <span className="font-semibold text-chocolate">{formatCurrency(subtotal)}</span>
+                  <span className="font-bold text-espresso">{formatCurrency(subtotal)}</span>
                 </div>
-                <div className="flex justify-between text-chocolate/70 text-xs">
-                  <span>Estimated Delivery</span>
-                  <span className="text-right italic">Calculated upon confirmation</span>
+                <div className="flex justify-between text-espresso/70">
+                  <span>Dietary Guarantee</span>
+                  <span className="font-bold text-emerald-800">🌱 100% Pure Veg</span>
                 </div>
-                <div className="flex justify-between items-baseline pt-2 border-t border-blush/40">
-                  <span className="font-bold text-chocolate">Estimated Total</span>
-                  <span className="font-serif text-2xl font-bold text-chocolate">
+                <div className="flex justify-between items-baseline pt-2 border-t border-gold-500/20">
+                  <span className="font-bold text-espresso">Estimated Total</span>
+                  <span className="font-serif text-2xl font-bold text-espresso">
                     {formatCurrency(subtotal)}
                   </span>
                 </div>
               </div>
 
-              {/* Studio Info Pill */}
-              <div className="p-3 rounded-xl bg-cream/70 border border-blush text-[11px] text-chocolate/75">
-                <p className="font-semibold text-chocolate">Pickup Studio:</p>
-                <p>{BAKERY_CONFIG.location.title}, {BAKERY_CONFIG.location.city}</p>
+              <div className="p-3.5 rounded-2xl bg-parchment-100 border border-gold-500/35 text-[11px] font-serif text-espresso/80">
+                <p className="font-bold text-espresso">Pickup Studio:</p>
+                <p>Flat 803, Tower 4, North Town Apartment, Perambur, Chennai</p>
               </div>
 
             </div>

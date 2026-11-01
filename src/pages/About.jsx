@@ -1,195 +1,205 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Heart, Award, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
+import { NouveauFloralDivider, NouveauArchCrest, NouveauCorner } from '../components/ArtNouveauDecorations';
 
 export const About = () => {
   return (
-    <div className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-24">
+    <div className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28">
       
-      {/* 1. Header Banner */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush/60 text-rose-700 text-xs font-semibold uppercase tracking-wider">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Our Artisanal Journey</span>
-        </div>
-        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-chocolate leading-tight">
+      {/* 1. Page Header Cartouche */}
+      <div className="text-center max-w-3xl mx-auto space-y-3">
+        <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
+        <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
+          Notre Histoire & Philosophie
+        </span>
+        <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-tight">
           Baked with Heart, <br />
-          <span className="italic font-normal font-serif text-rose-600">Shared with Joy.</span>
+          <span className="italic font-serif text-[#A8636C]">Shared with Joy.</span>
         </h1>
-        <p className="text-sm sm:text-base text-chocolate/80 leading-relaxed font-light">
-          Welcome to {BAKERY_CONFIG.brandName}. We are an independent, boutique home bakery dedicated to the timeless art of scratch baking, wholesome ingredients, and celebratory warmth.
+        <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
+        <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
+          Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>. We are a dedicated 100% pure vegetarian & eggless home studio operating from North Town Apartment, Perambur, Chennai.
         </p>
       </div>
 
-      {/* 2. OUR STORY (Editable placeholder section) */}
+      {/* 2. CHAPTER I: OUR STORY */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* Arched Photo Frame */}
         <div className="lg:col-span-6 relative">
-          <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-cream shadow-soft-xl border border-blush/80">
-            <img
-              src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
-              alt="Bake O Bliss home kitchen studio"
-              className="w-full h-full object-cover"
-            />
+          <div className="p-2.5 rounded-[120px_120px_24px_24px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg relative">
+            <NouveauCorner position="top-left" className="absolute top-2 left-2 w-10 h-10 text-gold-500 z-10" />
+            <NouveauCorner position="top-right" className="absolute top-2 right-2 w-10 h-10 text-gold-500 z-10" />
+
+            <div className="aspect-[4/3] rounded-[110px_110px_16px_16px] overflow-hidden bg-parchment-200">
+              <img
+                src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
+                alt="Bake O Bliss home kitchen studio Chennai"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
-          <div className="absolute -bottom-6 -left-4 sm:left-6 bg-white p-4 rounded-2xl shadow-soft-lg border border-blush max-w-xs">
-            <p className="font-serif text-sm font-bold text-chocolate">Small-Batch Studio</p>
-            <p className="text-[11px] text-chocolate/70">Every treat is crafted individually with genuine care.</p>
+          
+          <div className="absolute -bottom-6 -left-2 sm:left-6 bg-white py-3 px-5 rounded-2xl border border-gold-500 shadow-nouveau max-w-xs">
+            <p className="font-serif text-sm font-bold text-espresso">Small-Batch Studio</p>
+            <p className="text-[11px] font-serif text-espresso/70">Flat 803, Tower 4, North Town Apartment</p>
           </div>
         </div>
 
+        {/* Narrative Copy */}
         <div className="lg:col-span-6 space-y-5">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-            Chapter I: Our Story
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+            Chapter I • The Beginning
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
             How Bake O Bliss Began
           </h2>
 
-          <div className="space-y-4 text-sm text-chocolate/80 leading-relaxed font-light">
+          <div className="space-y-4 text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
             <p>
-              {BAKERY_CONFIG.brandName} is a dedicated 100% pure vegetarian and eggless home bakery operating from North Town Apartment (Tower 4, Flat 803), Stephenson Road, Binny Garden, Perambur, Chennai. Born out of a deep-seated passion for honest, wholesome patisserie, our kitchen was founded with a clear vow: every single cake, crinkle-top brownie, and artisanal dessert must be completely egg-free, gelatin-free, and prepared with the highest standards of vegetarian kitchen sanctity.
+              {BAKERY_CONFIG.brandName} began from a cozy home oven and a deep-seated passion for honest, delightful patisserie in Perambur, Chennai. In a market where vegetarian celebration cakes are often treated as an afterthought or made with chalky premixes and vegetable shortenings, we set out to prove that eggless cakes can be lighter, more flavorful, and breathtakingly moist.
             </p>
             <p>
-              In a market where vegetarian celebration cakes are often treated as an afterthought or made with chalky premixes, we set out to prove that eggless cakes can be lighter, more flavorful, and breathtakingly moist. Today, we craft custom celebration centerpieces, festive gift boxes, and gourmet cupcakes for families across Chennai, freshly baked to order for every special occasion.
+              Operating strictly as a 100% vegetarian studio, we never permit eggs or animal gelatin in our kitchen. From birthday cakes baked for family gatherings to tiered wedding showpieces, we bake exclusively to order, so each customer receives fresh confectionery made specially for them.
             </p>
           </div>
 
-          <div className="pt-2 flex items-center gap-3 text-xs text-chocolate/70 italic border-l-2 border-rose-400 pl-4">
+          <div className="pt-2 border-l-2 border-gold-500 pl-4 text-xs font-serif italic text-espresso/80">
             <p>
-              "We believe a cake is never just flour and sugar; it is the centerpiece of a memory."
+              "We believe a cake is never just flour and sugar; it is the centerpiece of a joyful celebration."
             </p>
           </div>
         </div>
+
       </section>
 
-      {/* 3. OUR BAKING PHILOSOPHY */}
-      <section className="bg-cream/60 rounded-4xl p-8 sm:p-14 border border-blush/60 space-y-8">
-        <div className="max-w-2xl mx-auto text-center space-y-3">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-            Chapter II: Our Standards
+      {/* 3. CHAPTER II: OUR BAKING PHILOSOPHY */}
+      <section className="bg-parchment-100/70 rounded-[48px] p-8 sm:p-14 border border-gold-500/40 space-y-10 shadow-nouveau">
+        <div className="max-w-2xl mx-auto text-center space-y-2">
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+            Chapter II • Our Standards
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
             Our Baking Philosophy
           </h2>
-          <p className="text-sm text-chocolate/75">
+          <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-2 mx-auto" />
+          <p className="text-xs sm:text-sm font-serif text-espresso/75">
             Four guiding principles that shape every recipe that leaves our studio.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-3xl border border-blush/70 shadow-soft space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blush/60 text-rose-600 flex items-center justify-center font-bold text-sm">
-              01
-            </div>
-            <h3 className="font-serif text-base font-bold text-chocolate">Zero Artificial Shortcuts</h3>
-            <p className="text-xs text-chocolate/70 leading-relaxed">
-              No chemical emulsifiers, artificial cake mixes, or palm oil. We bake using real food principles.
+          <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
+            <span className="font-serif text-gold-700 font-bold text-lg block">I</span>
+            <h3 className="font-serif text-base font-bold text-espresso">100% Eggless Sanctity</h3>
+            <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+              Dedicated vegetarian bake-ware. Zero animal fat, zero gelatin, zero compromises.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-blush/70 shadow-soft space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blush/60 text-rose-600 flex items-center justify-center font-bold text-sm">
-              02
-            </div>
-            <h3 className="font-serif text-base font-bold text-chocolate">Never Stored, Always Fresh</h3>
-            <p className="text-xs text-chocolate/70 leading-relaxed">
-              Our sponges are whipped and baked within hours of your delivery time for maximum aroma and moisture.
+          <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
+            <span className="font-serif text-gold-700 font-bold text-lg block">II</span>
+            <h3 className="font-serif text-base font-bold text-espresso">Freshly Whipped to Order</h3>
+            <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+              Never frozen, never thawed. Sponges are baked within hours of pickup or delivery.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-blush/70 shadow-soft space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blush/60 text-rose-600 flex items-center justify-center font-bold text-sm">
-              03
-            </div>
-            <h3 className="font-serif text-base font-bold text-chocolate">Balanced Sweetness</h3>
-            <p className="text-xs text-chocolate/70 leading-relaxed">
-              We temper sugar levels thoughtfully so the natural acidity of fruits and depth of chocolate shine through.
+          <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
+            <span className="font-serif text-gold-700 font-bold text-lg block">III</span>
+            <h3 className="font-serif text-base font-bold text-espresso">Balanced Nuanced Sweetness</h3>
+            <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+              Carefully tempered sugar levels allowing real Madagascar vanilla and dark cocoa to shine.
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl border border-blush/70 shadow-soft space-y-3">
-            <div className="w-10 h-10 rounded-xl bg-blush/60 text-rose-600 flex items-center justify-center font-bold text-sm">
-              04
-            </div>
-            <h3 className="font-serif text-base font-bold text-chocolate">Gentle Aesthetics</h3>
-            <p className="text-xs text-chocolate/70 leading-relaxed">
-              Subtle pastels, delicate botanical florals, and rustic textures instead of overwhelming neon dyes.
+          <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
+            <span className="font-serif text-gold-700 font-bold text-lg block">IV</span>
+            <h3 className="font-serif text-base font-bold text-espresso">Art Nouveau Botanicals</h3>
+            <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+              Whiplash piping, edible organic petals, and delicate vintage aesthetics.
             </p>
           </div>
         </div>
       </section>
 
-      {/* 4. FRESH INGREDIENTS */}
+      {/* 4. CHAPTER III: FRESH PURITY */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-            Chapter III: Purity First
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+            Chapter III • Purity First
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
             The Ingredients We Cherish
           </h2>
-          <p className="text-sm text-chocolate/80 leading-relaxed font-light">
-            Great baking begins long before the oven preheats. We source only the finest raw goods:
+          <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-1" />
+
+          <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
+            We source only pristine raw goods for our confectionery:
           </p>
 
-          <div className="space-y-3 text-xs sm:text-sm text-chocolate/80">
+          <div className="space-y-3 text-xs sm:text-sm font-serif text-espresso/80">
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-              <span><strong>100% Pure Dairy Butter:</strong> We never substitute with margarine or hydrogenated vegetable shortening.</span>
+              <span className="text-gold-700 font-bold">✦</span>
+              <span><strong>100% Pure Dairy Butter:</strong> We never use margarine or hydrogenated vegetable shortening.</span>
             </div>
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
+              <span className="text-gold-700 font-bold">✦</span>
               <span><strong>Couverture Belgian Chocolate:</strong> Rich, slow-tempered Callebaut chocolate and single-origin cocoa.</span>
             </div>
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-              <span><strong>Hand-Cooked Fruit Compotes:</strong> Made in small saucepans using whole seasonal berries and gentle lemon zest.</span>
+              <span className="text-gold-700 font-bold">✦</span>
+              <span><strong>Hand-Cooked Fruit Compotes:</strong> Made in small batches using whole berries and fresh citrus zest.</span>
             </div>
             <div className="flex items-start gap-3">
-              <CheckCircle2 className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
+              <span className="text-gold-700 font-bold">✦</span>
               <span><strong>Real Madagascar Vanilla:</strong> Pure vanilla bean extract and scraped vanilla pods, never synthetic vanillin.</span>
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-6 order-1 lg:order-2">
-          <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-cream shadow-soft-xl border border-blush/80">
-            <img
-              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
-              alt="Artisanal chocolate cake with real ingredients"
-              className="w-full h-full object-cover"
-            />
+          <div className="p-2.5 rounded-[120px_120px_24px_24px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg">
+            <div className="aspect-[4/3] rounded-[110px_110px_16px_16px] overflow-hidden bg-parchment-200">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
+                alt="Belgian chocolate cake crafted in Chennai"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </div>
         </div>
 
       </section>
 
-      {/* 5. HOMEMADE WITH LOVE & CALL TO ACTION */}
-      <section className="bg-chocolate text-ivory rounded-4xl p-8 sm:p-14 text-center space-y-6 shadow-soft-xl">
+      {/* 5. CALL TO ACTION */}
+      <section className="bg-espresso text-gold-100 rounded-[40px] p-8 sm:p-14 text-center space-y-6 border border-gold-500 shadow-nouveau-lg">
         <div className="max-w-2xl mx-auto space-y-4">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-300">
-            Chapter IV: Homemade with Love
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-300 font-semibold block">
+            Chapter IV • Homemade with Love
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold">
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white">
             Ready to Celebrate with Us?
           </h2>
-          <p className="text-sm text-cream/80 font-light leading-relaxed">
-            Whether it's a cozy evening tea treat, a box of brownies for a friend, or a magnificent two-tiered celebration cake, we would be honored to bake for you.
+          <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-2 mx-auto" />
+          <p className="text-sm font-serif text-gold-100/80 font-light leading-relaxed">
+            Whether for an intimate afternoon tea, a gift box of brownies, or a bespoke multi-tiered anniversary cake, we would be delighted to bake for you.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/menu"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold transition-colors shadow-sm"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
             >
               Explore Our Menu
             </Link>
             <Link
               to="/custom-orders"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-chocolate-400/40 hover:bg-chocolate-400/60 text-ivory border border-rose-300/40 text-sm font-semibold transition-colors"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
             >
-              Order Custom Cake
+              Commission Bespoke Cake
             </Link>
           </div>
         </div>

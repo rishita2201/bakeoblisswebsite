@@ -1,31 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, MapPin, Clock, Heart, Sparkles, Mail } from 'lucide-react';
+import { Instagram, MessageCircle, MapPin, Clock, Heart, Sparkles } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
+import { NouveauArchCrest, NouveauFloralDivider } from './ArtNouveauDecorations';
 
 export const Footer = () => {
   return (
-    <footer className="bg-chocolate text-cream/90 pt-16 pb-10 border-t border-chocolate-600/40">
+    <footer className="bg-[#1F110E] text-[#EFE3D3] pt-16 pb-12 border-t-2 border-gold-500/40 relative overflow-hidden">
+      
+      {/* Decorative Top Crest */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
+        <NouveauArchCrest className="w-16 h-8 text-gold-400 mx-auto" />
+        <NouveauFloralDivider className="w-48 h-5 text-gold-400/80 my-2 mx-auto" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-chocolate-400/30">
+        {/* Main 4-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 pb-12 border-b border-gold-500/25">
           
           {/* Column 1: Brand & Philosophy */}
           <div className="space-y-4">
             <div className="flex flex-col">
-              <span className="font-serif text-3xl font-bold tracking-tight text-ivory">
+              <span className="font-display text-3xl font-bold tracking-wider text-gold-200">
                 {BAKERY_CONFIG.brandName}
               </span>
-              <span className="text-xs uppercase tracking-[0.2em] text-emerald-300 font-semibold flex items-center gap-1.5 mt-0.5">
+              <span className="text-[11px] font-serif uppercase tracking-[0.25em] text-emerald-300 font-semibold flex items-center gap-1.5 mt-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                 100% Pure Veg & Eggless
               </span>
             </div>
             
-            <p className="text-sm text-cream/75 leading-relaxed">
-              Chennai's premier 100% eggless artisanal home bakery. Baked with pure dairy butter, couverture Belgian chocolate, and zero gelatin or animal fat in our strictly vegetarian studio.
+            <p className="text-xs sm:text-sm font-serif text-[#EFE3D3]/75 leading-relaxed font-light">
+              Chennai's premier 100% eggless artisanal home patisserie. Slow-baked with pure cultured dairy butter, single-origin Belgian cocoa, and zero animal gelatin in our dedicated vegetarian studio.
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
@@ -33,116 +41,107 @@ export const Footer = () => {
                 href={BAKERY_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-chocolate-400/30 text-rose-300 hover:bg-rose-500 hover:text-white transition-all duration-200"
-                aria-label="Follow us on Instagram"
+                className="p-2.5 rounded-full bg-[#2D1A16] text-gold-300 hover:bg-gold-500 hover:text-espresso transition-all duration-200 border border-gold-500/40"
+                aria-label="Instagram Profile"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4" />
               </a>
               <a
                 href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-chocolate-400/30 text-rose-300 hover:bg-[#25D366] hover:text-white transition-all duration-200"
-                aria-label="Message on WhatsApp"
+                className="p-2.5 rounded-full bg-[#2D1A16] text-gold-300 hover:bg-emerald-600 hover:text-white transition-all duration-200 border border-gold-500/40"
+                aria-label="WhatsApp Atelier"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Navigation Links */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-ivory flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-rose-300" />
-              <span>Explore</span>
+            <h4 className="font-serif text-base font-bold tracking-wider uppercase text-gold-300 flex items-center gap-2">
+              <span>❧ Explorations</span>
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2.5 text-xs font-serif tracking-wide text-[#EFE3D3]/85">
               <li>
-                <Link to="/menu" className="hover:text-rose-300 transition-colors">
-                  Full Menu & Catalogue
+                <Link to="/menu" className="hover:text-gold-300 transition-colors">
+                  The Full Menu Catalogue
                 </Link>
               </li>
               <li>
-                <Link to="/custom-orders" className="hover:text-rose-300 transition-colors">
-                  Custom & Celebration Cakes
+                <Link to="/custom-orders" className="hover:text-gold-300 transition-colors">
+                  Commission Bespoke Cakes
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="hover:text-rose-300 transition-colors">
-                  Our Baking Philosophy
+                <Link to="/about" className="hover:text-gold-300 transition-colors">
+                  Atelier Story & Philosophy
                 </Link>
               </li>
               <li>
-                <Link to="/cart" className="hover:text-rose-300 transition-colors">
+                <Link to="/cart" className="hover:text-gold-300 transition-colors">
                   Review Shopping Basket
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-rose-300 transition-colors">
-                  Get in Touch
+                <Link to="/contact" className="hover:text-gold-300 transition-colors">
+                  Contact Studio
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Studio Operations & Pickup */}
+          {/* Column 3: Studio & Hours */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-ivory flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-rose-300" />
-              <span>Studio & Hours</span>
+            <h4 className="font-serif text-base font-bold tracking-wider uppercase text-gold-300 flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-gold-400" />
+              <span>Studio Location</span>
             </h4>
-            <div className="space-y-3 text-sm text-cream/80">
-              <div>
-                <p className="font-medium text-ivory">{BAKERY_CONFIG.location.title}</p>
-                <p className="text-xs text-cream/70 leading-relaxed mt-0.5">
-                  {BAKERY_CONFIG.location.address}, {BAKERY_CONFIG.location.city}
-                </p>
-                <p className="text-[11px] text-rose-300 mt-1 italic">
-                  *{BAKERY_CONFIG.location.landmark}
-                </p>
-              </div>
+            <div className="space-y-2.5 text-xs font-serif text-[#EFE3D3]/80 leading-relaxed">
+              <p className="font-bold text-gold-200">{BAKERY_CONFIG.location.title}</p>
+              <p className="text-[11px] text-[#EFE3D3]/70">{BAKERY_CONFIG.location.address}</p>
+              <p>{BAKERY_CONFIG.location.city}, {BAKERY_CONFIG.location.state} – {BAKERY_CONFIG.location.pincode}</p>
+              <p className="text-[10px] text-gold-400 italic">*{BAKERY_CONFIG.location.landmark}</p>
 
-              <div className="pt-1 flex items-start gap-2">
-                <Clock className="w-4 h-4 text-rose-300 flex-shrink-0 mt-0.5" />
-                <div className="text-xs">
-                  <p className="font-medium text-ivory">{BAKERY_CONFIG.operatingHours.days}</p>
-                  <p className="text-cream/70">{BAKERY_CONFIG.operatingHours.hours}</p>
+              <div className="pt-2 flex items-start gap-2 text-[11px] border-t border-gold-500/20">
+                <Clock className="w-3.5 h-3.5 text-gold-400 mt-0.5" />
+                <div>
+                  <p className="font-bold text-gold-200">{BAKERY_CONFIG.operatingHours.days}</p>
+                  <p>{BAKERY_CONFIG.operatingHours.hours}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Column 4: Ordering Transparency */}
+          {/* Column 4: Sanctity Guarantee */}
           <div className="space-y-4">
-            <h4 className="font-serif text-lg font-semibold text-ivory flex items-center gap-2">
-              <Heart className="w-4 h-4 text-rose-300" />
-              <span>How We Work</span>
+            <h4 className="font-serif text-base font-bold tracking-wider uppercase text-gold-300 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-gold-400" />
+              <span>Sanctity & Service</span>
             </h4>
-            <p className="text-xs text-cream/75 leading-relaxed">
-              Every bake is crafted on order to ensure absolute freshness.
-            </p>
-            <div className="bg-chocolate-400/25 p-3.5 rounded-xl border border-rose-300/20 text-xs text-cream/85 space-y-1.5">
-              <p className="font-semibold text-rose-300">Notice Guidelines:</p>
-              <p>• Standard bakes: 24h notice</p>
-              <p>• Custom tiered cakes: 48–72h notice</p>
-              <p>• Orders confirmed directly via WhatsApp</p>
+            <div className="bg-[#2D1A16] p-4 rounded-2xl border border-gold-500/30 text-xs font-serif text-[#EFE3D3]/80 space-y-1.5">
+              <p className="font-bold text-gold-300">Advance Notice Guidelines:</p>
+              <p>• Standard bakes: 24h advance</p>
+              <p>• Custom celebration cakes: 48–72h</p>
+              <p>• Self-pickup at Tower 4 or Chennai delivery via AC courier</p>
             </div>
           </div>
 
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/60 gap-4">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-serif text-[#EFE3D3]/60 gap-4">
           <p>© {new Date().getFullYear()} {BAKERY_CONFIG.brandName}. 100% Pure Vegetarian & Eggless.</p>
+          
           <div className="flex items-center gap-4">
-            <Link to="/admin" className="text-cream/50 hover:text-rose-300 transition-colors flex items-center gap-1">
-              <span>Owner Portal</span>
+            <Link to="/admin" className="text-gold-400 hover:text-gold-200 transition-colors uppercase tracking-widest text-[11px] font-bold">
+              Owner Portal
             </Link>
             <span>•</span>
             <p className="flex items-center gap-1.5">
-              <span>Handcrafted with</span>
-              <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
-              <span>in Perambur, Chennai</span>
+              <span>Handcrafted in Perambur, Chennai</span>
+              <Heart className="w-3.5 h-3.5 text-[#B06E76] fill-[#B06E76]" />
             </p>
           </div>
         </div>

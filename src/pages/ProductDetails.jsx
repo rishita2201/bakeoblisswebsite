@@ -10,30 +10,26 @@ import { formatCurrency } from '../utils/currency';
 import { generateDirectProductWhatsAppUrl } from '../utils/whatsapp';
 import { BAKERY_CONFIG } from '../data/config';
 import { ProductCard } from '../components/ProductCard';
+import { NouveauCorner, NouveauFloralDivider, NouveauVegCameo } from '../components/ArtNouveauDecorations';
 
 export const ProductDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { addToCart } = useCart();
 
-  // Find product
   const product = PRODUCTS.find((p) => p.id === id);
 
-  // States
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [selectedImage, setSelectedImage] = useState('');
   const [quantity, setQuantity] = useState(1);
-  const [egglessChoice, setEgglessChoice] = useState(false);
   const [cakeMessage, setCakeMessage] = useState('');
   const [copiedLink, setCopiedLink] = useState(false);
 
-  // Initialize or reset state when product changes
   useEffect(() => {
     if (product) {
       setSelectedVariant(product.variants && product.variants.length > 0 ? product.variants[0] : null);
       setSelectedImage(product.image);
       setQuantity(1);
-      setEgglessChoice(product.egglessAvailable || false);
       setCakeMessage('');
       window.scrollTo(0, 0);
     }
@@ -42,13 +38,13 @@ export const ProductDetails = () => {
   if (!product) {
     return (
       <div className="py-24 text-center max-w-md mx-auto px-4 space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-chocolate">Product Not Found</h2>
-        <p className="text-sm text-chocolate/70">
+        <h2 className="font-serif text-2xl font-bold text-espresso">Creation Not Found</h2>
+        <p className="text-sm font-serif text-espresso/70">
           The treat you are looking for may have been updated or moved.
         </p>
         <Link
           to="/menu"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-chocolate text-ivory text-xs font-semibold"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-espresso text-gold-200 text-xs font-serif uppercase tracking-widest"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Return to Menu</span>
@@ -57,28 +53,24 @@ export const ProductDetails = () => {
     );
   }
 
-  // Active price calculation
   const currentUnitPrice = selectedVariant ? selectedVariant.price : product.price;
   const currentTotalPrice = currentUnitPrice * quantity;
 
-  // Add to cart handler
   const handleAddToCart = () => {
     addToCart(product, selectedVariant, quantity);
   };
 
-  // Direct WhatsApp order URL
   const directWhatsAppUrl = generateDirectProductWhatsAppUrl({
     product,
     selectedVariant,
     quantity
   });
 
-  // Share link handler
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
         title: product.name,
-        text: `Look at this delicious treat from ${BAKERY_CONFIG.brandName}!`,
+        text: `Take a look at this artisanal confection from ${BAKERY_CONFIG.brandName}!`,
         url: window.location.href,
       }).catch(() => {});
     } else {
@@ -88,26 +80,23 @@ export const ProductDetails = () => {
     }
   };
 
-  // Related products from same category
   const relatedProducts = PRODUCTS.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3);
-
-  // All images
   const allImages = [product.image, ...(product.additionalImages || [])];
 
   return (
     <div className="py-8 sm:py-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
       
       {/* Breadcrumb Navigation */}
-      <nav className="flex items-center gap-2 text-xs text-chocolate/70">
-        <Link to="/" className="hover:text-rose-600">Home</Link>
+      <nav className="flex items-center gap-2 text-xs font-serif tracking-wider uppercase text-espresso/60">
+        <Link to="/" className="hover:text-gold-700">Home</Link>
         <span>/</span>
-        <Link to="/menu" className="hover:text-rose-600">Menu</Link>
+        <Link to="/menu" className="hover:text-gold-700">Menu</Link>
         <span>/</span>
-        <Link to={`/menu?category=${encodeURIComponent(product.category)}`} className="hover:text-rose-600">
+        <Link to={`/menu?category=${encodeURIComponent(product.category)}`} className="hover:text-gold-700">
           {product.category}
         </Link>
         <span>/</span>
-        <span className="text-chocolate font-semibold truncate max-w-[180px] sm:max-w-none">
+        <span className="text-espresso font-bold truncate max-w-[180px] sm:max-w-none">
           {product.name}
         </span>
       </nav>
@@ -115,23 +104,29 @@ export const ProductDetails = () => {
       {/* Main Product Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
         
-        {/* Left Column: Image Gallery */}
+        {/* Left Column: Arched Image Frame */}
         <div className="lg:col-span-6 space-y-4">
-          {/* Main Large Image */}
-          <div className="aspect-square rounded-3xl overflow-hidden bg-cream border border-blush shadow-soft-lg relative">
-            <img
-              src={selectedImage}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
-            {product.isBestseller && (
-              <span className="absolute top-4 left-4 bg-rose-500 text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-sm">
-                Bestseller
-              </span>
-            )}
+          <div className="relative p-2 rounded-[90px_90px_24px_24px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg">
+            <NouveauCorner position="top-left" className="absolute top-2 left-2 w-10 h-10 text-gold-500 z-20 pointer-events-none" />
+            <NouveauCorner position="top-right" className="absolute top-2 right-2 w-10 h-10 text-gold-500 z-20 pointer-events-none" />
+            <NouveauCorner position="bottom-left" className="absolute bottom-2 left-2 w-10 h-10 text-gold-500 z-20 pointer-events-none" />
+            <NouveauCorner position="bottom-right" className="absolute bottom-2 right-2 w-10 h-10 text-gold-500 z-20 pointer-events-none" />
+
+            <div className="aspect-square rounded-[80px_80px_18px_18px] overflow-hidden bg-parchment-200 relative border border-gold-500/30">
+              <img
+                src={selectedImage}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+              {product.isBestseller && (
+                <span className="absolute top-4 left-4 bg-[#8E4D55] text-gold-100 text-[10px] font-serif font-bold uppercase tracking-widest px-3.5 py-1 rounded-full shadow-xs border border-gold-400/40">
+                  Signature Bestseller
+                </span>
+              )}
+            </div>
           </div>
 
-          {/* Thumbnails if multiple images exist */}
+          {/* Thumbnails if multiple */}
           {allImages.length > 1 && (
             <div className="flex items-center gap-3 overflow-x-auto pb-2">
               {allImages.map((imgUrl, index) => (
@@ -139,10 +134,10 @@ export const ProductDetails = () => {
                   key={index}
                   type="button"
                   onClick={() => setSelectedImage(imgUrl)}
-                  className={`w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all flex-shrink-0 bg-cream ${
+                  className={`w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all flex-shrink-0 bg-parchment-100 ${
                     selectedImage === imgUrl
-                      ? 'border-rose-500 shadow-md scale-95'
-                      : 'border-blush opacity-75 hover:opacity-100'
+                      ? 'border-gold-500 shadow-md scale-95'
+                      : 'border-gold-500/30 opacity-70 hover:opacity-100'
                   }`}
                 >
                   <img src={imgUrl} alt={`${product.name} view ${index + 1}`} className="w-full h-full object-cover" />
@@ -152,52 +147,59 @@ export const ProductDetails = () => {
           )}
         </div>
 
-        {/* Right Column: Product Details & Ordering */}
+        {/* Right Column: Details & Ordering Cartouche */}
         <div className="lg:col-span-6 space-y-6">
           
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
+              <span className="text-[11px] font-serif uppercase tracking-[0.25em] text-gold-700 font-bold">
                 {product.category}
               </span>
               <button
                 type="button"
                 onClick={handleShare}
-                className="text-xs text-chocolate/60 hover:text-chocolate flex items-center gap-1"
-                title="Share this treat"
+                className="text-xs font-serif text-espresso/60 hover:text-espresso flex items-center gap-1 uppercase tracking-wider"
               >
                 <Share2 className="w-3.5 h-3.5" />
                 <span>{copiedLink ? 'Link Copied!' : 'Share'}</span>
               </button>
             </div>
 
-            <h1 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate leading-tight">
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-espresso leading-tight">
               {product.name}
             </h1>
 
             {/* Price Presentation */}
-            <div className="flex items-baseline gap-3 pt-1">
-              <span className="font-serif text-2xl sm:text-3xl font-bold text-chocolate">
+            <div className="flex items-baseline gap-3 pt-2">
+              <span className="font-serif text-3xl sm:text-4xl font-bold text-espresso">
                 {formatCurrency(currentUnitPrice)}
               </span>
               {selectedVariant && (
-                <span className="text-xs text-chocolate/60">
+                <span className="text-xs font-serif text-espresso/60 italic">
                   per {selectedVariant.label}
                 </span>
               )}
             </div>
           </div>
 
-          {/* Short Description */}
-          <p className="text-sm sm:text-base text-chocolate/80 leading-relaxed font-light">
+          <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
             {product.description}
           </p>
 
+          {/* 100% Pure Veg Cameo Seal */}
+          <div className="p-3.5 rounded-2xl bg-parchment-100/90 border border-gold-500/40 flex items-center gap-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 flex-shrink-0 animate-pulse" />
+            <div className="text-xs font-serif">
+              <p className="font-bold text-emerald-800">100% Pure Vegetarian & Eggless</p>
+              <p className="text-espresso/70">Baked with pure butter in sanitized vegetarian bake-ware in Perambur, Chennai.</p>
+            </div>
+          </div>
+
           {/* Available Sizes / Variants Selection */}
           {product.variants && product.variants.length > 0 && (
-            <div className="space-y-3 pt-2">
-              <label className="text-xs font-bold uppercase tracking-wider text-chocolate block">
-                Select Size / Box Variant:
+            <div className="space-y-2.5 pt-1">
+              <label className="text-xs font-serif font-bold uppercase tracking-wider text-espresso block">
+                Select Creation Size / Box:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {product.variants.map((v) => {
@@ -207,14 +209,14 @@ export const ProductDetails = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setSelectedVariant(v)}
-                      className={`p-3 rounded-2xl text-left border transition-all flex items-center justify-between ${
+                      className={`p-3.5 rounded-2xl text-left border transition-all flex items-center justify-between font-serif ${
                         isSelected
-                          ? 'bg-chocolate text-ivory border-chocolate shadow-sm'
-                          : 'bg-white hover:bg-blush/40 text-chocolate border-blush/80'
+                          ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
+                          : 'bg-white hover:bg-gold-50 text-espresso border-gold-500/40'
                       }`}
                     >
                       <span className="text-xs font-semibold">{v.label}</span>
-                      <span className={`text-xs font-bold ${isSelected ? 'text-rose-300' : 'text-chocolate'}`}>
+                      <span className={`text-xs font-bold ${isSelected ? 'text-gold-300' : 'text-espresso'}`}>
                         {formatCurrency(v.price)}
                       </span>
                     </button>
@@ -224,102 +226,91 @@ export const ProductDetails = () => {
             </div>
           )}
 
-          {/* Dietary / Inscription Customisation */}
-          <div className="p-4 rounded-2xl bg-cream/80 border border-blush/60 space-y-3 text-xs">
-            <div className="flex items-center gap-2 text-emerald-800 font-semibold bg-white/80 p-2.5 rounded-xl border border-emerald-300">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 flex-shrink-0"></span>
-              <span>100% Pure Vegetarian & Eggless (Sanitized vegetarian bake-ware)</span>
+          {/* Optional Message Plaque */}
+          {product.category === 'Cakes' && (
+            <div className="p-4 rounded-2xl bg-white border border-gold-500/40 space-y-1.5 shadow-xs">
+              <label className="text-[11px] font-serif font-bold uppercase tracking-wider text-espresso block">
+                Custom inscription on chocolate plaque (Optional):
+              </label>
+              <input
+                type="text"
+                value={cakeMessage}
+                onChange={(e) => setCakeMessage(e.target.value)}
+                placeholder="e.g. Happy Birthday Anya! 🌸"
+                className="w-full px-3.5 py-2.5 rounded-xl bg-parchment-50 border border-gold-500/40 text-xs font-serif text-espresso outline-none focus:border-gold-600"
+                maxLength={50}
+              />
             </div>
+          )}
 
-            {product.category === 'Cakes' && (
-              <div className="space-y-1">
-                <label className="text-[11px] font-semibold text-chocolate/80 block">
-                  Custom message on chocolate plaque (Optional):
-                </label>
-                <input
-                  type="text"
-                  value={cakeMessage}
-                  onChange={(e) => setCakeMessage(e.target.value)}
-                  placeholder="e.g. Happy Birthday Anya! 🌸"
-                  className="w-full px-3 py-2 rounded-xl bg-white border border-blush text-xs text-chocolate outline-none focus:border-rose-400"
-                  maxLength={50}
-                />
-              </div>
-            )}
-          </div>
-
-          {/* Quantity Selector & Total Amount */}
+          {/* Quantity Selector & Price Summary */}
           <div className="flex items-center gap-4 pt-2">
-            <div className="flex items-center border border-blush rounded-2xl bg-white p-1">
+            <div className="flex items-center border border-gold-500/50 rounded-2xl bg-white p-1">
               <button
                 type="button"
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-9 h-9 rounded-xl bg-ivory hover:bg-blush text-chocolate flex items-center justify-center font-bold"
-                aria-label="Decrease quantity"
+                className="w-9 h-9 rounded-xl bg-parchment-100 hover:bg-gold-200 text-espresso flex items-center justify-center font-bold text-sm"
               >
                 -
               </button>
-              <span className="w-12 text-center text-sm font-bold text-chocolate">
+              <span className="w-12 text-center text-sm font-serif font-bold text-espresso">
                 {quantity}
               </span>
               <button
                 type="button"
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-9 h-9 rounded-xl bg-ivory hover:bg-blush text-chocolate flex items-center justify-center font-bold"
-                aria-label="Increase quantity"
+                className="w-9 h-9 rounded-xl bg-parchment-100 hover:bg-gold-200 text-espresso flex items-center justify-center font-bold text-sm"
               >
                 +
               </button>
             </div>
 
             <div className="text-right flex-grow">
-              <span className="text-[10px] text-chocolate/60 block uppercase">Total Amount</span>
-              <span className="font-serif text-2xl font-bold text-chocolate">
+              <span className="text-[10px] font-serif text-espresso/60 block uppercase tracking-wider">Total</span>
+              <span className="font-serif text-2xl font-bold text-espresso">
                 {formatCurrency(currentTotalPrice)}
               </span>
             </div>
           </div>
 
-          {/* Main Action Buttons */}
+          {/* Action Buttons */}
           <div className="space-y-3 pt-2">
-            {/* Add to Cart */}
             <button
               type="button"
               onClick={handleAddToCart}
-              className="w-full py-4 rounded-2xl bg-chocolate text-ivory text-sm font-semibold tracking-wide hover:bg-chocolate-600 transition-all shadow-soft flex items-center justify-center gap-2 group"
+              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
             >
-              <ShoppingBag className="w-4 h-4 text-rose-300 group-hover:scale-110 transition-transform" />
-              <span>Add to Shopping Basket • {formatCurrency(currentTotalPrice)}</span>
+              <ShoppingBag className="w-4 h-4 text-gold-300" />
+              <span>Add to Basket • {formatCurrency(currentTotalPrice)}</span>
             </button>
 
-            {/* Direct WhatsApp Ordering */}
             <a
               href={directWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 rounded-2xl bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#1b7e3e] border border-[#25D366]/40 text-xs sm:text-sm font-semibold tracking-wide transition-all flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-full bg-white hover:bg-gold-50 text-emerald-800 border border-emerald-600/50 text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-xs"
             >
-              <MessageCircle className="w-4 h-4 fill-current" />
-              <span>Inquire & Order Instantly via WhatsApp</span>
+              <MessageCircle className="w-4 h-4 text-emerald-600 fill-current" />
+              <span>Inquire & Order via WhatsApp</span>
             </a>
           </div>
 
-          {/* Lead Time & Allergen Information */}
-          <div className="pt-4 border-t border-blush/60 space-y-2.5 text-xs text-chocolate/75">
+          {/* Lead Time & Notes */}
+          <div className="pt-4 border-t border-gold-500/25 space-y-2 text-xs font-serif text-espresso/75">
             <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-rose-500 flex-shrink-0" />
+              <Clock className="w-4 h-4 text-gold-600 flex-shrink-0" />
               <span><strong>Notice:</strong> {product.preparationTime}</span>
             </div>
             {product.flavorNotes && (
               <div className="flex items-start gap-2">
-                <Sparkles className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Key Notes:</strong> {product.flavorNotes.join(' • ')}</span>
+                <Sparkles className="w-4 h-4 text-gold-600 flex-shrink-0 mt-0.5" />
+                <span><strong>Notes:</strong> {product.flavorNotes.join(' • ')}</span>
               </div>
             )}
             {product.allergens && (
               <div className="flex items-start gap-2">
-                <ShieldAlert className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
-                <span><strong>Allergen info:</strong> {product.allergens}</span>
+                <ShieldAlert className="w-4 h-4 text-gold-600 flex-shrink-0 mt-0.5" />
+                <span><strong>Allergens:</strong> {product.allergens}</span>
               </div>
             )}
           </div>
@@ -328,15 +319,15 @@ export const ProductDetails = () => {
 
       </div>
 
-      {/* Related Products Recommendation */}
+      {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <section className="pt-10 border-t border-blush/60 space-y-8">
+        <section className="pt-12 border-t border-gold-500/30 space-y-8">
           <div className="flex items-center justify-between">
-            <h3 className="font-serif text-2xl font-bold text-chocolate">
-              You Might Also Crave
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">
+              Complementary Confections
             </h3>
-            <Link to="/menu" className="text-xs font-semibold text-rose-600 hover:text-rose-700">
-              View All Menu →
+            <Link to="/menu" className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800">
+              Browse Menu →
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

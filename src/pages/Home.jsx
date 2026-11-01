@@ -1,140 +1,121 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Cake, Sparkles, Heart, Award, ShieldCheck, Clock, Instagram, CheckCircle2, Star } from 'lucide-react';
+import { ArrowRight, Sparkles, Heart, Award, Clock, Instagram, Star, ShieldCheck } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { ProductCard } from '../components/ProductCard';
 import { PRODUCTS } from '../data/products';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
+import { NouveauFloralDivider, NouveauArchCrest, NouveauCorner } from '../components/ArtNouveauDecorations';
 
 export const Home = () => {
-  // Select top featured products (bestsellers and signature)
   const featuredProducts = PRODUCTS.slice(0, 4);
 
-  // Categories list with imagery
   const categoryShowcase = [
     {
       title: 'Celebration Cakes',
       category: 'Cakes',
-      description: 'Layered sponges, Swiss buttercream & delicate botanical styling.',
+      description: '100% Eggless layered sponges with Swiss buttercream & organic botanical styling.',
       image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Cupcakes',
       category: 'Cupcakes',
-      description: 'Hand-piped floral hydrangeas and velvety ganache swirls.',
+      description: 'Hand-piped floral hydrangeas, garden roses & whipped Belgian ganache.',
       image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Fudge Brownies',
       category: 'Brownies',
-      description: 'Paper-thin crinkle tops with dense, gooey chocolate centers.',
+      description: 'Paper-thin shiny crinkle tops with dense, gooey chocolate centers.',
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Artisanal Cookies',
       category: 'Cookies',
-      description: 'NYC style chunky choc-chip and delicate Persian shortbread.',
+      description: 'NYC style chunky choc-chip & pure butter Persian pistachio shortbread.',
       image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80',
     },
     {
-      title: 'Desserts & Tarts',
+      title: 'Desserts & Macarons',
       category: 'Desserts',
-      description: 'Authentic Parisian macarons and fresh summer fruit tarts.',
+      description: 'Eggless aquafaba Parisian macarons & delicate seasonal berry tarts.',
       image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=600&q=80',
     },
   ];
 
-  // Why choose us pillars
   const pillars = [
     {
       icon: Clock,
       title: 'Freshly Baked to Order',
-      description: 'We do not sell pre-made or thawed items. Every sponge and treat is baked from scratch right after your order is confirmed.',
+      description: 'We never freeze or store pre-made sponges. Every batter is whipped fresh for your designated celebration slot.',
     },
     {
-      icon: Heart,
-      title: 'Made with Love',
-      description: 'Bespoke home-kitchen attention to detail that industrial commercial bakeries simply cannot replicate.',
+      icon: ShieldCheck,
+      title: '100% Pure Vegetarian',
+      description: 'Strictly sanitized vegetarian bake-ware. Zero gelatin, zero animal shortening, 100% egg-free confectionery.',
     },
     {
       icon: Award,
-      title: 'Premium Ingredients',
-      description: '100% pure dairy butter, premium Callebaut chocolate, Madagascar vanilla, and real fruit compotes.',
+      title: 'Pure Dairy Butter & Couverture',
+      description: 'No vegetable margarine or compound chocolate. We bake with cultured dairy butter and Belgian Callebaut cocoa.',
     },
     {
       icon: Sparkles,
-      title: 'Customised for You',
-      description: 'Personalised flavors, custom piping inscriptions, eggless dietary requests, and bespoke theme styling.',
+      title: 'Bespoke Artistry',
+      description: 'Every centerpiece is styled with vintage Lambeth piping, organic botanicals, and bespoke personalized plaques.',
     },
   ];
 
-  // Sample Customer Reviews (clearly labelled demonstration placeholders)
   const sampleTestimonials = [
     {
-      quote: "The Vintage Raspberry cake made my sister's birthday unforgettable! The sponge was so moist and the rosewater buttercream was perfectly balanced—not overly sweet.",
-      author: 'Ananya S.',
-      occasion: 'Birthday Celebration',
+      quote: "Finding an authentic 100% eggless bakery in Chennai with this level of French patisserie finesse is a dream come true! The Vintage Raspberry cake was the star of our anniversary.",
+      author: 'Deepika & Karthik',
+      occasion: 'Anniversary Celebration (Kilpauk, Chennai)',
       stars: 5,
     },
     {
-      quote: "Easily the best fudge brownies in town! The crinkle top and gooey center are spot on. Everyone at the party kept asking where we ordered them from.",
-      author: 'Rohan M.',
-      occasion: 'Housewarming Party',
+      quote: "The fudge brownies have that genuine shiny crinkle crust you normally only see with egg recipes. Dense, rich, and utterly chocolate heaven. Pure magic!",
+      author: 'Aditya Raman',
+      occasion: 'Birthday Party (Perambur, Chennai)',
       stars: 5,
     },
     {
-      quote: "Ordering through WhatsApp was so effortless and warm. The baker helped me choose the perfect size for our anniversary dinner. Truly boutique quality!",
-      author: 'Priya & Kabir',
-      occasion: 'Anniversary Dinner',
+      quote: "Ordering through WhatsApp was so effortless and warm. The baker at North Town Apartment guided us on sizing and design for our daughter's milestone birthday.",
+      author: 'Meenakshi Sundaram',
+      occasion: '1st Birthday Celebration (Anna Nagar, Chennai)',
       stars: 5,
     },
   ];
 
-  // Curated Instagram photo grid simulation
   const instagramPhotos = [
-    {
-      url: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80',
-      alt: 'Pastel celebration cake with fresh florals',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=500&q=80',
-      alt: 'Floral piped artisanal cupcakes',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80',
-      alt: 'Crinkle top fudge brownies',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=500&q=80',
-      alt: 'Parisian macarons pastel collection',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80',
-      alt: 'Belgian dark chocolate truffle cake',
-    },
-    {
-      url: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=500&q=80',
-      alt: 'Tiered floral bespoke cake',
-    },
+    { url: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80', alt: 'Rose Petal Cake' },
+    { url: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=500&q=80', alt: 'Artisan Floral Cupcakes' },
+    { url: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80', alt: 'Crinkle Fudge Brownies' },
+    { url: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=500&q=80', alt: 'Eggless Macarons' },
+    { url: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80', alt: 'Belgian Truffle Cake' },
+    { url: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=500&q=80', alt: 'Botanical Tiered Cake' },
   ];
 
   return (
     <div className="space-y-20 sm:space-y-28">
+      
       {/* 1. HERO SECTION */}
       <Hero />
 
-      {/* 2. FEATURED CATEGORIES SHOWCASE */}
+      {/* 2. EXPLORE BY CATEGORY (Belle Époque Vitrine Gallery) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-            Handcrafted Delights
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
+          <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+            L'Éventail de Pâtisserie
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
-            Explore by Category
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-espresso">
+            Artisanal Collections
           </h2>
-          <p className="text-sm text-chocolate/70">
-            Every treat is baked with thoughtful artistry and honest, wholesome ingredients.
+          <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-2 mx-auto" />
+          <p className="text-sm font-serif text-espresso/70 italic">
+            Handcrafted with devotion, baked in small batches in our dedicated vegetarian studio.
           </p>
         </div>
 
@@ -143,22 +124,22 @@ export const Home = () => {
             <Link
               key={cat.category}
               to={`/menu?category=${encodeURIComponent(cat.category)}`}
-              className="group relative rounded-2xl overflow-hidden bg-white border border-blush/60 shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 flex flex-col"
+              className="group relative rounded-[40px_40px_16px_16px] overflow-hidden bg-white border border-gold-500/40 shadow-nouveau hover:shadow-nouveau-lg hover:-translate-y-1 transition-all duration-300 flex flex-col p-2"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-cream">
+              <div className="aspect-[4/3] rounded-[34px_34px_10px_10px] overflow-hidden bg-parchment-200 border border-gold-500/20">
                 <img
                   src={cat.image}
                   alt={cat.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
-              <div className="p-3.5 text-center flex-grow flex flex-col justify-center">
-                <h3 className="font-serif text-sm sm:text-base font-bold text-chocolate group-hover:text-rose-600 transition-colors">
+              <div className="p-3 text-center flex-grow flex flex-col justify-center space-y-1">
+                <h3 className="font-serif text-sm sm:text-base font-bold text-espresso group-hover:text-gold-700 transition-colors">
                   {cat.title}
                 </h3>
-                <span className="text-[11px] text-rose-500 font-medium mt-1 inline-flex items-center justify-center gap-1">
-                  View treats <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                <span className="text-[10px] font-serif uppercase tracking-wider text-gold-700 font-semibold inline-flex items-center justify-center gap-1">
+                  Discover <ArrowRight className="w-2.5 h-2.5 group-hover:translate-x-0.5 transition-transform" />
                 </span>
               </div>
             </Link>
@@ -166,23 +147,23 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 3. FEATURED BESTSELLERS */}
+      {/* 3. SIGNATURE BESTSELLERS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
-          <div className="space-y-2">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-              Customer Favourites
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-gold-500/30 pb-4">
+          <div className="space-y-1">
+            <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold">
+              Les Créations Prisées
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
               Signature Bestsellers
             </h2>
           </div>
           <Link
             to="/menu"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-rose-600 hover:text-rose-700 transition-colors"
+            className="inline-flex items-center gap-2 text-xs font-serif uppercase tracking-widest text-gold-700 hover:text-gold-800 font-bold transition-colors"
           >
-            <span>Browse Full Menu</span>
-            <ArrowRight className="w-4 h-4" />
+            <span>View Full Menu</span>
+            <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
 
@@ -193,75 +174,92 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 4. ABOUT BRAND STORY PREVIEW */}
-      <section className="bg-cream/60 py-16 sm:py-20 border-y border-blush/60">
+      {/* 4. ATELIER STORY PREVIEW (Art Nouveau Parchment Cartouche) */}
+      <section className="bg-parchment-100/70 py-16 sm:py-24 border-y border-gold-500/35 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Visual Photo Stack */}
+            {/* Visual Photo Stack with Gilded Arches */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md">
-                <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-soft-xl border border-blush/80">
-                  <img
-                    src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
-                    alt="Bake O Bliss artisanal home baking process"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                
+                {/* Ornamental Corners */}
+                <NouveauCorner position="top-left" className="absolute -top-3 -left-3 w-10 h-10 text-gold-500 z-10" />
+                <NouveauCorner position="top-right" className="absolute -top-3 -right-3 w-10 h-10 text-gold-500 z-10" />
+
+                <div className="p-2 rounded-[110px_110px_20px_20px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg">
+                  <div className="aspect-[4/5] rounded-[100px_100px_14px_14px] overflow-hidden bg-parchment-200">
+                    <img
+                      src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
+                      alt="Bake O Bliss Chennai boutique kitchen studio"
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-44 sm:w-52 aspect-square rounded-2xl overflow-hidden shadow-soft-lg border-4 border-ivory hidden sm:block">
+
+                {/* Overlapping Cameo Detail */}
+                <div className="absolute -bottom-6 -right-4 w-44 sm:w-48 aspect-square rounded-[30px] overflow-hidden shadow-nouveau-lg border-2 border-gold-500 bg-white p-1.5 hidden sm:block">
                   <img
                     src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80"
-                    alt="Cake decorating detail"
-                    className="w-full h-full object-cover"
+                    alt="Cake decorating botanicals"
+                    className="w-full h-full object-cover rounded-[22px]"
                     loading="lazy"
                   />
                 </div>
+
               </div>
             </div>
 
             {/* Story Details */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-                Behind The Whisk
+              <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+                ❧ Behind The Whisk • Perambur Studio
               </span>
-              <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate leading-tight">
+              
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-espresso leading-tight">
                 Crafted in Small Batches, <br />
-                <span className="italic font-normal font-serif text-rose-600">Never Mass Produced.</span>
+                <span className="italic font-serif text-[#A8636C]">Never Mass Produced.</span>
               </h2>
 
-              <p className="text-sm sm:text-base text-chocolate/80 leading-relaxed font-light">
-                At {BAKERY_CONFIG.brandName}, we believe that a celebration cake should taste even better than it looks. We began with a simple yearning: to bring back the purity of honest, homemade baking using real cream, pure butter, farm-fresh eggs, and rich Dutch cocoa.
+              <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-1" />
+
+              <p className="text-base text-espresso/80 leading-relaxed font-serif font-light">
+                At <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, our home studio in North Town Apartment, Perambur was founded on an unyielding principle: that 100% pure vegetarian and eggless cakes should taste richer, lighter, and far more ethereal than commercial bakery counterparts.
               </p>
 
-              <div className="space-y-3 pt-2">
+              <div className="space-y-3 pt-2 text-sm font-serif text-espresso/80">
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-chocolate/80">
-                    <strong className="text-chocolate">No artificial preservatives or stabilizers:</strong> Everything is freshly made for your specified delivery slot.
+                  <span className="w-5 h-5 rounded-full border border-gold-500 flex items-center justify-center text-gold-700 text-xs font-bold flex-shrink-0 mt-0.5">
+                    ✦
+                  </span>
+                  <p>
+                    <strong>Strictly Vegetarian Studio:</strong> Dedicated sanitized vegetarian bake-ware. Zero animal gelatin, zero eggs, zero cross-contamination.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-rose-500 flex-shrink-0 mt-0.5" />
-                  <p className="text-sm text-chocolate/80">
-                    <strong className="text-chocolate">Bespoke Design & Dietary Options:</strong> Special recipes for eggless preferences and tailored celebration aesthetics.
+                  <span className="w-5 h-5 rounded-full border border-gold-500 flex items-center justify-center text-gold-700 text-xs font-bold flex-shrink-0 mt-0.5">
+                    ✦
+                  </span>
+                  <p>
+                    <strong>Authentic European Couverture:</strong> Single-origin Belgian dark chocolate and French cocoa melted with pure cultured dairy butter.
                   </p>
                 </div>
               </div>
 
-              <div className="pt-4 flex items-center gap-4">
+              <div className="pt-4 flex items-center gap-5">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-chocolate text-ivory text-sm font-semibold hover:bg-chocolate-600 transition-colors shadow-soft"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau"
                 >
-                  <span>Read Our Story</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Our Story & Philosophy</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
                 </Link>
                 <Link
                   to="/custom-orders"
-                  className="text-sm font-semibold text-rose-600 hover:text-rose-700 underline"
+                  className="text-xs font-serif font-bold uppercase tracking-widest text-gold-700 hover:text-gold-800 underline"
                 >
-                  Commission a Custom Cake
+                  Commission a Cake
                 </Link>
               </div>
             </div>
@@ -270,35 +268,33 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 5. WHY CHOOSE US */}
+      {/* 5. QUALITY PILLARS (Belle Époque Cameos) */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
-          <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-            Our Quality Promise
+        <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
+          <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+            Les Engagements de Qualité
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
-            Why Bake O Bliss?
+          <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
+            Our Artisanal Pillars
           </h2>
-          <p className="text-sm text-chocolate/70">
-            We hold ourselves to the highest standards of taste, safety, and artistry.
-          </p>
+          <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-2 mx-auto" />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={idx}
-                className="p-6 rounded-3xl bg-white border border-blush/60 shadow-soft hover:shadow-soft-lg transition-all duration-300 text-center space-y-4"
+                className="p-6 rounded-[32px] bg-white border border-gold-500/40 shadow-nouveau hover:shadow-nouveau-lg transition-all duration-300 text-center space-y-3.5"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blush/50 text-rose-600 flex items-center justify-center mx-auto shadow-xs">
-                  <Icon className="w-7 h-7" />
+                <div className="w-14 h-14 rounded-full bg-parchment-100 border border-gold-500 text-gold-700 flex items-center justify-center mx-auto shadow-xs">
+                  <Icon className="w-6 h-6 text-gold-600" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-chocolate">
+                <h3 className="font-serif text-lg font-bold text-espresso">
                   {pillar.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-chocolate/70 leading-relaxed">
+                <p className="text-xs text-espresso/70 leading-relaxed font-serif font-light">
                   {pillar.description}
                 </p>
               </div>
@@ -307,45 +303,38 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 6. CUSTOMER TESTIMONIALS (With clear demonstration data note) */}
-      <section className="bg-blush/25 py-16 sm:py-20 border-y border-blush/40">
+      {/* 6. CUSTOMER TESTIMONIALS (Antique Salon Reviews) */}
+      <section className="bg-parchment-100/60 py-16 sm:py-24 border-y border-gold-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-xl mx-auto mb-12 space-y-3">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-500">
-              Kind Words From Customers
+          <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
+            <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
+              Témoignages de Connaisseurs
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-chocolate">
-              Sweet Celebrations
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
+              Loved Across Chennai
             </h2>
-            <p className="text-xs text-chocolate/60 italic">
-              *(Demonstration reviews previewing customer experiences)*
-            </p>
+            <NouveauFloralDivider className="w-40 h-5 text-gold-500 my-1 mx-auto" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {sampleTestimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="bg-white p-6 sm:p-8 rounded-3xl border border-blush shadow-soft flex flex-col justify-between space-y-4"
+                className="bg-white p-7 rounded-[32px] border border-gold-500/40 shadow-nouveau flex flex-col justify-between space-y-4 relative"
               >
                 <div className="space-y-3">
-                  <div className="flex text-amber-400 gap-1">
+                  <div className="flex text-gold-500 gap-1">
                     {[...Array(t.stars)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 fill-gold-400 text-gold-500" />
                     ))}
                   </div>
-                  <p className="text-sm text-chocolate/80 italic leading-relaxed">
+                  <p className="text-xs sm:text-sm font-serif italic text-espresso/80 leading-relaxed">
                     "{t.quote}"
                   </p>
                 </div>
-                <div className="pt-4 border-t border-blush/40 flex items-center justify-between">
-                  <div>
-                    <h4 className="font-semibold text-sm text-chocolate">{t.author}</h4>
-                    <span className="text-[11px] text-rose-500">{t.occasion}</span>
-                  </div>
-                  <span className="text-[10px] text-chocolate/40 uppercase tracking-wider font-semibold">
-                    Verified Buyer
-                  </span>
+                <div className="pt-4 border-t border-gold-500/25">
+                  <h4 className="font-serif font-bold text-sm text-espresso">{t.author}</h4>
+                  <span className="text-[11px] font-serif text-gold-700">{t.occasion}</span>
                 </div>
               </div>
             ))}
@@ -353,15 +342,14 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 7. INSTAGRAM SHOWCASE */}
+      {/* 7. INSTAGRAM SALON */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
-          <div className="space-y-1">
-            <div className="flex items-center justify-center sm:justify-start gap-2 text-rose-500 text-xs font-bold uppercase tracking-wider">
-              <Instagram className="w-4 h-4" />
-              <span>Follow Along On Instagram</span>
-            </div>
-            <h2 className="font-serif text-2xl sm:text-3xl font-bold text-chocolate">
+          <div>
+            <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">
+              Galerie Instagram
+            </span>
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-espresso">
               {BAKERY_CONFIG.instagramHandle}
             </h2>
           </div>
@@ -369,10 +357,10 @@ export const Home = () => {
             href={BAKERY_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-blush/40 text-chocolate border border-blush text-xs font-semibold shadow-sm transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-gold-50 text-espresso border border-gold-500/50 text-xs font-serif tracking-wider uppercase font-semibold shadow-xs transition-colors"
           >
-            <Instagram className="w-4 h-4 text-rose-500" />
-            <span>Follow Us on Instagram</span>
+            <Instagram className="w-4 h-4 text-gold-600" />
+            <span>Follow Atelier On Instagram</span>
           </a>
         </div>
 
@@ -383,15 +371,15 @@ export const Home = () => {
               href={BAKERY_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative aspect-square rounded-2xl overflow-hidden bg-cream block shadow-xs hover:shadow-soft transition-all"
+              className="group relative aspect-square rounded-2xl overflow-hidden bg-parchment-200 block border border-gold-500/30 shadow-xs hover:shadow-nouveau transition-all"
             >
               <img
                 src={photo.url}
                 alt={photo.alt}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-chocolate/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-white">
+              <div className="absolute inset-0 bg-espresso/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-gold-200">
                 <Instagram className="w-6 h-6" />
               </div>
             </a>
@@ -399,38 +387,45 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 8. QUICK CTA BANNER */}
+      {/* 8. GRAND BESPOKE COMMISSION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
-        <div className="bg-chocolate text-ivory rounded-3xl p-8 sm:p-12 text-center relative overflow-hidden shadow-soft-xl">
+        <div className="bg-espresso text-gold-100 rounded-[40px] p-8 sm:p-14 text-center relative overflow-hidden border border-gold-500 shadow-nouveau-lg">
+          <NouveauCorner position="top-left" className="absolute top-4 left-4 w-12 h-12 text-gold-400" />
+          <NouveauCorner position="top-right" className="absolute top-4 right-4 w-12 h-12 text-gold-400" />
+          <NouveauCorner position="bottom-left" className="absolute bottom-4 left-4 w-12 h-12 text-gold-400" />
+          <NouveauCorner position="bottom-right" className="absolute bottom-4 right-4 w-12 h-12 text-gold-400" />
+
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
-            <span className="text-xs uppercase font-bold tracking-widest text-rose-300">
-              Planning a Birthday, Anniversary or Special Milestone?
+            <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-300 font-semibold block">
+              Bespeaking for Weddings, Anniversaries & Milestones
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl font-bold text-ivory">
-              Let's Design Your Dream Cake Together
+            <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white">
+              Commission Your Centerpiece
             </h2>
-            <p className="text-sm text-cream/80 max-w-lg mx-auto">
-              Share your theme, guest count, and flavor preference. We'll design a stunning centerpiece made just for your special day.
+            <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-2 mx-auto" />
+            <p className="text-sm font-serif text-gold-100/80 max-w-lg mx-auto font-light leading-relaxed">
+              Share your celebration vision with our Perambur home studio. Every tiered centerpiece is crafted from scratch with 100% pure vegetarian sanctity.
             </p>
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/custom-orders"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-rose-500 hover:bg-rose-600 text-white text-sm font-semibold shadow-sm transition-colors"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 hover:bg-gold-600 text-espresso text-xs font-serif font-bold tracking-widest uppercase shadow-md transition-colors"
               >
-                Start Custom Cake Inquiry
+                Inquire for Custom Cake
               </Link>
               <a
-                href={createWhatsAppLink("Hello Bake O Bliss! I would like to inquire about a custom cake.")}
+                href={createWhatsAppLink("Hello Bake O Bliss! I would like to inquire about commissioning a custom 100% pure veg cake.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-chocolate-400/30 hover:bg-chocolate-400/50 text-ivory border border-rose-300/30 text-sm font-semibold transition-colors"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
               >
-                Chat Directly on WhatsApp
+                Chat on WhatsApp (+91 98765 43210)
               </a>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };

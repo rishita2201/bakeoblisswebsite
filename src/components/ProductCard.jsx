@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, ArrowUpRight, Sparkles, Check } from 'lucide-react';
+import { ShoppingBag, ArrowUpRight, Sparkles } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { formatCurrency } from '../utils/currency';
+import { NouveauCorner } from './ArtNouveauDecorations';
 
 export const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
@@ -10,81 +11,90 @@ export const ProductCard = ({ product }) => {
   const handleQuickAdd = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // Use first variant if available
     const defaultVariant = product.variants && product.variants.length > 0 ? product.variants[0] : null;
     addToCart(product, defaultVariant, 1);
   };
 
   return (
-    <div className="group relative bg-white rounded-3xl overflow-hidden border border-blush/60 hover:border-rose-300 shadow-soft hover:shadow-soft-lg transition-all duration-300 flex flex-col h-full">
+    <div className="group relative bg-[#FFFDF9] rounded-[48px_48px_24px_24px] border border-gold-500/40 hover:border-gold-500 transition-all duration-300 shadow-nouveau hover:shadow-nouveau-lg flex flex-col h-full overflow-hidden p-2.5">
       
-      {/* Product Image Container */}
-      <Link to={`/product/${product.id}`} className="relative aspect-square overflow-hidden bg-cream block">
+      {/* Decorative Corner Filigree (visible on hover) */}
+      <NouveauCorner position="top-left" className="absolute top-2 left-2 w-8 h-8 text-gold-500/40 group-hover:text-gold-500/80 transition-colors z-20 pointer-events-none" />
+      <NouveauCorner position="top-right" className="absolute top-2 right-2 w-8 h-8 text-gold-500/40 group-hover:text-gold-500/80 transition-colors z-20 pointer-events-none" />
+
+      {/* Arched Vitrine Image Window */}
+      <Link 
+        to={`/product/${product.id}`} 
+        className="relative aspect-square rounded-[40px_40px_14px_14px] overflow-hidden bg-parchment-200 block border border-gold-500/20"
+      >
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
           loading="lazy"
         />
 
-        {/* Overlay Badges */}
+        {/* Art Nouveau Overlay Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
           {product.isBestseller && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-rose-500 text-white shadow-sm">
-              <Sparkles className="w-3 h-3" />
+            <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-widest uppercase bg-[#8E4D55] text-gold-100 shadow-xs border border-gold-400/40">
+              <Sparkles className="w-2.5 h-2.5" />
               Bestseller
             </span>
           )}
           {product.isSignature && !product.isBestseller && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase bg-chocolate text-ivory shadow-sm">
+            <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-widest uppercase bg-espresso text-gold-200 shadow-xs border border-gold-500/50">
               Signature
             </span>
           )}
-          {/* 100% Pure Veg Badge */}
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-emerald-800 border border-emerald-400 backdrop-blur-sm shadow-xs">
-            <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+        </div>
+
+        {/* 100% Pure Veg Seal in Upper Right */}
+        <div className="absolute top-3 right-3 z-10">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-serif font-semibold bg-white/95 text-emerald-800 border border-emerald-500 shadow-xs backdrop-blur-xs">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
             100% Pure Veg
           </span>
         </div>
 
-        {/* Quick View Floating Pill on Hover */}
-        <div className="absolute inset-0 bg-chocolate/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-          <span className="px-4 py-2 rounded-full bg-white/95 backdrop-blur-sm text-chocolate text-xs font-semibold shadow-md transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            View Details
+        {/* Hover Vignette Overlay */}
+        <div className="absolute inset-0 bg-espresso/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+          <span className="px-5 py-2 rounded-full bg-white/95 text-espresso font-serif text-xs font-semibold tracking-wider uppercase shadow-nouveau border border-gold-500/50 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+            View Creation
           </span>
         </div>
       </Link>
 
-      {/* Product Details Content */}
-      <div className="p-5 flex flex-col flex-grow justify-between space-y-4">
+      {/* Card Content Cartouche */}
+      <div className="p-4 flex flex-col flex-grow justify-between space-y-4">
         <div className="space-y-1.5">
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-semibold uppercase tracking-wider text-rose-500">
+            <span className="text-[10px] font-serif uppercase tracking-[0.25em] text-gold-700 font-bold">
               {product.category}
             </span>
             {product.variants && product.variants.length > 0 && (
-              <span className="text-[11px] text-chocolate/60">
-                {product.variants.length} size{product.variants.length > 1 ? 's' : ''}
+              <span className="text-[10px] font-serif text-espresso/60 italic">
+                {product.variants.length} size options
               </span>
             )}
           </div>
 
-          <Link to={`/product/${product.id}`} className="block group-hover:text-rose-600 transition-colors">
-            <h3 className="font-serif text-lg font-bold text-chocolate line-clamp-1 leading-snug">
+          <Link to={`/product/${product.id}`} className="block group-hover:text-gold-700 transition-colors">
+            <h3 className="font-serif text-lg font-bold text-espresso line-clamp-1 leading-snug">
               {product.name}
             </h3>
           </Link>
 
-          <p className="text-xs text-chocolate/70 line-clamp-2 leading-relaxed">
+          <p className="text-xs text-espresso/70 line-clamp-2 leading-relaxed font-serif font-light">
             {product.shortDescription || product.description}
           </p>
         </div>
 
-        {/* Price & Action Area */}
-        <div className="pt-3 border-t border-blush/40 flex items-center justify-between gap-2">
+        {/* Pricing & Actions */}
+        <div className="pt-3 border-t border-gold-500/25 flex items-center justify-between gap-2">
           <div>
-            <span className="text-[10px] text-chocolate/60 block uppercase tracking-wider">Starts at</span>
-            <span className="font-serif text-lg font-bold text-chocolate">
+            <span className="text-[10px] font-serif text-espresso/60 block uppercase tracking-wider">Starts from</span>
+            <span className="font-serif text-lg font-bold text-espresso">
               {formatCurrency(product.price)}
             </span>
           </div>
@@ -93,19 +103,19 @@ export const ProductCard = ({ product }) => {
             <button
               onClick={handleQuickAdd}
               type="button"
-              className="p-2.5 rounded-xl bg-blush/60 hover:bg-rose-500 text-chocolate hover:text-white transition-all duration-200 flex items-center justify-center group/btn shadow-sm"
+              className="p-2.5 rounded-full bg-parchment-100 hover:bg-gold-500 text-espresso hover:text-white transition-all duration-200 border border-gold-500/50 shadow-xs flex items-center justify-center"
               title="Add default size to basket"
               aria-label={`Add ${product.name} to basket`}
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-3.5 h-3.5" />
             </button>
             <Link
               to={`/product/${product.id}`}
-              className="p-2.5 rounded-xl bg-cream hover:bg-chocolate hover:text-ivory text-chocolate transition-all duration-200 flex items-center justify-center"
+              className="p-2.5 rounded-full bg-espresso hover:bg-espresso-800 text-gold-200 transition-all duration-200 border border-gold-500/50 flex items-center justify-center"
               title="View full options & customise"
               aria-label={`View ${product.name} details`}
             >
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </Link>
           </div>
         </div>

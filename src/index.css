@@ -4,38 +4,79 @@
 
 @layer base {
   body {
-    @apply bg-[#FFF9F3] text-[#593B35] font-sans antialiased overflow-x-hidden;
+    @apply bg-[#FAF5EE] text-[#2D1A16] font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 0%, rgba(244, 221, 224, 0.25) 0%, transparent 60%),
+      radial-gradient(circle at 100% 100%, rgba(238, 221, 182, 0.2) 0%, transparent 50%);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    @apply font-serif tracking-tight text-[#2D1A16];
   }
 }
 
-/* Custom delicate scrollbar */
+/* Art Nouveau Decorative Border Utilities */
+.nouveau-border {
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: 0 0 0 3px rgba(250, 245, 238, 0.8), 0 0 0 4px rgba(197, 160, 89, 0.2);
+}
+
+.nouveau-frame {
+  position: relative;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  background: #FFFDF9;
+}
+
+.nouveau-frame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  pointer-events: none;
+}
+
+.nouveau-arch {
+  border-radius: 140px 140px 16px 16px;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #7B5C20 0%, #C5A059 40%, #EEDDB8 50%, #C5A059 70%, #7B5C20 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #A48037 0%, #C5A059 50%, #E0C585 100%);
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #2D1A16 0%, #3D2520 100%);
+  border: 1px solid #C5A059;
+  box-shadow: 0 4px 15px rgba(45, 26, 22, 0.2), inset 0 1px 0 rgba(224, 197, 133, 0.4);
+}
+
+.gold-button:hover {
+  background: linear-gradient(135deg, #3D2520 0%, #54342E 100%);
+  border-color: #E0C585;
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+}
+
+/* Custom Art Nouveau Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFF9F3;
+  background: #FAF5EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D9AAB0;
-  border-radius: 4px;
+  background: #C5A059;
+  border-radius: 5px;
+  border: 2px solid #FAF5EE;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #C98F96;
-}
-
-/* Smooth bakery accents */
-.bg-cream-radial {
-  background: radial-gradient(circle at 50% 0%, #FFFDFB 0%, #FFF9F3 75%);
-}
-
-.text-gold {
-  color: #B38F4D;
+  background: #A48037;
 }

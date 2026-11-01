@@ -1,23 +1,21 @@
 import React, { useState, useMemo } from 'react';
-import { Search, SlidersHorizontal, X, Cake, Sparkles } from 'lucide-react';
+import { Search, X, Cake, Sparkles } from 'lucide-react';
 import { CATEGORIES, PRODUCTS } from '../data/products';
 import { ProductCard } from './ProductCard';
+import { NouveauFloralDivider } from './ArtNouveauDecorations';
 
 export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit = null }) => {
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState('featured'); // 'featured', 'price-low', 'price-high', 'name'
+  const [sortBy, setSortBy] = useState('featured');
 
-  // Filter and Sort logic
   const filteredProducts = useMemo(() => {
     let result = [...PRODUCTS];
 
-    // Category filter
     if (selectedCategory && selectedCategory !== 'All') {
       result = result.filter((p) => p.category === selectedCategory);
     }
 
-    // Search query filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase().trim();
       result = result.filter(
@@ -29,7 +27,6 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
       );
     }
 
-    // Sorting
     switch (sortBy) {
       case 'price-low':
         result.sort((a, b) => a.price - b.price);
@@ -42,7 +39,6 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
         break;
       case 'featured':
       default:
-        // Prioritize signature & bestsellers
         result.sort((a, b) => (b.isBestseller ? 1 : 0) - (a.isBestseller ? 1 : 0));
         break;
     }
@@ -61,43 +57,43 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {showHeader && (
         <div className="space-y-6">
-          {/* Search and Sort Toolbar */}
+          {/* Search & Sort Controls with Art Nouveau Styling */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
             
-            {/* Search Input */}
+            {/* Search Input in Gilded Parchment Box */}
             <div className="relative flex-grow max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-chocolate/50" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-600/70" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search cakes, brownies, cupcakes..."
-                className="w-full pl-10 pr-9 py-2.5 rounded-full bg-white border border-blush focus:border-rose-400 focus:ring-2 focus:ring-rose-200 text-sm text-chocolate placeholder-chocolate/40 outline-none transition-all shadow-sm"
+                placeholder="Search pure veg cakes, brownies, macarons..."
+                className="w-full pl-11 pr-10 py-3 rounded-full bg-white border border-gold-500/50 focus:border-gold-600 focus:ring-2 focus:ring-gold-200 text-sm font-serif text-espresso placeholder-espresso/40 outline-none transition-all shadow-xs"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-0.5 text-chocolate/50 hover:text-chocolate"
-                  aria-label="Clear search query"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 p-0.5 text-espresso/50 hover:text-espresso"
+                  aria-label="Clear search"
                 >
-                  <X className="w-3.5 h-3.5" />
+                  <X className="w-4 h-4" />
                 </button>
               )}
             </div>
 
             {/* Sort Selector */}
             <div className="flex items-center gap-2 self-end sm:self-auto">
-              <label htmlFor="sort-dropdown" className="text-xs text-chocolate/70 font-medium whitespace-nowrap">
+              <label htmlFor="sort-dropdown" className="text-xs font-serif tracking-wider uppercase text-espresso/70 font-semibold whitespace-nowrap">
                 Sort by:
               </label>
               <select
                 id="sort-dropdown"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="py-2 px-3 rounded-xl bg-white border border-blush text-xs font-medium text-chocolate focus:border-rose-400 focus:outline-none shadow-sm cursor-pointer"
+                className="py-2.5 px-3.5 rounded-xl bg-white border border-gold-500/50 text-xs font-serif font-medium text-espresso focus:border-gold-600 focus:outline-none shadow-xs cursor-pointer"
               >
                 <option value="featured">Featured & Bestsellers</option>
                 <option value="price-low">Price: Low to High</option>
@@ -107,7 +103,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
             </div>
           </div>
 
-          {/* Category Filter Pills (Horizontal scrollable on mobile) */}
+          {/* Category Filter Ribbons */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
             {CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
@@ -115,10 +111,10 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                  className={`px-5 py-2.5 rounded-full text-xs font-serif tracking-widest uppercase whitespace-nowrap transition-all duration-300 ${
                     isActive
-                      ? 'bg-chocolate text-ivory shadow-soft'
-                      : 'bg-white hover:bg-blush/40 text-chocolate/80 border border-blush/70'
+                      ? 'bg-espresso text-gold-200 border border-gold-500 shadow-nouveau font-bold'
+                      : 'bg-white hover:bg-gold-50 text-espresso/80 border border-gold-500/35 hover:border-gold-500/70'
                   }`}
                 >
                   {category}
@@ -131,27 +127,27 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
 
       {/* Active Filter Indicators */}
       {(selectedCategory !== 'All' || searchQuery) && (
-        <div className="flex items-center justify-between text-xs text-chocolate/70 bg-blush/30 px-4 py-2 rounded-xl">
+        <div className="flex items-center justify-between text-xs font-serif text-espresso/80 bg-parchment-100/80 px-5 py-2.5 rounded-xl border border-gold-500/30">
           <div className="flex items-center gap-2 flex-wrap">
-            <span>Showing:</span>
+            <span className="uppercase tracking-wider">Filtered by:</span>
             {selectedCategory !== 'All' && (
-              <span className="font-semibold text-rose-700 bg-white px-2 py-0.5 rounded-md border border-blush">
+              <span className="font-semibold text-gold-800 bg-white px-2.5 py-0.5 rounded-md border border-gold-500/40">
                 {selectedCategory}
               </span>
             )}
             {searchQuery && (
-              <span className="font-semibold text-rose-700 bg-white px-2 py-0.5 rounded-md border border-blush">
+              <span className="font-semibold text-gold-800 bg-white px-2.5 py-0.5 rounded-md border border-gold-500/40">
                 "{searchQuery}"
               </span>
             )}
-            <span>({filteredProducts.length} items found)</span>
+            <span>({filteredProducts.length} artisanal creations found)</span>
           </div>
 
           <button
             onClick={handleResetFilters}
-            className="text-rose-600 hover:text-rose-700 font-semibold underline text-xs"
+            className="text-gold-700 hover:text-gold-800 font-bold uppercase tracking-wider underline text-xs"
           >
-            Reset Filters
+            Clear Filters
           </button>
         </div>
       )}
@@ -165,21 +161,21 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
         </div>
       ) : (
         /* Empty State */
-        <div className="text-center py-16 px-4 bg-white/60 rounded-3xl border border-dashed border-blush max-w-md mx-auto space-y-4">
-          <div className="w-14 h-14 rounded-full bg-blush/50 text-rose-600 flex items-center justify-center mx-auto">
+        <div className="text-center py-20 px-6 bg-white/70 rounded-[32px] border border-dashed border-gold-500/40 max-w-md mx-auto space-y-4">
+          <div className="w-14 h-14 rounded-full bg-parchment-200 text-gold-700 flex items-center justify-center mx-auto border border-gold-500/40">
             <Cake className="w-7 h-7" />
           </div>
           <div className="space-y-1">
-            <h3 className="font-serif text-lg font-bold text-chocolate">No treats found</h3>
-            <p className="text-xs text-chocolate/70">
-              We couldn't find any items matching your selected criteria. Try adjusting your search or category filters.
+            <h3 className="font-serif text-xl font-bold text-espresso">No creations found</h3>
+            <p className="text-xs font-serif text-espresso/70">
+              We couldn't find items matching your criteria. Try adjusting your search or category filters.
             </p>
           </div>
           <button
             onClick={handleResetFilters}
-            className="px-5 py-2 rounded-full bg-chocolate text-ivory text-xs font-semibold hover:bg-chocolate-600 transition-colors"
+            className="px-6 py-2.5 rounded-full bg-espresso text-gold-200 text-xs font-serif uppercase tracking-widest hover:bg-espresso-800 transition-colors border border-gold-500/40"
           >
-            View All Products
+            View Complete Menu
           </button>
         </div>
       )}

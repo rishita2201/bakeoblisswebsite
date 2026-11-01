@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, Sparkles, MessageCircle } from 'lucide-react';
+import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
@@ -11,7 +11,6 @@ export const Navbar = () => {
   const { totalItemsCount } = useCart();
   const location = useLocation();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -20,7 +19,6 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on page change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -28,66 +26,70 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Our Menu', path: '/menu' },
-    { name: 'Custom Cakes', path: '/custom-orders' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Bespoke Cakes', path: '/custom-orders' },
+    { name: 'Atelier Story', path: '/about' },
+    { name: 'Contact & Studio', path: '/contact' },
   ];
 
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="bg-chocolate text-ivory text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
-        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span className="font-semibold text-emerald-300">100% Pure Vegetarian & Eggless</span>
-        <span className="hidden md:inline">• Boutique Studio at North Town Apartment, Perambur, Chennai</span>
-        <span className="hidden sm:inline">• Orders placed 24–48h in advance</span>
+      {/* Top Gilded Announcement Ribbon */}
+      <div className="bg-[#23120E] text-[#EEDDB8] text-[11px] sm:text-xs py-2 px-4 text-center font-serif tracking-widest uppercase border-b border-gold-600/40 flex items-center justify-center gap-2 sm:gap-4">
+        <span className="text-gold-400">❧</span>
+        <span className="font-semibold text-gold-300">100% Pure Vegetarian & Eggless Atelier</span>
+        <span className="hidden md:inline text-gold-500/70">• North Town Apartment, Perambur, Chennai</span>
+        <span className="hidden sm:inline text-gold-500/70">• Artisanal Scratch Baking</span>
+        <span className="text-gold-400">❧</span>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Navigation Bar */}
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? 'bg-ivory/95 backdrop-blur-md shadow-soft border-b border-blush/40 py-3'
-            : 'bg-ivory py-4 border-b border-blush/20'
+            ? 'bg-[#FAF5EE]/95 backdrop-blur-md shadow-nouveau border-b border-gold-500/35 py-3'
+            : 'bg-[#FAF5EE] py-4 border-b border-gold-500/25'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             
-            {/* Mobile Hamburger Button */}
+            {/* Mobile Hamburger Toggle */}
             <div className="flex items-center lg:hidden">
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-chocolate hover:bg-blush/40 transition-colors focus:outline-none"
-                aria-label="Toggle Navigation Menu"
+                className="p-2 rounded-lg text-espresso hover:bg-gold-100 transition-colors focus:outline-none"
+                aria-label="Toggle Menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
             </div>
 
-            {/* Brand Logo & Name */}
-            <Link to="/" className="flex flex-col items-center group">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-chocolate group-hover:text-rose-600 transition-colors">
+            {/* Art Nouveau Brand Logo */}
+            <Link to="/" className="flex flex-col items-center group text-center">
+              <span className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold tracking-wider text-espresso group-hover:text-gold-700 transition-colors leading-none">
                 {BAKERY_CONFIG.brandName}
               </span>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-emerald-700 font-semibold flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-                100% Pure Veg Home Studio
-              </span>
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="w-3 h-[1px] bg-gold-500/60" />
+                <span className="text-[10px] tracking-[0.3em] uppercase text-gold-700 font-serif font-semibold">
+                  Maison de Pâtisserie Pure Végétale
+                </span>
+                <span className="w-3 h-[1px] bg-gold-500/60" />
+              </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center space-x-8">
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex items-center space-x-9">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-sm tracking-wide font-medium transition-all duration-200 relative py-1 hover:text-rose-600 ${
+                    `font-serif text-sm tracking-widest uppercase transition-all duration-200 relative py-1 ${
                       isActive
-                        ? 'text-rose-600 font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-rose-500 after:rounded-full'
-                        : 'text-chocolate/85 hover:text-rose-600'
+                        ? 'text-gold-700 font-bold after:content-[""] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-5 after:h-[1.5px] after:bg-gold-500'
+                        : 'text-espresso/80 hover:text-gold-700'
                     }`
                   }
                 >
@@ -96,30 +98,31 @@ export const Navbar = () => {
               ))}
             </nav>
 
-            {/* Action Buttons: Cart & WhatsApp */}
+            {/* Right Actions: WhatsApp & Basket Medallion */}
             <div className="flex items-center space-x-3 sm:space-x-4">
-              {/* WhatsApp direct chat link */}
+              
+              {/* WhatsApp direct consultation button */}
               <a
                 href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-chocolate bg-blush/60 hover:bg-blush transition-colors border border-rose-300/40"
-                title="Chat with Baker on WhatsApp"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-serif font-semibold tracking-wider text-espresso bg-parchment-100 hover:bg-gold-100 transition-all border border-gold-500/50 shadow-xs"
+                title="Direct Consultation on WhatsApp"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-rose-600" />
-                <span>Chat with Baker</span>
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-700" />
+                <span>Order via WhatsApp</span>
               </a>
 
-              {/* Shopping Cart Icon with Badge */}
+              {/* Gilded Cameo Shopping Cart */}
               <Link
                 to="/cart"
-                className="relative p-2.5 rounded-full bg-cream hover:bg-blush/60 text-chocolate transition-all duration-200 flex items-center justify-center group"
+                className="relative p-2.5 rounded-full bg-parchment-100 hover:bg-gold-200/60 text-espresso transition-all duration-200 flex items-center justify-center border border-gold-500/50 group shadow-xs"
                 aria-label={`Shopping Basket with ${totalItemsCount} items`}
               >
-                <ShoppingBag className="w-5 h-5 text-chocolate group-hover:text-rose-600 transition-colors" />
+                <ShoppingBag className="w-5 h-5 text-espresso group-hover:text-gold-700 transition-colors" />
                 {totalItemsCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm animate-scaleIn">
-                    {totalItemsCount > 99 ? '99+' : totalItemsCount}
+                  <span className="absolute -top-1.5 -right-1.5 bg-[#8E4D55] text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-xs border border-parchment-50 animate-scaleIn">
+                    {totalItemsCount}
                   </span>
                 )}
               </Link>
@@ -127,38 +130,38 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown Navigation Drawer */}
+        {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[102px] bg-ivory border-b border-blush shadow-lg z-50 animate-fadeIn">
-            <div className="px-5 pt-3 pb-6 space-y-3">
+          <div className="lg:hidden fixed inset-x-0 top-[96px] bg-[#FAF5EE] border-b border-gold-500/40 shadow-xl z-50 animate-fadeIn p-6 space-y-4">
+            <div className="divide-y divide-gold-500/20">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block px-3 py-2.5 rounded-xl text-base font-medium transition-colors ${
+                    `block py-3 font-serif text-base tracking-wider uppercase ${
                       isActive
-                        ? 'bg-blush/60 text-rose-700 font-semibold'
-                        : 'text-chocolate hover:bg-cream'
+                        ? 'text-gold-700 font-bold pl-2 border-l-2 border-gold-500'
+                        : 'text-espresso hover:text-gold-700'
                     }`
                   }
                 >
                   {link.name}
                 </NavLink>
               ))}
+            </div>
 
-              <div className="pt-4 border-t border-blush/50 flex flex-col gap-2.5">
-                <a
-                  href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-chocolate text-ivory text-sm font-medium hover:bg-chocolate-600 transition-colors shadow-sm"
-                >
-                  <MessageCircle className="w-4 h-4 text-rose-300" />
-                  <span>WhatsApp Inquiry ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
-                </a>
-              </div>
+            <div className="pt-2">
+              <a
+                href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-espresso text-gold-200 text-xs font-serif tracking-widest uppercase hover:bg-espresso-800 transition-colors border border-gold-500/40 shadow-soft"
+              >
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <span>WhatsApp Atelier ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
+              </a>
             </div>
           </div>
         )}
