@@ -25,7 +25,7 @@ export const Admin = () => {
   const [otpSessionId, setOtpSessionId] = useState('');
   const [maskedPhone, setMaskedPhone] = useState('+91 98415 •••11');
   const [rawPhone, setRawPhone] = useState('919841511011');
-  const [debugOtp, setDebugOtp] = useState('');
+  const [whatsappOtpUrl, setWhatsappOtpUrl] = useState('');
   const [loginError, setLoginError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [resendCooldown, setResendCooldown] = useState(0);
@@ -97,7 +97,9 @@ export const Admin = () => {
         setOtpSessionId(res.sessionId || '');
         setMaskedPhone(res.maskedPhone || '+91 98415 •••11');
         setRawPhone(res.rawPhone || '919841511011');
-        setDebugOtp(res.debugOtp || '');
+        const code = res.debugOtp || '';
+        const msg = encodeURIComponent(`Bake O Bliss Admin Security Notice: Your login verification code is ${code}. Valid for 5 minutes.`);
+        setWhatsappOtpUrl(`https://wa.me/919841511011?text=${msg}`);
         setResendCooldown(30);
         setOtpInput('');
       } else {
@@ -142,7 +144,9 @@ export const Admin = () => {
     try {
       const res = await adminResendOtp(otpSessionId);
       if (res.success) {
-        if (res.debugOtp) setDebugOtp(res.debugOtp);
+        const code = res.debugOtp || '';
+        const msg = encodeURIComponent(`Bake O Bliss Admin Security Notice: Your new login verification code is ${code}. Valid for 5 minutes.`);
+        setWhatsappOtpUrl(`https://wa.me/919841511011?text=${msg}`);
         setResendCooldown(30);
       } else {
         setLoginError(res.message || 'Failed to resend code');
@@ -310,31 +314,30 @@ export const Admin = () => {
                 </div>
               </div>
 
-              {/* WhatsApp Quick Dispatch Card */}
-              <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-300 text-xs font-serif text-emerald-900 space-y-2 text-left">
+              {/* WhatsApp Code Delivery Card (Code is hidden from webpage, delivered to phone) */}
+              <div className="p-4 rounded-2xl bg-emerald-50/90 border border-emerald-300 text-xs font-serif text-emerald-950 space-y-2.5 text-left shadow-xs">
                 <div className="flex items-center justify-between">
-                  <span className="font-bold flex items-center gap-1 text-emerald-950">
-                    <MessageCircle className="w-3.5 h-3.5 text-emerald-700" />
-                    <span>WhatsApp / SMS Delivery:</span>
+                  <span className="font-bold flex items-center gap-1.5 text-emerald-900">
+                    <MessageCircle className="w-4 h-4 text-emerald-700" />
+                    <span>Security Code Dispatched to WhatsApp</span>
                   </span>
-                  <span className="text-[10px] font-mono font-bold bg-emerald-200/80 px-2 py-0.5 rounded-md">Valid 5m</span>
+                  <span className="text-[10px] font-mono font-bold bg-emerald-200/80 text-emerald-900 px-2 py-0.5 rounded-md">Valid 5m</span>
                 </div>
-                {debugOtp && (
-                  <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-emerald-200">
-                    <div>
-                      <p className="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">Your One-Time Code</p>
-                      <p className="font-mono text-xl font-bold text-emerald-950 tracking-widest">{debugOtp}</p>
-                    </div>
-                    <a
-                      href={`https://wa.me/919841511011?text=Your%20Bake%20O%20Bliss%20Admin%20verification%20code%20is:%20${debugOtp}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-bold tracking-wider uppercase transition-colors"
-                    >
-                      <MessageCircle className="w-3 h-3 fill-current" />
-                      <span>Open WhatsApp</span>
-                    </a>
-                  </div>
+                
+                <p className="text-[11px] text-emerald-800 leading-relaxed">
+                  A 6-digit security code has been sent to your registered WhatsApp mobile (<strong>+91 98415 11011</strong>). Click below to view the message in WhatsApp and enter the code:
+                </p>
+
+                {whatsappOtpUrl && (
+                  <a
+                    href={whatsappOtpUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-serif font-bold uppercase tracking-wider transition-colors shadow-xs"
+                  >
+                    <MessageCircle className="w-4 h-4 fill-current" />
+                    <span>Open WhatsApp to Receive Code</span>
+                  </a>
                 )}
               </div>
 
