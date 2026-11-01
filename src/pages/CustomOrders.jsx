@@ -367,9 +367,9 @@ export const CustomOrders = () => {
           <div className="pt-2">
             <button
               type="submit"
-              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-gold-300" />
+              <MessageCircle className="w-4 h-4 text-espresso fill-current" />
               <span>Send Custom Cake Request via WhatsApp</span>
             </button>
             <p className="text-center text-[11px] font-serif text-espresso/60 mt-3">

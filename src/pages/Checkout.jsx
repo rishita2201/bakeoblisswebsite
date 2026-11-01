@@ -37,9 +37,9 @@ export const Checkout = () => {
         </p>
         <Link
           to="/menu"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-button text-gold-100 text-xs font-serif uppercase tracking-wider"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-button text-espresso text-xs font-serif font-bold uppercase tracking-wider shadow-md"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 text-espresso" />
           <span>Browse Our Menu</span>
         </Link>
       </div>
@@ -188,13 +188,13 @@ export const Checkout = () => {
                 clearCart();
                 navigate('/');
               }}
-              className="w-full sm:w-auto px-7 py-3 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
+              className="w-full sm:w-auto px-7 py-3 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-md"
             >
               Complete & Return Home
             </button>
             <Link
               to="/menu"
-              className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 underline"
+              className="w-full sm:w-auto px-7 py-3 rounded-full bg-white hover:bg-gold-50 text-espresso border-2 border-gold-600 text-xs font-serif font-bold tracking-wider uppercase transition-colors text-center shadow-xs"
             >
               Browse More Treats
             </Link>
@@ -263,14 +263,14 @@ export const Checkout = () => {
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, fulfillmentType: 'pickup' })}
-                    className={`p-4 rounded-2xl border text-left transition-all ${
+                    className={`p-4 rounded-2xl border-2 text-left transition-all ${
                       formData.fulfillmentType === 'pickup'
-                        ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
-                        : 'bg-parchment-50 hover:bg-gold-50 text-espresso border-gold-500/40'
+                        ? 'bg-espresso text-gold-300 border-gold-400 shadow-md font-semibold'
+                        : 'bg-white hover:bg-gold-50 text-espresso border-gold-500/40 shadow-xs'
                     }`}
                   >
                     <p className="font-bold text-sm">Studio Self-Pickup</p>
-                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'pickup' ? 'text-gold-200/80' : 'text-espresso/70'}`}>
+                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'pickup' ? 'text-gold-100' : 'text-espresso/70'}`}>
                       Free collection from Tower 4, North Town Apartment, Perambur.
                     </p>
                   </button>
@@ -278,14 +278,14 @@ export const Checkout = () => {
                   <button
                     type="button"
                     onClick={() => setFormData({ ...formData, fulfillmentType: 'delivery' })}
-                    className={`p-4 rounded-2xl border text-left transition-all ${
+                    className={`p-4 rounded-2xl border-2 text-left transition-all ${
                       formData.fulfillmentType === 'delivery'
-                        ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
-                        : 'bg-parchment-50 hover:bg-gold-50 text-espresso border-gold-500/40'
+                        ? 'bg-espresso text-gold-300 border-gold-400 shadow-md font-semibold'
+                        : 'bg-white hover:bg-gold-50 text-espresso border-gold-500/40 shadow-xs'
                     }`}
                   >
                     <p className="font-bold text-sm">Chennai Doorstep Delivery</p>
-                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'delivery' ? 'text-gold-200/80' : 'text-espresso/70'}`}>
+                    <p className={`text-xs mt-1 ${formData.fulfillmentType === 'delivery' ? 'text-gold-100' : 'text-espresso/70'}`}>
                       Delivered safely via AC courier (Charges at actuals).
                     </p>
                   </button>
@@ -369,9 +369,9 @@ export const Checkout = () => {
 
             <button
               type="submit"
-              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 text-gold-300" />
+              <MessageCircle className="w-4 h-4 text-espresso fill-current" />
               <span>Submit Order to WhatsApp & Bakery System</span>
             </button>
 

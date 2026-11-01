@@ -26,10 +26,10 @@ export const Cart = () => {
         </div>
         <Link
           to="/menu"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-nouveau"
+          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-md"
         >
           <span>Explore The Menu</span>
-          <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
+          <ArrowRight className="w-3.5 h-3.5 text-espresso" />
         </Link>
       </div>
     );
@@ -127,10 +127,10 @@ export const Cart = () => {
 
             <Link
               to="/checkout"
-              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2"
             >
               <span>Proceed to Checkout</span>
-              <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
+              <ArrowRight className="w-3.5 h-3.5 text-espresso" />
             </Link>
 
             <p className="text-center text-[10px] font-serif text-espresso/60">

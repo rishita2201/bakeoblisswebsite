@@ -44,9 +44,9 @@ export const ProductDetails = () => {
         </p>
         <Link
           to="/menu"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-espresso text-gold-200 text-xs font-serif uppercase tracking-widest"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full gold-button text-espresso text-xs font-serif font-bold uppercase tracking-widest shadow-md"
         >
-          <ArrowLeft className="w-4 h-4" />
+          <ArrowLeft className="w-4 h-4 text-espresso" />
           <span>Return to Menu</span>
         </Link>
       </div>
@@ -209,9 +209,9 @@ export const ProductDetails = () => {
                       key={v.id}
                       type="button"
                       onClick={() => setSelectedVariant(v)}
-                      className={`p-3.5 rounded-2xl text-left border transition-all flex items-center justify-between font-serif ${
+                      className={`p-3.5 rounded-2xl text-left border-2 transition-all flex items-center justify-between font-serif ${
                         isSelected
-                          ? 'bg-espresso text-gold-200 border-gold-500 shadow-nouveau'
+                          ? 'bg-espresso text-gold-300 border-gold-400 shadow-md font-bold'
                           : 'bg-white hover:bg-gold-50 text-espresso border-gold-500/40'
                       }`}
                     >
@@ -280,9 +280,9 @@ export const ProductDetails = () => {
             <button
               type="button"
               onClick={handleAddToCart}
-              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2 active:scale-[0.98]"
+              className="w-full py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2 active:scale-[0.98]"
             >
-              <ShoppingBag className="w-4 h-4 text-gold-300" />
+              <ShoppingBag className="w-4 h-4 text-espresso" />
               <span>Add to Cart • {formatCurrency(currentTotalPrice)}</span>
             </button>
 
@@ -290,9 +290,9 @@ export const ProductDetails = () => {
               href={directWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 rounded-full bg-white hover:bg-gold-50 text-emerald-800 border border-emerald-600/50 text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
+              className="w-full py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-md active:scale-[0.98]"
             >
-              <MessageCircle className="w-4 h-4 text-emerald-600 fill-current" />
+              <MessageCircle className="w-4 h-4 text-white fill-current" />
               <span>Order via WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
             </a>
           </div>

@@ -239,19 +239,19 @@ export const Home = () => {
                 </div>
               </div>
 
-              <div className="pt-4 flex items-center gap-5">
+              <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
                 <Link
                   to="/about"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md"
                 >
                   <span>Read Our Story</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
+                  <ArrowRight className="w-3.5 h-3.5 text-espresso" />
                 </Link>
                 <Link
                   to="/custom-orders"
-                  className="text-xs font-serif font-bold uppercase tracking-widest text-gold-700 hover:text-gold-800 underline"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-gold-50 text-espresso border-2 border-gold-600/70 text-xs font-serif font-bold tracking-widest uppercase shadow-sm transition-all"
                 >
-                  Order a Custom Cake
+                  <span>Order a Custom Cake</span>
                 </Link>
               </div>
             </div>
@@ -413,7 +413,7 @@ export const Home = () => {
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/custom-orders"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 hover:bg-gold-600 text-espresso text-xs font-serif font-bold tracking-widest uppercase shadow-md transition-colors"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase shadow-lg transition-colors"
               >
                 Order Custom Cake
               </Link>
@@ -421,7 +421,7 @@ export const Home = () => {
                 href={createWhatsAppLink("Hello Bake O Bliss! I would like to inquire about ordering a custom cake.")}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white hover:bg-gold-50 text-espresso border-2 border-gold-400 text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-md"
               >
                 Chat on WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})
               </a>

@@ -47,19 +47,19 @@ export const Hero = () => {
               Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, Chennai’s 100% pure vegetarian home bakery located at North Town Apartment, Perambur. Every celebration cake, fudgy brownie, and cookie is baked fresh to order using pure dairy butter, rich chocolate, and quality ingredients.
             </p>
 
-            {/* Call to Actions with Gilded Buttons */}
+            {/* Call to Actions with High-Contrast Gilded Buttons */}
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <Link
                 to="/menu"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 group shadow-md"
               >
                 <span>Explore Our Menu</span>
-                <ArrowRight className="w-3.5 h-3.5 text-gold-300 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-3.5 h-3.5 text-espresso group-hover:translate-x-1 transition-transform" />
               </Link>
 
               <Link
                 to="/custom-orders"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-parchment-100 hover:bg-gold-100 text-espresso border border-gold-500/60 text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 shadow-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-gold-50 text-espresso border-2 border-gold-600 text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 shadow-sm"
               >
                 <span>Order Custom Cake</span>
               </Link>

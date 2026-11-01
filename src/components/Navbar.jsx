@@ -106,7 +106,7 @@ export const Navbar = () => {
                 href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-serif font-semibold tracking-wider text-espresso bg-parchment-100 hover:bg-gold-100 transition-all border border-gold-500/50 shadow-xs"
+                className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-serif font-bold tracking-wider text-espresso bg-white hover:bg-gold-50 transition-all border-2 border-gold-600/70 shadow-xs"
                 title="Direct Consultation on WhatsApp"
               >
                 <MessageCircle className="w-3.5 h-3.5 text-emerald-700" />
@@ -157,15 +157,15 @@ export const Navbar = () => {
                 href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-espresso text-gold-200 text-xs font-serif tracking-widest uppercase hover:bg-espresso-800 transition-colors border border-gold-500/40 shadow-soft"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-md"
               >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
+                <MessageCircle className="w-4 h-4 text-espresso fill-current" />
                 <span>WhatsApp Us ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
               </a>
 
               <a
                 href={`tel:${BAKERY_CONFIG.whatsappNumber}`}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-parchment-100 text-espresso text-xs font-serif tracking-widest uppercase hover:bg-gold-100 transition-colors border border-gold-500/40 shadow-xs"
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-white text-espresso text-xs font-serif font-bold tracking-widest uppercase hover:bg-gold-50 transition-colors border-2 border-gold-600 shadow-xs"
               >
                 <Phone className="w-3.5 h-3.5 text-gold-700" />
                 <span>Call Directly ({BAKERY_CONFIG.whatsappDisplayNumber})</span>

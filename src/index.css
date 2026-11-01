@@ -50,15 +50,17 @@
 }
 
 .gold-button {
-  background: linear-gradient(135deg, #2D1A16 0%, #3D2520 100%);
-  border: 1px solid #C5A059;
-  box-shadow: 0 4px 15px rgba(45, 26, 22, 0.2), inset 0 1px 0 rgba(224, 197, 133, 0.4);
+  background: linear-gradient(135deg, #E0C585 0%, #C5A059 50%, #A48037 100%);
+  color: #1E100D !important;
+  font-weight: 700 !important;
+  border: 1px solid #F6EFE3;
+  box-shadow: 0 4px 15px rgba(164, 128, 55, 0.4), 0 2px 5px rgba(30, 16, 13, 0.15);
 }
 
 .gold-button:hover {
-  background: linear-gradient(135deg, #3D2520 0%, #54342E 100%);
-  border-color: #E0C585;
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+  background: linear-gradient(135deg, #EEDDB8 0%, #D4AF37 50%, #B38A3E 100%);
+  color: #1E100D !important;
+  box-shadow: 0 6px 22px rgba(197, 160, 89, 0.55);
 }
 
 /* Custom Art Nouveau Scrollbar */

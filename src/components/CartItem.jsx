@@ -83,7 +83,7 @@ export const CartItem = ({ item }) => {
         <button
           type="button"
           onClick={() => removeFromCart(item.cartItemId)}
-          className="p-2.5 text-espresso/40 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all"
+          className="p-2.5 text-espresso/70 hover:text-rose-600 hover:bg-rose-50 rounded-xl transition-all"
           title="Remove from cart"
           aria-label={`Remove ${item.name} from basket`}
         >

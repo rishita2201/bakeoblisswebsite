@@ -191,13 +191,13 @@ export const About = () => {
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/menu"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-lg"
             >
               Explore Our Menu
             </Link>
             <Link
               to="/custom-orders"
-              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
+              className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white hover:bg-gold-50 text-espresso border-2 border-gold-400 text-xs font-serif font-bold tracking-widest uppercase transition-colors shadow-md"
             >
               Order Custom Cake
             </Link>

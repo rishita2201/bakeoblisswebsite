@@ -117,10 +117,10 @@ export const Contact = () => {
               href={BAKERY_CONFIG.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-espresso text-gold-200 hover:bg-espresso-800 text-xs font-serif font-bold tracking-wider uppercase border border-gold-500/50 transition-colors shadow-xs"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-wider uppercase transition-all shadow-md"
             >
               <span>Visit Our Instagram</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-espresso" />
             </a>
           </div>
 
@@ -179,7 +179,7 @@ export const Contact = () => {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="px-6 py-2.5 rounded-full gold-button text-gold-100 text-xs font-serif uppercase tracking-wider font-bold"
+                  className="px-6 py-2.5 rounded-full gold-button text-espresso text-xs font-serif uppercase tracking-wider font-bold shadow-md"
                 >
                   Send Another Note
                 </button>
@@ -263,10 +263,10 @@ export const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4 text-gold-300" />
-                  <span>Transmit Message via WhatsApp</span>
+                  <Send className="w-4 h-4 text-espresso" />
+                  <span>Send Message via WhatsApp</span>
                 </button>
 
               </form>

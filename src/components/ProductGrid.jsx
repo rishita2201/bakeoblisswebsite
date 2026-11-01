@@ -113,8 +113,8 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-serif tracking-widest uppercase whitespace-nowrap transition-all duration-300 shrink-0 ${
                     isActive
-                      ? 'bg-espresso text-gold-200 border border-gold-500 shadow-nouveau font-bold'
-                      : 'bg-white hover:bg-gold-50 text-espresso/80 border border-gold-500/35 hover:border-gold-500/70'
+                      ? 'bg-espresso text-gold-300 border-2 border-gold-400 shadow-md font-bold'
+                      : 'bg-white hover:bg-gold-50 text-espresso font-medium border border-gold-500/40 hover:border-gold-600 shadow-xs'
                   }`}
                 >
                   {category}
@@ -173,7 +173,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
           </div>
           <button
             onClick={handleResetFilters}
-            className="px-6 py-2.5 rounded-full bg-espresso text-gold-200 text-xs font-serif uppercase tracking-widest hover:bg-espresso-800 transition-colors border border-gold-500/40"
+            className="px-6 py-2.5 rounded-full gold-button text-espresso text-xs font-serif font-bold uppercase tracking-widest transition-colors shadow-md"
           >
             View Complete Menu
           </button>

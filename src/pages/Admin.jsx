@@ -175,7 +175,7 @@ export const Admin = () => {
 
             <button
               type="submit"
-              className="w-full py-3.5 rounded-xl bg-chocolate text-ivory text-sm font-semibold hover:bg-chocolate-600 transition-colors shadow-soft"
+              className="w-full py-3.5 rounded-xl gold-button text-espresso text-sm font-serif font-bold uppercase tracking-wider transition-colors shadow-md"
             >
               Sign In to Dashboard
             </button>

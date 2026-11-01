@@ -83,31 +83,40 @@ export const ProductCard = ({ product }) => {
         </div>
 
         {/* Pricing & Actions */}
-        <div className="pt-3 border-t border-gold-500/25 flex items-center justify-between gap-2">
-          <div>
-            <span className="text-[10px] font-serif text-espresso/60 block uppercase tracking-wider">Starts from</span>
-            <span className="font-serif text-lg font-bold text-espresso">
-              {formatCurrency(product.price)}
-            </span>
+        <div className="pt-3 border-t border-gold-500/25 space-y-3">
+          <div className="flex items-baseline justify-between">
+            <div>
+              <span className="text-[10px] font-serif text-espresso/60 block uppercase tracking-wider">Starts from</span>
+              <span className="font-serif text-lg sm:text-xl font-bold text-espresso">
+                {formatCurrency(product.price)}
+              </span>
+            </div>
+            {product.variants && product.variants.length > 0 && (
+              <span className="text-[10px] font-serif text-gold-700 font-semibold bg-parchment-100 px-2 py-0.5 rounded-full border border-gold-500/30">
+                {product.variants.length} sizes
+              </span>
+            )}
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="grid grid-cols-2 gap-2">
             <button
               onClick={handleQuickAdd}
               type="button"
-              className="w-10 h-10 rounded-full bg-parchment-100 hover:bg-gold-500 text-espresso hover:text-white active:scale-95 transition-all duration-200 border border-gold-500/50 shadow-xs flex items-center justify-center shrink-0"
-              title="Add default size to basket"
-              aria-label={`Add ${product.name} to basket`}
+              className="py-2.5 px-2 rounded-full gold-button text-espresso text-[11px] font-serif font-bold tracking-wider uppercase transition-all flex items-center justify-center gap-1.5 active:scale-95 shadow-sm"
+              title="Add default size to cart"
+              aria-label={`Add ${product.name} to cart`}
             >
-              <ShoppingBag className="w-4 h-4" />
+              <ShoppingBag className="w-3.5 h-3.5 text-espresso" />
+              <span>Add to Cart</span>
             </button>
             <Link
               to={`/product/${product.id}`}
-              className="w-10 h-10 rounded-full bg-espresso hover:bg-espresso-800 text-gold-200 active:scale-95 transition-all duration-200 border border-gold-500/50 flex items-center justify-center shrink-0"
+              className="py-2.5 px-2 rounded-full bg-white hover:bg-gold-50 text-espresso text-[11px] font-serif font-bold tracking-wider uppercase transition-all border border-gold-500/60 shadow-xs flex items-center justify-center gap-1 active:scale-95"
               title="View full options & customise"
               aria-label={`View ${product.name} details`}
             >
-              <ArrowUpRight className="w-4 h-4" />
+              <span>View Details</span>
+              <ArrowUpRight className="w-3 h-3 text-gold-700" />
             </Link>
           </div>
         </div>
