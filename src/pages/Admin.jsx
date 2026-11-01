@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { 
   Lock, CheckCircle2, Clock, MapPin, Phone, MessageCircle, 
   Trash2, RefreshCw, ShoppingBag, DollarSign, Calendar, 
-  AlertCircle, Sparkles, Filter, ExternalLink, LogOut, Check, X, Shield 
+  AlertCircle, Sparkles, Filter, ExternalLink, LogOut, Check, X, Shield,
+  KeyRound, Smartphone, ArrowRight, ArrowLeft, Eye, EyeOff
 } from 'lucide-react';
 import { 
-  adminLogin, isLocalAdminLoggedIn, adminLogout, getAdminStats, 
+  adminStep1Verify, adminStep2VerifyOtp, adminResendOtp,
+  isLocalAdminLoggedIn, adminLogout, getAdminStats, 
   fetchOrders, updateOrderStatus, deleteOrder, 
   fetchCustomInquiries, updateInquiryStatus, deleteInquiry, 
   fetchMessages 
@@ -16,8 +18,18 @@ import { createWhatsAppLink } from '../utils/whatsapp';
 
 export const Admin = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [pinInput, setPinInput] = useState('');
+  const [authStep, setAuthStep] = useState('password'); // 'password' (Step 1) or 'otp' (Step 2)
+  const [passwordInput, setPasswordInput] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [otpInput, setOtpInput] = useState('');
+  const [otpSessionId, setOtpSessionId] = useState('');
+  const [maskedPhone, setMaskedPhone] = useState('+91 98415 •••11');
+  const [rawPhone, setRawPhone] = useState('919841511011');
+  const [debugOtp, setDebugOtp] = useState('');
   const [loginError, setLoginError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [resendCooldown, setResendCooldown] = useState(0);
+
   const [activeTab, setActiveTab] = useState('orders'); // 'orders', 'inquiries', 'overview', 'messages', 'studio'
   
   // Data states
@@ -27,6 +39,14 @@ export const Admin = () => {
   const [messages, setMessages] = useState([]);
   const [orderFilter, setOrderFilter] = useState('all');
   const [loading, setLoading] = useState(false);
+
+  // Timer for resend cooldown
+  useEffect(() => {
+    if (resendCooldown > 0) {
+      const timer = setTimeout(() => setResendCooldown(resendCooldown - 1), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [resendCooldown]);
 
   // Check login on load
   useEffect(() => {
@@ -62,22 +82,82 @@ export const Admin = () => {
     }
   }, [orderFilter, isAuthenticated]);
 
-  const handleLogin = async (e) => {
+  const handleStep1Password = async (e) => {
     e.preventDefault();
     setLoginError('');
-    const res = await adminLogin(pinInput);
-    if (res.success) {
-      setIsAuthenticated(true);
-      setPinInput('');
-      loadDashboardData();
-    } else {
-      setLoginError(res.message || 'Incorrect PIN');
+    if (!passwordInput.trim()) {
+      setLoginError('Please enter your admin password.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await adminStep1Verify(passwordInput);
+      if (res.success) {
+        setAuthStep('otp');
+        setOtpSessionId(res.sessionId || '');
+        setMaskedPhone(res.maskedPhone || '+91 98415 •••11');
+        setRawPhone(res.rawPhone || '919841511011');
+        setDebugOtp(res.debugOtp || '');
+        setResendCooldown(30);
+        setOtpInput('');
+      } else {
+        setLoginError(res.message || 'Invalid Admin Password / PIN');
+      }
+    } catch (err) {
+      setLoginError('Authentication service error. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleStep2Otp = async (e) => {
+    e.preventDefault();
+    setLoginError('');
+    if (!otpInput || otpInput.trim().length < 4) {
+      setLoginError('Please enter the 6-digit verification code.');
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const res = await adminStep2VerifyOtp(otpSessionId, otpInput.trim());
+      if (res.success) {
+        setIsAuthenticated(true);
+        setPasswordInput('');
+        setOtpInput('');
+        setAuthStep('password');
+        loadDashboardData();
+      } else {
+        setLoginError(res.message || 'Invalid verification code');
+      }
+    } catch (err) {
+      setLoginError('Failed to verify OTP. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleResendOtp = async () => {
+    if (resendCooldown > 0) return;
+    setLoginError('');
+    try {
+      const res = await adminResendOtp(otpSessionId);
+      if (res.success) {
+        if (res.debugOtp) setDebugOtp(res.debugOtp);
+        setResendCooldown(30);
+      } else {
+        setLoginError(res.message || 'Failed to resend code');
+      }
+    } catch (err) {
+      setLoginError('Failed to resend verification code');
     }
   };
 
   const handleLogout = () => {
     adminLogout();
     setIsAuthenticated(false);
+    setAuthStep('password');
+    setPasswordInput('');
+    setOtpInput('');
   };
 
   const handleStatusChange = async (orderId, newStatus) => {
@@ -134,62 +214,184 @@ export const Admin = () => {
   };
 
   // -----------------------------------------------------------
-  // AUTHENTICATION SCREEN IF NOT LOGGED IN
+  // AUTHENTICATION SCREEN: 2-STEP VERIFICATION IF NOT LOGGED IN
   // -----------------------------------------------------------
   if (!isAuthenticated) {
     return (
       <div className="min-h-[75vh] flex items-center justify-center px-4 py-12">
-        <div className="max-w-md w-full bg-white rounded-3xl p-8 sm:p-10 border border-blush shadow-soft-xl space-y-6 text-center">
+        <div className="max-w-md w-full bg-white rounded-3xl p-8 sm:p-10 border-2 border-gold-500/40 shadow-nouveau-lg space-y-6 text-center">
           
-          <div className="w-16 h-16 rounded-full bg-blush/60 text-chocolate flex items-center justify-center mx-auto shadow-sm">
-            <Lock className="w-7 h-7 text-rose-600" />
-          </div>
+          {authStep === 'password' ? (
+            /* STEP 1: PASSWORD AUTHENTICATION (DEFAULT PIN HIDDEN) */
+            <>
+              <div className="w-16 h-16 rounded-full bg-parchment-200 text-espresso border border-gold-500 flex items-center justify-center mx-auto shadow-sm">
+                <Lock className="w-7 h-7 text-gold-700" />
+              </div>
 
-          <div className="space-y-1.5">
-            <span className="text-[11px] uppercase font-bold tracking-widest text-rose-500">
-              Bakery Owner Portal
-            </span>
-            <h1 className="font-serif text-3xl font-bold text-chocolate">
-              Admin Dashboard
-            </h1>
-            <p className="text-xs text-chocolate/70">
-              Enter your secret PIN to view incoming customer orders, custom cake requests, and manage your bakery.
-            </p>
-          </div>
+              <div className="space-y-1.5">
+                <span className="text-[11px] uppercase font-serif font-bold tracking-widest text-gold-700 block">
+                  Step 1 of 2 • Owner Authentication
+                </span>
+                <h1 className="font-serif text-3xl font-bold text-espresso">
+                  Admin Dashboard
+                </h1>
+                <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+                  Enter your secret owner password to initiate two-step verification.
+                </p>
+              </div>
 
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div>
-              <input
-                type="password"
-                maxLength={8}
-                value={pinInput}
-                onChange={(e) => setPinInput(e.target.value)}
-                placeholder="Enter 4-digit PIN (Default: 8034)"
-                className="w-full text-center text-xl tracking-widest py-3 px-4 rounded-xl bg-ivory border border-blush text-chocolate focus:border-rose-400 outline-none"
-                autoFocus
-              />
-              {loginError && (
-                <p className="text-xs text-rose-600 mt-2 font-medium">{loginError}</p>
-              )}
-            </div>
+              <form onSubmit={handleStep1Password} className="space-y-4">
+                <div className="relative">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    value={passwordInput}
+                    onChange={(e) => setPasswordInput(e.target.value)}
+                    placeholder="Enter Admin Password"
+                    className="w-full text-center text-lg tracking-wider py-3.5 px-10 rounded-xl bg-parchment-50 border border-gold-500/50 text-espresso focus:border-gold-600 outline-none font-serif"
+                    autoFocus
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-espresso/50 hover:text-espresso"
+                    title={showPassword ? 'Hide password' : 'Show password'}
+                  >
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
 
-            <button
-              type="submit"
-              className="w-full py-3.5 rounded-xl gold-button text-espresso text-sm font-serif font-bold uppercase tracking-wider transition-colors shadow-md"
-            >
-              Sign In to Dashboard
-            </button>
-          </form>
+                {loginError && (
+                  <p className="text-xs text-rose-600 font-serif font-semibold">{loginError}</p>
+                )}
 
-          <div className="p-3.5 rounded-2xl bg-cream/70 border border-blush text-[11px] text-chocolate/75 space-y-1">
-            <p className="font-bold text-chocolate flex items-center justify-center gap-1.5">
-              <Shield className="w-3.5 h-3.5 text-rose-500" />
-              <span>Owner Access Notice</span>
-            </p>
-            <p>
-              Default PIN is <strong className="font-mono text-rose-700 font-bold">8034</strong> (Tower 4, Flat 803). You can change this anytime.
-            </p>
-          </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 disabled:opacity-70"
+                >
+                  <span>{isSubmitting ? 'Verifying Password...' : 'Continue to Step 2'}</span>
+                  <ArrowRight className="w-4 h-4 text-espresso" />
+                </button>
+              </form>
+
+              <div className="p-3.5 rounded-2xl bg-parchment-100 border border-gold-500/40 text-[11px] font-serif text-espresso/80 space-y-1 text-left">
+                <p className="font-bold text-espresso flex items-center gap-1.5">
+                  <Shield className="w-3.5 h-3.5 text-gold-700" />
+                  <span>Two-Step Security Enabled</span>
+                </p>
+                <p>
+                  For studio privacy, access requires your password followed by mobile OTP verification on registered number <strong>+91 98415 11011</strong>.
+                </p>
+              </div>
+            </>
+          ) : (
+            /* STEP 2: TWO-STEP OTP VERIFICATION WITH PHONE (+91 98415 11011) */
+            <>
+              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-400 flex items-center justify-center mx-auto shadow-sm">
+                <Smartphone className="w-7 h-7 text-emerald-700" />
+              </div>
+
+              <div className="space-y-1.5">
+                <span className="text-[11px] uppercase font-serif font-bold tracking-widest text-emerald-700 block">
+                  Step 2 of 2 • Mobile OTP Verification
+                </span>
+                <h1 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">
+                  Security Code Verification
+                </h1>
+                <p className="text-xs font-serif text-espresso/70 leading-relaxed">
+                  A 6-digit one-time code has been generated for your registered phone number:
+                </p>
+                <div className="pt-1">
+                  <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-mono font-bold border border-emerald-300">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                    <span>{maskedPhone}</span>
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-700" />
+                  </span>
+                </div>
+              </div>
+
+              {/* WhatsApp Quick Dispatch Card */}
+              <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-300 text-xs font-serif text-emerald-900 space-y-2 text-left">
+                <div className="flex items-center justify-between">
+                  <span className="font-bold flex items-center gap-1 text-emerald-950">
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-700" />
+                    <span>WhatsApp / SMS Delivery:</span>
+                  </span>
+                  <span className="text-[10px] font-mono font-bold bg-emerald-200/80 px-2 py-0.5 rounded-md">Valid 5m</span>
+                </div>
+                {debugOtp && (
+                  <div className="flex items-center justify-between bg-white p-2.5 rounded-xl border border-emerald-200">
+                    <div>
+                      <p className="text-[10px] uppercase font-bold text-emerald-800 tracking-wider">Your One-Time Code</p>
+                      <p className="font-mono text-xl font-bold text-emerald-950 tracking-widest">{debugOtp}</p>
+                    </div>
+                    <a
+                      href={`https://wa.me/919841511011?text=Your%20Bake%20O%20Bliss%20Admin%20verification%20code%20is:%20${debugOtp}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[11px] font-bold tracking-wider uppercase transition-colors"
+                    >
+                      <MessageCircle className="w-3 h-3 fill-current" />
+                      <span>Open WhatsApp</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+
+              <form onSubmit={handleStep2Otp} className="space-y-4">
+                <div>
+                  <input
+                    type="text"
+                    maxLength={6}
+                    value={otpInput}
+                    onChange={(e) => setOtpInput(e.target.value.replace(/\D/g, ''))}
+                    placeholder="• • • • • •"
+                    className="w-full text-center text-3xl font-mono font-bold tracking-[0.4em] py-3.5 px-4 rounded-xl bg-parchment-50 border-2 border-gold-500/60 text-espresso focus:border-gold-600 outline-none"
+                    autoFocus
+                  />
+                  {loginError && (
+                    <p className="text-xs text-rose-600 font-serif font-semibold mt-2">{loginError}</p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold uppercase tracking-widest transition-all shadow-md flex items-center justify-center gap-2 active:scale-95 disabled:opacity-70"
+                >
+                  <KeyRound className="w-4 h-4 text-espresso" />
+                  <span>{isSubmitting ? 'Verifying Code...' : 'Verify OTP & Enter Studio'}</span>
+                </button>
+              </form>
+
+              <div className="pt-2 flex items-center justify-between text-xs font-serif border-t border-gold-500/30">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setAuthStep('password');
+                    setLoginError('');
+                  }}
+                  className="inline-flex items-center gap-1 text-espresso/70 hover:text-espresso font-semibold"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Back to Password</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleResendOtp}
+                  disabled={resendCooldown > 0}
+                  className={`font-semibold ${
+                    resendCooldown > 0
+                      ? 'text-espresso/40 cursor-not-allowed'
+                      : 'text-gold-700 hover:text-gold-800 underline'
+                  }`}
+                >
+                  {resendCooldown > 0 ? `Resend code in ${resendCooldown}s` : 'Resend OTP Code'}
+                </button>
+              </div>
+            </>
+          )}
 
         </div>
       </div>
@@ -775,7 +977,7 @@ export const Admin = () => {
               </span>
               <p className="font-semibold text-chocolate">{BAKERY_CONFIG.whatsappDisplayNumber}</p>
               <p className="text-chocolate/60">Configured in <code className="bg-white px-1 py-0.5 rounded font-mono text-rose-700">src/data/config.js</code></p>
-              <p className="text-[11px] text-chocolate/50 mt-1">Admin Default PIN: <strong>8034</strong></p>
+              <p className="text-[11px] text-emerald-800 font-semibold mt-1">✦ 2-Step OTP Verification Protected ({BAKERY_CONFIG.whatsappDisplayNumber})</p>
             </div>
           </div>
         </div>

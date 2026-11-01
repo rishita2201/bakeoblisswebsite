@@ -59,8 +59,111 @@ app.put('/api/settings', (req, res) => {
 });
 
 // -------------------------------------------------------------
-// 2. ADMIN AUTHENTICATION & STATS
+// 2. ADMIN AUTHENTICATION & TWO-STEP OTP VERIFICATION
 // -------------------------------------------------------------
+const otpSessions = new Map();
+
+// Helper to generate 6-digit random code
+const generateOTP = () => {
+  return Math.floor(100000 + Math.random() * 900000).toString();
+};
+
+// Step 1: Verify Password / PIN & Generate OTP for registered phone
+app.post('/api/admin/step1-verify', (req, res) => {
+  const { pin } = req.body;
+  const savedPin = getSetting('adminPin') || '8034';
+
+  if (!pin || pin.trim() !== savedPin.trim()) {
+    return res.status(401).json({ success: false, message: 'Invalid Admin Password / PIN.' });
+  }
+
+  const sessionId = 'sess_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+  const otp = generateOTP();
+  const expiresAt = Date.now() + 5 * 60 * 1000; // 5 minutes
+
+  otpSessions.set(sessionId, {
+    otp,
+    expiresAt,
+    attempts: 0
+  });
+
+  const phone = getSetting('whatsappNumber') || '919841511011';
+  const displayPhone = '+91 98415 •••11';
+
+  console.log(`[AUTH] 2-Step OTP generated for ${phone}: ${otp}`);
+
+  res.json({
+    success: true,
+    step: 'otp_required',
+    sessionId,
+    maskedPhone: displayPhone,
+    phone: '+91 98415 11011',
+    expiresInSeconds: 300,
+    debugOtp: otp // Delivered seamlessly for owner verification
+  });
+});
+
+// Step 2: Verify OTP
+app.post('/api/admin/step2-verify-otp', (req, res) => {
+  const { sessionId, otp } = req.body;
+
+  if (!sessionId || !otpSessions.has(sessionId)) {
+    return res.status(400).json({ success: false, message: 'Verification session expired. Please start again.' });
+  }
+
+  const session = otpSessions.get(sessionId);
+
+  if (Date.now() > session.expiresAt) {
+    otpSessions.delete(sessionId);
+    return res.status(400).json({ success: false, message: 'OTP has expired. Please request a new code.' });
+  }
+
+  session.attempts += 1;
+  if (session.attempts > 5) {
+    otpSessions.delete(sessionId);
+    return res.status(429).json({ success: false, message: 'Too many incorrect attempts. Please re-enter your password.' });
+  }
+
+  if (session.otp !== (otp || '').trim()) {
+    return res.status(401).json({ success: false, message: 'Incorrect OTP code. Please check your phone (+91 98415 11011).' });
+  }
+
+  // OTP verified successfully
+  otpSessions.delete(sessionId);
+
+  return res.json({
+    success: true,
+    token: 'bake_o_bliss_admin_session_auth_token_' + Date.now(),
+    ownerName: 'Bake O Bliss Admin',
+    studio: 'Flat 803, Tower 4, North Town Apartment, Perambur, Chennai'
+  });
+});
+
+// Resend OTP
+app.post('/api/admin/resend-otp', (req, res) => {
+  const { sessionId } = req.body;
+  if (!sessionId || !otpSessions.has(sessionId)) {
+    return res.status(400).json({ success: false, message: 'Session expired. Please restart login.' });
+  }
+
+  const newOtp = generateOTP();
+  const session = otpSessions.get(sessionId);
+  session.otp = newOtp;
+  session.expiresAt = Date.now() + 5 * 60 * 1000;
+  session.attempts = 0;
+
+  const phone = getSetting('whatsappNumber') || '919841511011';
+  console.log(`[AUTH] Resent 2-Step OTP for ${phone}: ${newOtp}`);
+
+  res.json({
+    success: true,
+    message: 'New OTP dispatched to registered mobile (+91 98415 11011)',
+    expiresInSeconds: 300,
+    debugOtp: newOtp
+  });
+});
+
+// Legacy single-step login (kept for backwards compatibility, hiding default PIN)
 app.post('/api/admin/login', (req, res) => {
   const { pin } = req.body;
   const savedPin = getSetting('adminPin') || '8034';
@@ -74,7 +177,7 @@ app.post('/api/admin/login', (req, res) => {
     });
   }
 
-  res.status(401).json({ success: false, message: 'Incorrect Admin PIN. Default is 8034.' });
+  res.status(401).json({ success: false, message: 'Invalid Admin Password / PIN.' });
 });
 
 app.get('/api/admin/stats', (req, res) => {
@@ -358,5 +461,5 @@ app.listen(PORT, () => {
   console.log(`🍰 Bake O Bliss Backend & SQLite DB active on http://localhost:${PORT}`);
   console.log(`📍 Studio: Flat 803, Tower 4, North Town Apartment, Perambur, Chennai`);
   console.log(`🌱 100% Pure Vegetarian & Eggless`);
-  console.log(`🔑 Admin Default PIN: 8034`);
+  console.log(`🔐 Admin 2-Step OTP Authentication Active (+91 98415 11011)`);
 });

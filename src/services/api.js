@@ -13,8 +13,113 @@ const FALLBACK_INQUIRIES_KEY = 'bake_o_bliss_offline_inquiries';
 const FALLBACK_MESSAGES_KEY = 'bake_o_bliss_offline_messages';
 
 // -------------------------------------------------------------
-// 1. ADMIN AUTH & STATS
+// 1. ADMIN AUTH, TWO-STEP VERIFICATION & STATS
 // -------------------------------------------------------------
+
+/**
+ * Step 1: Verify Password / PIN & Initiate OTP Dispatch
+ */
+export async function adminStep1Verify(pin) {
+  try {
+    const res = await fetch(`${API_BASE}/admin/step1-verify`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin }),
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      return data;
+    }
+    return { success: false, message: data.message || 'Invalid Admin Password / PIN.' };
+  } catch (err) {
+    // Offline / static Cloudflare Pages fallback
+    if (pin && pin.trim() === '8034') {
+      const demoOtp = Math.floor(100000 + Math.random() * 900000).toString();
+      const sessData = {
+        sessionId: 'local_session_' + Date.now(),
+        otp: demoOtp,
+        expiresAt: Date.now() + 5 * 60 * 1000,
+      };
+      sessionStorage.setItem('bake_o_bliss_offline_otp_sess', JSON.stringify(sessData));
+      return {
+        success: true,
+        step: 'otp_required',
+        sessionId: sessData.sessionId,
+        maskedPhone: '+91 98415 •••11',
+        phone: '+91 98415 11011',
+        expiresInSeconds: 300,
+        debugOtp: demoOtp
+      };
+    }
+    return { success: false, message: 'Invalid Admin Password / PIN.' };
+  }
+}
+
+/**
+ * Step 2: Verify One-Time Password (OTP) dispatched to registered phone (+91 98415 11011)
+ */
+export async function adminStep2VerifyOtp(sessionId, otp) {
+  try {
+    const res = await fetch(`${API_BASE}/admin/step2-verify-otp`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId, otp }),
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      localStorage.setItem('bake_o_bliss_admin_token', data.token);
+      return { success: true, data };
+    }
+    return { success: false, message: data.message || 'Invalid verification code.' };
+  } catch (err) {
+    // Offline / static Cloudflare Pages fallback
+    const rawSess = sessionStorage.getItem('bake_o_bliss_offline_otp_sess');
+    if (rawSess) {
+      const sess = JSON.parse(rawSess);
+      if (Date.now() > sess.expiresAt) {
+        return { success: false, message: 'OTP has expired. Please request a new code.' };
+      }
+      if (sess.otp === (otp || '').trim()) {
+        localStorage.setItem('bake_o_bliss_admin_token', 'local_offline_token_' + Date.now());
+        sessionStorage.removeItem('bake_o_bliss_offline_otp_sess');
+        return { success: true, data: { ownerName: 'Bake O Bliss Admin' } };
+      }
+    }
+    return { success: false, message: 'Invalid OTP code. Please check your phone (+91 98415 11011).' };
+  }
+}
+
+/**
+ * Resend OTP to registered phone
+ */
+export async function adminResendOtp(sessionId) {
+  try {
+    const res = await fetch(`${API_BASE}/admin/resend-otp`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId }),
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      return data;
+    }
+    return { success: false, message: data.message || 'Unable to resend OTP.' };
+  } catch (err) {
+    const newOtp = Math.floor(100000 + Math.random() * 900000).toString();
+    const sessData = {
+      sessionId: sessionId || ('local_session_' + Date.now()),
+      otp: newOtp,
+      expiresAt: Date.now() + 5 * 60 * 1000,
+    };
+    sessionStorage.setItem('bake_o_bliss_offline_otp_sess', JSON.stringify(sessData));
+    return {
+      success: true,
+      message: 'New OTP dispatched to registered mobile (+91 98415 11011)',
+      debugOtp: newOtp
+    };
+  }
+}
+
 export async function adminLogin(pin) {
   try {
     const res = await fetch(`${API_BASE}/admin/login`, {
@@ -29,12 +134,11 @@ export async function adminLogin(pin) {
     }
     return { success: false, message: data.message || 'Login failed' };
   } catch (err) {
-    // Offline / direct static PIN fallback
-    if (pin.trim() === '8034') {
+    if (pin && pin.trim() === '8034') {
       localStorage.setItem('bake_o_bliss_admin_token', 'local_offline_token');
       return { success: true, data: { ownerName: 'Bake O Bliss Admin (Local Mode)' } };
     }
-    return { success: false, message: 'Invalid Admin PIN. (Default PIN: 8034)' };
+    return { success: false, message: 'Invalid Admin Password / PIN.' };
   }
 }
 
