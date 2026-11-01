@@ -150,18 +150,27 @@ export const CustomOrders = () => {
       </section>
 
       {/* Advance Notice Box */}
-      <div className="bg-parchment-100/80 border border-gold-500/40 rounded-[32px] p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-serif text-espresso/80 shadow-nouveau">
-        <div className="space-y-1">
-          <h4 className="font-bold text-espresso text-sm">✦ Advance Notice</h4>
-          <p>Custom tiered and decorated cakes require a minimum of <strong>48 to 72 hours</strong> advance notice so we can prepare your design fresh.</p>
+      <div className="bg-white border-2 border-gold-500/40 rounded-[32px] p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-sm font-serif text-espresso shadow-md">
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-espresso text-base flex items-center gap-1.5">
+            <span className="text-gold-600">✦</span>
+            <span>Advance Notice</span>
+          </h4>
+          <p className="text-espresso/90 leading-relaxed">Custom tiered and decorated cakes require a minimum of <strong className="font-bold text-espresso">48 to 72 hours</strong> advance notice so we can bake and decorate fresh.</p>
         </div>
-        <div className="space-y-1">
-          <h4 className="font-bold text-emerald-800 text-sm">🌱 100% Pure Veg & Eggless</h4>
-          <p>Every cake is prepared with pure dairy butter in our dedicated vegetarian kitchen. Zero gelatin, zero eggs.</p>
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-emerald-800 text-base flex items-center gap-1.5">
+            <span>🌱</span>
+            <span>100% Pure Veg & Eggless</span>
+          </h4>
+          <p className="text-espresso/90 leading-relaxed">Every cake is prepared with pure dairy butter in our dedicated vegetarian kitchen. Zero gelatin, zero eggs.</p>
         </div>
-        <div className="space-y-1">
-          <h4 className="font-bold text-espresso text-sm">✦ Bakery Location</h4>
-          <p>Tower 4, North Town Apartment, Perambur, Chennai. Self-pickup or safe doorstep delivery.</p>
+        <div className="space-y-1.5">
+          <h4 className="font-bold text-espresso text-base flex items-center gap-1.5">
+            <span className="text-gold-600">✦</span>
+            <span>Bakery Location</span>
+          </h4>
+          <p className="text-espresso/90 leading-relaxed">Tower 4, North Town Apartment, Perambur, Chennai. Self-pickup or safe doorstep delivery.</p>
         </div>
       </div>
 

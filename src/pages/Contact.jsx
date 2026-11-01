@@ -125,26 +125,26 @@ export const Contact = () => {
           </div>
 
           {/* Studio Location & Hours */}
-          <div className="bg-parchment-100/90 rounded-[32px] p-6 border border-gold-500/40 space-y-4 text-xs font-serif text-espresso/80 shadow-xs">
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 font-bold text-espresso text-sm">
+          <div className="bg-white rounded-[32px] p-6 border-2 border-gold-500/40 space-y-4 text-sm font-serif text-espresso shadow-sm">
+            <div className="space-y-1.5">
+              <div className="flex items-center gap-2 font-bold text-espresso text-base">
                 <MapPin className="w-4 h-4 text-gold-600" />
                 <span>Home Bakery Location</span>
               </div>
               <p className="font-bold text-espresso">{BAKERY_CONFIG.location.title}</p>
-              <p>{BAKERY_CONFIG.location.address}</p>
-              <p>{BAKERY_CONFIG.location.city}, {BAKERY_CONFIG.location.state} – {BAKERY_CONFIG.location.pincode}</p>
-              <p className="text-[11px] text-gold-700 italic">*{BAKERY_CONFIG.location.landmark}</p>
+              <p className="text-espresso/90">{BAKERY_CONFIG.location.address}</p>
+              <p className="text-espresso/90">{BAKERY_CONFIG.location.city}, {BAKERY_CONFIG.location.state} – {BAKERY_CONFIG.location.pincode}</p>
+              <p className="text-xs text-gold-800 font-semibold italic">✦ Landmark: {BAKERY_CONFIG.location.landmark}</p>
             </div>
 
-            <div className="pt-3 border-t border-gold-500/25 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-espresso text-sm">
+            <div className="pt-3 border-t border-gold-500/30 space-y-1">
+              <div className="flex items-center gap-2 font-bold text-espresso text-base">
                 <Clock className="w-4 h-4 text-gold-600" />
                 <span>Baking & Pickup Hours</span>
               </div>
               <p className="font-bold text-espresso">{BAKERY_CONFIG.operatingHours.days}</p>
-              <p>{BAKERY_CONFIG.operatingHours.hours}</p>
-              <p className="text-[11px] text-espresso/60 mt-1">
+              <p className="text-espresso/90">{BAKERY_CONFIG.operatingHours.hours}</p>
+              <p className="text-xs text-espresso/80 mt-1 font-medium">
                 {BAKERY_CONFIG.operatingHours.leadTimeNotice}
               </p>
             </div>
