@@ -37,9 +37,10 @@ export const Navbar = () => {
     <>
       {/* Top Announcement Bar */}
       <div className="bg-chocolate text-ivory text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
-        <Sparkles className="w-3.5 h-3.5 text-rose-300 animate-pulse" />
-        <span>Freshly baked from our boutique studio • Orders placed 24–48h in advance</span>
-        <Sparkles className="w-3.5 h-3.5 text-rose-300 animate-pulse hidden sm:inline" />
+        <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span className="font-semibold text-emerald-300">100% Pure Vegetarian & Eggless</span>
+        <span className="hidden md:inline">• Boutique Studio at North Town Apartment, Perambur, Chennai</span>
+        <span className="hidden sm:inline">• Orders placed 24–48h in advance</span>
       </div>
 
       {/* Main Navigation */}
@@ -70,8 +71,9 @@ export const Navbar = () => {
               <span className="font-serif text-2xl sm:text-3xl font-bold tracking-tight text-chocolate group-hover:text-rose-600 transition-colors">
                 {BAKERY_CONFIG.brandName}
               </span>
-              <span className="text-[10px] tracking-[0.25em] uppercase text-rose-500 font-medium">
-                Artisanal Home Bakery
+              <span className="text-[10px] tracking-[0.25em] uppercase text-emerald-700 font-semibold flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                100% Pure Veg Home Studio
               </span>
             </Link>
 

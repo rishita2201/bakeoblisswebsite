@@ -8,6 +8,7 @@ import { useCart } from '../context/CartContext';
 import { BAKERY_CONFIG } from '../data/config';
 import { formatCurrency } from '../utils/currency';
 import { generateCartOrderWhatsAppUrl } from '../utils/whatsapp';
+import { createOrder } from '../services/api';
 
 export const Checkout = () => {
   const { cartItems, subtotal, totalItemsCount, clearCart } = useCart();
@@ -83,6 +84,19 @@ export const Checkout = () => {
       window.scrollTo({ top: 150, behavior: 'smooth' });
       return;
     }
+
+    // Save order to SQLite Database / Backend API
+    createOrder({
+      customerName: formData.customerName,
+      customerPhone: formData.customerPhone,
+      fulfillmentType: formData.fulfillmentType,
+      deliveryAddress: formData.deliveryAddress,
+      preferredDate: formData.preferredDate,
+      preferredTime: formData.preferredTime,
+      specialInstructions: formData.specialInstructions,
+      items: cartItems,
+      totalAmount: subtotal,
+    }).catch((err) => console.warn('Order save notice:', err));
 
     // Generate WhatsApp click-to-chat URL
     const url = generateCartOrderWhatsAppUrl({

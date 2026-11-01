@@ -226,19 +226,10 @@ export const ProductDetails = () => {
 
           {/* Dietary / Inscription Customisation */}
           <div className="p-4 rounded-2xl bg-cream/80 border border-blush/60 space-y-3 text-xs">
-            {product.egglessAvailable && (
-              <label className="flex items-center gap-2.5 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={egglessChoice}
-                  onChange={(e) => setEgglessChoice(e.target.checked)}
-                  className="rounded border-blush text-rose-600 focus:ring-rose-400 w-4 h-4 cursor-pointer"
-                />
-                <span className="font-medium text-chocolate">
-                  Request 100% Eggless Preparation (Baked in sanitized egg-free bake-ware)
-                </span>
-              </label>
-            )}
+            <div className="flex items-center gap-2 text-emerald-800 font-semibold bg-white/80 p-2.5 rounded-xl border border-emerald-300">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 flex-shrink-0"></span>
+              <span>100% Pure Vegetarian & Eggless (Sanitized vegetarian bake-ware)</span>
+            </div>
 
             {product.category === 'Cakes' && (
               <div className="space-y-1">
@@ -249,7 +240,7 @@ export const ProductDetails = () => {
                   type="text"
                   value={cakeMessage}
                   onChange={(e) => setCakeMessage(e.target.value)}
-                  placeholder="e.g. Happy 30th Birthday Anya! 🌸"
+                  placeholder="e.g. Happy Birthday Anya! 🌸"
                   className="w-full px-3 py-2 rounded-xl bg-white border border-blush text-xs text-chocolate outline-none focus:border-rose-400"
                   maxLength={50}
                 />

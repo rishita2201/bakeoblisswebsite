@@ -1,78 +1,89 @@
-# Bake O Bliss – Artisanal Home Bakery Website 🍰✨
+# Bake O Bliss – 100% Pure Veg Artisanal Home Bakery (Full-Stack) 🍰🌱✨
 
-A website crafted for **Bake O Bliss**, an artisanal home bakery brand specializing in freshly baked celebration cakes, brownies, cupcakes, and confections.
+A complete, production-ready full-stack website for **Bake O Bliss**, a boutique **100% Pure Vegetarian & Eggless** home bakery located in Chennai, Tamil Nadu.
 
-Live Brand Instagram: [https://www.instagram.com/bakeobliss/](https://www.instagram.com/bakeobliss/)
-
----
-
-## 🌸 Brand Identity & Aesthetic Direction
-
-- **Brand Personality:** Warm, artisanal, premium, elegant, and feminine.
-- **Color Palette:**
-  - Warm Ivory (`#FFF9F3`)
-  - Soft Blush Pink (`#F4DDE0`)
-  - Dusty Rose (`#C98F96`)
-  - Chocolate Brown (`#593B35`)
-  - Cream (`#F8EFE5`)
-- **Typography:**
-  - Headings: *Playfair Display* & *Cormorant Garamond* (Elegant editorial serifs)
-  - Body Text: *Plus Jakarta Sans* (Clean, modern sans-serif)
+- **Verified Studio Address:** Flat No. 803, Tower 4, North Town Apartment, Stephenson Road, Binny Garden, Perambur, Chennai, Tamil Nadu 600012
+- **Dietary Standard:** 100% Pure Vegetarian & Eggless (Sanitized dedicated vegetarian bake-ware, zero gelatin, zero animal fat)
+- **Instagram:** [https://www.instagram.com/bakeobliss/](https://www.instagram.com/bakeobliss/)
+- **Owner Admin Portal:** `/admin` (Default PIN: `8034`)
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Full-Stack Technology Architecture
 
-- **Frontend Framework:** React 18 with Vite
-- **Styling:** Tailwind CSS with custom bakery color palettes and soft shadows
+### 1. Frontend
+- **Framework:** React 18 with Vite
+- **Styling:** Tailwind CSS with custom bakery color tokens (`#FFF9F3`, `#F4DDE0`, `#C98F96`, `#593B35`, `#F8EFE5`)
 - **Icons:** Lucide React
 - **Routing:** React Router v6
-- **State Management:** React Context API (`CartContext`)
-- **Persistence:** LocalStorage for shopping cart state
-- **Ordering Engine:** WhatsApp Click-to-Chat integration (No paid backend infrastructure required, with structured, human-readable orders)
-- **Deployment Ready:** Cloudflare Pages (includes SPA routing `_redirects`) & GitHub
+- **State Management:** React Context API (`CartContext`) with `LocalStorage` persistence
+- **Admin Dashboard:** `/admin` equipped with PIN login, analytics, order status workflows, bespoke inquiry management, and 1-click WhatsApp customer messaging.
+
+### 2. Backend & REST API
+- **Runtime:** Node.js + Express
+- **Port:** `5000` (auto-proxied via Vite on `/api`)
+- **Endpoints:**
+  - `GET /api/health` — System status & studio verification
+  - `GET /api/settings`, `PUT /api/settings` — Studio address, phone & hours
+  - `POST /api/admin/login` — PIN-secured authentication (Default: `8034`)
+  - `GET /api/admin/stats` — Real-time revenue, orders & inquiry counts
+  - `GET /api/orders`, `POST /api/orders`, `PATCH /api/orders/:id/status`, `DELETE /api/orders/:id`
+  - `GET /api/custom-inquiries`, `POST /api/custom-inquiries`, `PATCH /api/custom-inquiries/:id/status`
+  - `GET /api/messages`, `POST /api/messages` — Contact inquiries
+
+### 3. Database
+- **Engine:** SQLite (`better-sqlite3`) — Zero-configuration, zero-cost, persistent ACID SQL database stored locally in `server/data/bakeobliss.sqlite`.
+- **Auto-Seeding:** Automatically initializes tables (`products`, `orders`, `custom_inquiries`, `messages`, `settings`) with the Chennai North Town Apartment studio address and 100% pure veg product offerings.
+- **Resilience:** Includes client-side offline fallback storage so customer orders are never lost even if the backend is temporarily offline.
 
 ---
 
 ## 📂 Project Directory Structure
 
 ```text
-bake-o-bliss/
+bakeoblisswebsite/
 ├── public/
-│   ├── favicon.svg             # Handcrafted SVG cupcake icon
-│   └── _redirects              # Cloudflare Pages / Netlify SPA client-side routing
+│   ├── favicon.svg             # Custom artisanal bakery logo
+│   └── _redirects              # SPA routing rules for Cloudflare Pages / Netlify
+├── server/
+│   ├── data/                   # SQLite database storage (bakeobliss.sqlite)
+│   ├── db.js                   # SQLite schema, WAL mode & auto-seed script
+│   └── index.js                # Express REST API server
 ├── src/
 │   ├── assets/                 # Brand assets
 │   ├── components/
-│   │   ├── CartItem.jsx        # Shopping cart item row with qty controls
-│   │   ├── Footer.jsx          # Studio info, links, hours, Instagram & disclaimer
-│   │   ├── Hero.jsx            # Editorial hero with photography, CTAs & value badges
-│   │   ├── Navbar.jsx          # Responsive header, cart badge & mobile drawer
-│   │   ├── ProductCard.jsx     # Responsive rounded card with badges & quick actions
-│   │   ├── ProductGrid.jsx     # Search bar, category filters & price sorting
+│   │   ├── CartItem.jsx        # Basket item with variant tags & quantity controls
+│   │   ├── Footer.jsx          # Perambur studio info, hours, Instagram, WhatsApp, Admin link
+│   │   ├── Hero.jsx            # Editorial hero with pure veg badge & value pillars
+│   │   ├── Navbar.jsx          # Pure veg announcement bar, frosted header, cart badge & drawer
+│   │   ├── ProductCard.jsx     # Card with 100% Pure Veg badge, bestseller tags & quick add
+│   │   ├── ProductGrid.jsx     # Search bar, category filter pills & price sorting
 │   │   ├── ScrollToTop.jsx     # Automatically scrolls to top on route change
-│   │   ├── Toast.jsx           # Floating confirmation when treats are added
+│   │   ├── Toast.jsx           # Floating snackbar notification for basket additions
 │   │   └── WhatsAppButton.jsx  # Floating WhatsApp direct chat button
 │   ├── context/
 │   │   └── CartContext.jsx     # Cart state, LocalStorage sync & quantity handlers
 │   ├── data/
-│   │   ├── config.js           # Central bakery settings, WhatsApp number, hours, studio location
-│   │   └── products.js         # Demonstration sample catalogue with variants & images
+│   │   ├── config.js           # Studio address (Perambur, Chennai), hours, WhatsApp number
+│   │   └── products.js         # 100% Pure Vegetarian & Eggless catalogue
 │   ├── pages/
+│   │   ├── Admin.jsx           # Owner Dashboard (Orders, Inquiries, Metrics, Status updates)
 │   │   ├── Home.jsx            # Homepage with hero, categories, bestsellers, reviews, IG grid
 │   │   ├── Menu.jsx            # Full catalogue with category filters and search
-│   │   ├── ProductDetails.jsx  # Gallery, variant selector, eggless toggle & direct order
+│   │   ├── ProductDetails.jsx  # Dynamic gallery, variant selection, eggless badge & direct order
 │   │   ├── CustomOrders.jsx    # Bespoke cake consultation inquiry form with design gallery
-│   │   ├── Cart.jsx            # Shopping basket with line totals & lead time reminders
-│   │   ├── Checkout.jsx        # Customer details, delivery/pickup toggle & WhatsApp order generator
-│   │   ├── About.jsx           # Brand story, baking philosophy & ingredient purity
-│   │   └── Contact.jsx         # Direct WhatsApp line, studio hours & message inquiry
+│   │   ├── Cart.jsx            # Shopping basket review, subtotal calculation, lead time notice
+│   │   ├── Checkout.jsx        # Customer details, pickup/delivery selector & dual WhatsApp + DB submission
+│   │   ├── About.jsx           # Chennai studio story, 4-pillar philosophy & pure veg vow
+│   │   └── Contact.jsx         # Direct WhatsApp line, studio hours, location & message form
+│   ├── services/
+│   │   └── api.js              # Full-stack API client with offline fallback support
 │   ├── utils/
-│   │   ├── currency.js         # Currency formatting (₹ INR / customizable)
+│   │   ├── currency.js         # Currency formatting (₹ INR)
 │   │   └── whatsapp.js         # Formatted WhatsApp message link builders
-│   ├── App.jsx                 # App routing & layout wrapper
-│   ├── index.css               # Tailwind directives & delicate scrollbar styling
-│   └── main.jsx                # Application root entry
+│   ├── App.jsx                 # Routes & layout structure
+│   ├── index.css               # Tailwind directives & theme base
+│   └── main.jsx                # Application root entry point
 ├── index.html                  # SEO meta tags, OpenGraph previews & Google Fonts
 ├── package.json
 ├── postcss.config.js
@@ -82,110 +93,51 @@ bake-o-bliss/
 
 ---
 
-## 💻 Local Development Instructions
+## 💻 Local Running & Development Commands
 
-### Prerequisites
-- Node.js (v18 or higher recommended)
-- npm
+Open PowerShell or terminal in the project directory:
 
 ### 1. Install Dependencies
 ```bash
 npm install
 ```
 
-### 2. Start Development Server
+### 2. Start Both Backend & Frontend Simultaneously
 ```bash
 npm run dev
 ```
-Open your browser at `http://localhost:3000` (or the port displayed in your terminal).
+- **Backend API & SQLite DB:** `http://localhost:5000`
+- **Frontend Website:** `http://localhost:3000`
 
-### 3. Build for Production
+### 3. Or Run Independently
+- Start Backend API only: `npm run server`
+- Start Frontend only: `npm run client`
+
+### 4. Build Frontend for Production
 ```bash
 npm run build
 ```
-This produces an optimized production build in the `dist/` directory.
-
-### 4. Preview Production Build
-```bash
-npm run preview
-```
 
 ---
 
-## 📋 Checklist: Information the Bakery Owner Must Provide
+## 🔐 Owner Admin Panel Guide
 
-To personalize this website for the live business, update the following clearly marked files:
-
-1. **WhatsApp Contact Number (`src/data/config.js`)**:
-   - Update `whatsappNumber` (e.g. `919876543210` with country code, no `+` sign).
-   - Update `whatsappDisplayNumber` (e.g. `+91 98765 43210`).
-
-2. **Studio Location & Operating Hours (`src/data/config.js`)**:
-   - Update `location.title`, `location.address`, and `location.city`.
-   - Update `operatingHours.days` and `operatingHours.hours`.
-
-3. **Menu Products & Real Pricing (`src/data/products.js`)**:
-   - Replace the sample demonstration products with your actual baked offerings.
-   - Adjust product names, categories, weight/size options (e.g., 500g, 1kg), prices, and photo URLs.
-
-4. **Brand Story (`src/pages/About.jsx`)**:
-   - Personalize the "Our Story" section with the founder/baker's journey, inspirations, and specialty creations.
-
-5. **Currency / Region (`src/data/config.js`)**:
-   - Currently set to `₹` (INR). You can change this to `$` (USD), `£` (GBP), `€` (EUR), or `AED` if desired.
+1. Open your browser and navigate to: `http://localhost:3000/admin` (or click **Owner Portal** in the website footer).
+2. Enter the Owner PIN: **`8034`** (derived from Tower 4, Flat 803).
+3. The Admin Panel allows you to:
+   - **View Live Orders:** See customer name, WhatsApp phone number, pickup vs. delivery choice, delivery address, requested date/time slot, ordered treats, and line totals.
+   - **Update Order Status:** Instantly update status between *Pending*, *Confirmed*, *Baking*, *Ready for Pickup*, *Out for Delivery*, and *Completed*.
+   - **1-Click WhatsApp Chat:** Click *"Chat with Customer on WhatsApp"* on any order card to directly open a chat with the customer about their specific order!
+   - **Manage Custom Cake Inquiries:** Review bespoke cake themes, required dates, flavor preferences, and reference image links.
+   - **View Revenue Analytics:** Track recorded earnings, active orders, and customer messages.
+   - **Studio Verification:** Verify your Perambur address and operating hours.
 
 ---
 
-## 🚀 GitHub Setup Instructions
+## 📍 Studio & Ordering Highlights
 
-1. **Initialize Git & Commit** (if not already done):
-   ```bash
-   git add .
-   git commit -m "Initial commit: Production-ready Bake O Bliss website"
-   ```
-
-2. **Create a New Repository on GitHub**:
-   - Go to [GitHub.com/new](https://github.com/new).
-   - Name your repository (e.g., `bake-o-bliss-website`).
-   - Leave it **Public** or **Private**.
-   - Do **not** initialize with README or .gitignore (already created).
-
-3. **Link and Push to GitHub**:
-   ```bash
-   git remote add origin https://github.com/<YOUR-USERNAME>/bake-o-bliss-website.git
-   git branch -M main
-   git push -u origin main
-   ```
-
----
-
-## ☁️ Cloudflare Pages Deployment Instructions (100% Free)
-
-Cloudflare Pages provides lightning-fast global hosting with free SSL, automatic git deployments, and unlimited bandwidth.
-
-### Method 1: Git Integration (Recommended for continuous updates)
-1. Log in to the [Cloudflare Dashboard](https://dash.cloudflare.com/).
-2. In the left navigation, click on **Workers & Pages** > **Create application** > **Pages** > **Connect to Git**.
-3. Select your GitHub repository (`bake-o-bliss-website`).
-4. Configure the build settings:
-   - **Project Name:** `bake-o-bliss`
-   - **Production branch:** `main`
-   - **Framework preset:** `Vite`
-   - **Build command:** `npm run build`
-   - **Build output directory:** `dist`
-5. Click **Save and Deploy**.
-6. Cloudflare will automatically build and publish your site with a free `.pages.dev` domain and free SSL! Whenever you push updates to GitHub, Cloudflare will automatically rebuild and redeploy.
-
-### Method 2: Direct Upload via Wrangler (Optional)
-If you prefer deploying directly from your terminal:
-```bash
-npx wrangler pages deploy dist --project-name=bake-o-bliss
-```
-
----
-
-## 🔒 Ordering & Privacy Transparency
-
-- **WhatsApp Click-to-Chat:** Orders are sent as pre-formatted messages directly to the baker's WhatsApp.
-- **No Stored Payment Data:** The website never collects or stores sensitive credit card or banking details.
-- **Availability Confirmation:** Customers are explicitly informed that orders require confirmation by the baker before they are finalized.
+- **Boutique Address:** Flat No. 803, Tower 4, North Town Apartment, Stephenson Road, Binny Garden, Perambur, Chennai, Tamil Nadu 600012
+- **Fulfillment Choices:**
+  1. *Studio Self-Pickup (Free)* — Collection at Tower 4, North Town Apartment.
+  2. *Chennai Doorstep Delivery* — Coordinated via temperature-protected cab/courier (Porter / Swiggy Genie / Dunzo).
+- **Dual Confirmation:** Submitting an order saves it immediately to the backend SQLite database AND opens WhatsApp with a pre-filled summary, ensuring zero lost orders.

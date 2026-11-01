@@ -48,11 +48,10 @@ export const About = () => {
 
           <div className="space-y-4 text-sm text-chocolate/80 leading-relaxed font-light">
             <p>
-              {/* Bakery Owner Note: You can replace this demonstration story with your personal baking background */}
-              {BAKERY_CONFIG.brandName} began from a cozy home oven and a deep-seated passion for honest, delightful patisserie. In a world saturated with commercial bakeries that rely on frozen premixes, vegetable fats, and artificial additives, we wanted to create a haven where cakes taste just like homemade memories—only refined with professional culinary techniques.
+              {BAKERY_CONFIG.brandName} is a dedicated 100% pure vegetarian and eggless home bakery operating from North Town Apartment (Tower 4, Flat 803), Stephenson Road, Binny Garden, Perambur, Chennai. Born out of a deep-seated passion for honest, wholesome patisserie, our kitchen was founded with a clear vow: every single cake, crinkle-top brownie, and artisanal dessert must be completely egg-free, gelatin-free, and prepared with the highest standards of vegetarian kitchen sanctity.
             </p>
             <p>
-              What started as birthday cakes baked for family gatherings and sweet treats shared with close friends quickly blossomed into a beloved boutique home bakery. Today, our kitchen continues to honor that same intimate touch: we bake exclusively to order, so each customer receives fresh confectionery made specially for them.
+              In a market where vegetarian celebration cakes are often treated as an afterthought or made with chalky premixes, we set out to prove that eggless cakes can be lighter, more flavorful, and breathtakingly moist. Today, we craft custom celebration centerpieces, festive gift boxes, and gourmet cupcakes for families across Chennai, freshly baked to order for every special occasion.
             </p>
           </div>
 

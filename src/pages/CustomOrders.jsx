@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { generateCustomCakeWhatsAppUrl } from '../utils/whatsapp';
+import { createCustomInquiry } from '../services/api';
 
 export const CustomOrders = () => {
   const [formData, setFormData] = useState({
@@ -95,6 +96,9 @@ export const CustomOrders = () => {
       window.scrollTo({ top: 400, behavior: 'smooth' });
       return;
     }
+
+    // Save inquiry to backend SQLite DB / API
+    createCustomInquiry(formData).catch((err) => console.warn('Inquiry save notice:', err));
 
     const url = generateCustomCakeWhatsAppUrl(formData);
     setSubmittedUrl(url);

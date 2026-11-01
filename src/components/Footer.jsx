@@ -18,13 +18,14 @@ export const Footer = () => {
               <span className="font-serif text-3xl font-bold tracking-tight text-ivory">
                 {BAKERY_CONFIG.brandName}
               </span>
-              <span className="text-xs uppercase tracking-[0.25em] text-rose-300 font-medium">
-                {BAKERY_CONFIG.tagline}
+              <span className="text-xs uppercase tracking-[0.2em] text-emerald-300 font-semibold flex items-center gap-1.5 mt-0.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                100% Pure Veg & Eggless
               </span>
             </div>
             
             <p className="text-sm text-cream/75 leading-relaxed">
-              Every creation is made from scratch with pure dairy butter, premium couverture chocolate, and seasonal ingredients. No artificial preservatives, just genuine homemade bliss.
+              Chennai's premier 100% eggless artisanal home bakery. Baked with pure dairy butter, couverture Belgian chocolate, and zero gelatin or animal fat in our strictly vegetarian studio.
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
@@ -132,12 +133,18 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-cream/60 gap-4">
-          <p>© {new Date().getFullYear()} {BAKERY_CONFIG.brandName}. All rights reserved.</p>
-          <p className="flex items-center gap-1.5">
-            <span>Handcrafted with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
-            <span>for sweet moments</span>
-          </p>
+          <p>© {new Date().getFullYear()} {BAKERY_CONFIG.brandName}. 100% Pure Vegetarian & Eggless.</p>
+          <div className="flex items-center gap-4">
+            <Link to="/admin" className="text-cream/50 hover:text-rose-300 transition-colors flex items-center gap-1">
+              <span>Owner Portal</span>
+            </Link>
+            <span>•</span>
+            <p className="flex items-center gap-1.5">
+              <span>Handcrafted with</span>
+              <Heart className="w-3.5 h-3.5 text-rose-400 fill-rose-400" />
+              <span>in Perambur, Chennai</span>
+            </p>
+          </div>
         </div>
 
       </div>

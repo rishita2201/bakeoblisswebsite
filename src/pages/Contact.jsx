@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
+import { createMessage } from '../services/api';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -20,6 +21,9 @@ export const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.message.trim()) return;
+
+    // Save message to DB
+    createMessage(formData).catch((err) => console.warn('Message save notice:', err));
 
     // Generate WhatsApp quick message from contact form
     const msgText = `👋 *HELLO BAKE O BLISS!*\n\n` +

@@ -19,9 +19,9 @@ export const Hero = () => {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Elegant Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blush/50 border border-rose-300/40 text-rose-700 text-xs font-semibold tracking-wide uppercase">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Boutique Handcrafted Home Bakery</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-800 text-xs font-semibold tracking-wide uppercase">
+              <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span>100% Pure Vegetarian & Eggless Studio • Chennai</span>
             </div>
 
             {/* Main Headline */}
@@ -32,7 +32,7 @@ export const Hero = () => {
 
             {/* Brand Story Snippet */}
             <p className="text-base sm:text-lg text-chocolate/80 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
-              Welcome to {BAKERY_CONFIG.brandName}. From rich Belgian chocolate cakes and decadent fudgy brownies to bespoke tiered celebration centerpieces, every creation is small-batch baked from scratch with pure butter, wholesome ingredients, and endless care.
+              Welcome to {BAKERY_CONFIG.brandName}, located in North Town Apartment, Perambur, Chennai. Every cake, crinkle-top brownie, and floral cupcake is 100% pure vegetarian and eggless—small-batch baked from scratch with pure dairy butter, rich Belgian couverture, and honest homemade care.
             </p>
 
             {/* Call to Actions */}

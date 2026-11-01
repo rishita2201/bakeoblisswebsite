@@ -40,12 +40,11 @@ export const ProductCard = ({ product }) => {
               Signature
             </span>
           )}
-          {product.egglessAvailable && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium bg-ivory/90 text-emerald-800 border border-emerald-300 backdrop-blur-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-              Eggless Avail.
-            </span>
-          )}
+          {/* 100% Pure Veg Badge */}
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-white/95 text-emerald-800 border border-emerald-400 backdrop-blur-sm shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+            100% Pure Veg
+          </span>
         </div>
 
         {/* Quick View Floating Pill on Hover */}
