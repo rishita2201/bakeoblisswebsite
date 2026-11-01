@@ -9,6 +9,7 @@
     "server": "node server/index.js",
     "start": "node server/index.js",
     "build": "node scripts/clean-build.js && vite build --emptyOutDir && node scripts/clean-build.js",
+    "deploy": "node scripts/clean-build.js && npx wrangler deploy",
     "preview": "vite preview"
   },
   "dependencies": {
