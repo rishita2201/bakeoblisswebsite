@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FFF9F3] text-[#593B35] font-sans antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+/* Custom delicate scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF9F3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D9AAB0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C98F96;
+}
+
+/* Smooth bakery accents */
+.bg-cream-radial {
+  background: radial-gradient(circle at 50% 0%, #FFFDFB 0%, #FFF9F3 75%);
+}
+
+.text-gold {
+  color: #B38F4D;
+}

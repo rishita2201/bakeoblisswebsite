@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#FFF9F3" stroke="#C98F96" stroke-width="2.5"/>
+  <path d="M22 28 C22 21, 42 21, 42 28 C45 28, 47 31, 45 35 C43 39, 21 39, 19 35 C17 31, 19 28, 22 28 Z" fill="#F4DDE0" stroke="#593B35" stroke-width="1.8" stroke-linejoin="round"/>
+  <path d="M20 37 L23 50 C23.5 52, 25 53, 27 53 L37 53 C39 53, 40.5 52, 41 50 L44 37" fill="#F8EFE5" stroke="#593B35" stroke-width="1.8" stroke-linejoin="round"/>
+  <!-- Decorative Swirl on Top -->
+  <path d="M32 15 C33.5 17.5, 36 21, 32 23 C29 21, 30.5 17.5, 32 15 Z" fill="#C98F96"/>
+  <!-- Ribs on liner -->
+  <line x1="28" y1="40" x2="29" y2="49" stroke="#C98F96" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="32" y1="40" x2="32" y2="50" stroke="#C98F96" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="36" y1="40" x2="35" y2="49" stroke="#C98F96" stroke-width="1.2" stroke-linecap="round"/>
+</svg>
