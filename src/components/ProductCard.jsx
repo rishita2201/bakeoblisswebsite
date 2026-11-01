@@ -49,14 +49,6 @@ export const ProductCard = ({ product }) => {
           )}
         </div>
 
-        {/* 100% Pure Veg Seal in Upper Right */}
-        <div className="absolute top-3 right-3 z-10">
-          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-serif font-semibold bg-white/95 text-emerald-800 border border-emerald-500 shadow-xs backdrop-blur-xs">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
-            100% Pure Veg
-          </span>
-        </div>
-
         {/* Hover Vignette Overlay */}
         <div className="absolute inset-0 bg-espresso/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
           <span className="px-5 py-2 rounded-full bg-white/95 text-espresso font-serif text-xs font-semibold tracking-wider uppercase shadow-nouveau border border-gold-500/50 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">

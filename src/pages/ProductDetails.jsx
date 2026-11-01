@@ -186,13 +186,13 @@ export const ProductDetails = () => {
             {product.description}
           </p>
 
-          {/* 100% Pure Veg Cameo Seal */}
-          <div className="p-3.5 rounded-2xl bg-parchment-100/90 border border-gold-500/40 flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 flex-shrink-0 animate-pulse" />
-            <div className="text-xs font-serif">
-              <p className="font-bold text-emerald-800">100% Pure Vegetarian & Eggless</p>
-              <p className="text-espresso/70">Baked with pure butter in sanitized vegetarian bake-ware in Perambur, Chennai.</p>
-            </div>
+          {/* Studio Guarantee & Freshness */}
+          <div className="p-3 rounded-2xl bg-parchment-100/70 border border-gold-500/30 flex items-center justify-between text-xs font-serif text-espresso/75">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span>Sanitized Studio Bake • Perambur, Chennai</span>
+            </span>
+            <span className="text-gold-700 font-semibold italic text-[11px]">Baked Fresh to Order</span>
           </div>
 
           {/* Available Sizes / Variants Selection */}

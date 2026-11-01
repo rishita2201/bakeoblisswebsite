@@ -5,6 +5,7 @@ import { Hero } from '../components/Hero';
 import { ProductCard } from '../components/ProductCard';
 import { PRODUCTS } from '../data/products';
 import { BAKERY_CONFIG } from '../data/config';
+import { INSTAGRAM_POSTS } from '../data/instagram';
 import { createWhatsAppLink } from '../utils/whatsapp';
 import { NouveauFloralDivider, NouveauArchCrest, NouveauCorner } from '../components/ArtNouveauDecorations';
 
@@ -15,7 +16,7 @@ export const Home = () => {
     {
       title: 'Celebration Cakes',
       category: 'Cakes',
-      description: '100% Eggless layered sponges with Swiss buttercream & organic botanical styling.',
+      description: 'Artisanal layered sponges with Swiss-style buttercream & organic botanical styling.',
       image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
     },
     {
@@ -86,15 +87,6 @@ export const Home = () => {
       occasion: '1st Birthday Celebration (Anna Nagar, Chennai)',
       stars: 5,
     },
-  ];
-
-  const instagramPhotos = [
-    { url: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=500&q=80', alt: 'Rose Petal Cake' },
-    { url: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=500&q=80', alt: 'Artisan Floral Cupcakes' },
-    { url: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=500&q=80', alt: 'Crinkle Fudge Brownies' },
-    { url: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=500&q=80', alt: 'Eggless Macarons' },
-    { url: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80', alt: 'Belgian Truffle Cake' },
-    { url: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=500&q=80', alt: 'Botanical Tiered Cake' },
   ];
 
   return (
@@ -347,40 +339,52 @@ export const Home = () => {
         <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
           <div>
             <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">
-              Galerie Instagram
+              Galerie Instagram • @bakeobliss
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-normal text-espresso">
-              {BAKERY_CONFIG.instagramHandle}
+              Fresh from Our Instagram Studio
             </h2>
+            <p className="text-xs font-serif italic text-espresso/70 mt-1 max-w-xl">
+              "Freshly baked, made with love 🤎 | Cakes • Brownies • Cookies • Bakes | Made to make your moments sweeter ✨"
+            </p>
           </div>
           <a
             href={BAKERY_CONFIG.instagramUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-gold-50 text-espresso border border-gold-500/50 text-xs font-serif tracking-wider uppercase font-semibold shadow-xs transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white hover:bg-gold-50 text-espresso border border-gold-500/50 text-xs font-serif tracking-wider uppercase font-semibold shadow-xs transition-colors shrink-0"
           >
             <Instagram className="w-4 h-4 text-gold-600" />
-            <span>Follow Atelier On Instagram</span>
+            <span>Follow @bakeobliss</span>
           </a>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-          {instagramPhotos.map((photo, idx) => (
+          {INSTAGRAM_POSTS.map((post) => (
             <a
-              key={idx}
-              href={BAKERY_CONFIG.instagramUrl}
+              key={post.id}
+              href={post.postUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative aspect-square rounded-2xl overflow-hidden bg-parchment-200 block border border-gold-500/30 shadow-xs hover:shadow-nouveau transition-all"
             >
               <img
-                src={photo.url}
-                alt={photo.alt}
+                src={post.imageUrl}
+                alt={post.caption}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-espresso/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center text-gold-200">
-                <Instagram className="w-6 h-6" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 text-gold-100">
+                <div className="flex items-center justify-between text-[11px] font-serif mb-1">
+                  <span className="flex items-center gap-1 font-bold text-white">
+                    <Heart className="w-3 h-3 fill-gold-400 text-gold-400" />
+                    {post.likes}
+                  </span>
+                  <Instagram className="w-3.5 h-3.5 text-gold-300" />
+                </div>
+                <p className="text-[10px] font-serif line-clamp-2 leading-tight text-white/90">
+                  {post.caption}
+                </p>
               </div>
             </a>
           ))}

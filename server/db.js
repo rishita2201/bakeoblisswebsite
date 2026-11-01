@@ -138,8 +138,8 @@ function seedInitialProducts() {
       name: 'Vintage Raspberry & Rose Petal Cake',
       category: 'Cakes',
       price: 1450,
-      short_description: '100% Eggless vanilla sponge layered with house raspberry compote & rosewater buttercream.',
-      description: 'An ethereal celebration centerpiece inspired by European tea salons. 100% Eggless vanilla sponge filled with tart raspberry reduction, rosewater buttercream, and dried organic rose petals.',
+      short_description: 'Vanilla sponge layered with house raspberry compote & rosewater buttercream.',
+      description: 'An ethereal celebration centerpiece inspired by European tea salons. Vanilla sponge filled with tart raspberry reduction, rosewater buttercream, and dried organic rose petals.',
       image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
       is_signature: 1,
@@ -152,15 +152,15 @@ function seedInitialProducts() {
         { id: '1.5kg', label: '1.5 kg (Serves 14-18)', price: 3750 }
       ]),
       flavor_notes: JSON.stringify(['Madagascar Vanilla', 'Tart Raspberry', 'Damask Rose Buttercream']),
-      allergens: '100% Pure Veg & Eggless. Contains Dairy, Gluten.'
+      allergens: 'Contains Pure Dairy Butter, Gluten.'
     },
     {
       id: 'belgian-dark-chocolate-truffle-cake',
       name: 'Belgian Dark Chocolate Truffle Cake',
       category: 'Cakes',
       price: 1550,
-      short_description: '100% Eggless intense 70% Callebaut chocolate sponge drenched in espresso ganache & velvet cocoa dusting.',
-      description: 'The ultimate indulgence for chocolate lovers. 100% Eggless, single-origin Belgian cocoa, silky ganache, and edible gold leaf.',
+      short_description: 'Intense 70% Callebaut chocolate sponge drenched in espresso ganache & velvet cocoa dusting.',
+      description: 'The ultimate indulgence for chocolate lovers. Moist layers baked with single-origin Belgian cocoa, silky ganache, and edible gold leaf.',
       image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
       is_signature: 0,
@@ -173,15 +173,15 @@ function seedInitialProducts() {
         { id: '1.5kg', label: '1.5 kg (Serves 14-18)', price: 4100 }
       ]),
       flavor_notes: JSON.stringify(['70% Belgian Dark Chocolate', 'Silky Ganache', 'Espresso Undertone']),
-      allergens: '100% Pure Veg & Eggless. Contains Dairy, Gluten.'
+      allergens: 'Contains Pure Dairy Butter, Gluten.'
     },
     {
       id: 'crinkle-top-fudge-brownies',
-      name: 'Signature Eggless Crinkle-Top Brownies',
+      name: 'Classic Crinkle-Top Fudge Brownies',
       category: 'Brownies',
       price: 650,
-      short_description: '100% Eggless signature ultra-fudgy brownies with that coveted shiny crinkle crust.',
-      description: 'Slow-melted French dark chocolate blended with pure dairy butter and baked into a dense, gooey, 100% eggless center with crisp edges.',
+      short_description: 'Signature ultra-fudgy brownies with that coveted shiny crinkle crust.',
+      description: 'Slow-melted French dark chocolate blended with pure dairy butter and baked into a dense, gooey center with crisp edges.',
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
       is_signature: 1,
@@ -194,15 +194,15 @@ function seedInitialProducts() {
         { id: 'box-of-12', label: 'Party Box of 12 Squares', price: 1750 }
       ]),
       flavor_notes: JSON.stringify(['French Dark Chocolate', 'Gooey Fudge Center', 'Pure Dairy Butter']),
-      allergens: '100% Pure Veg & Eggless. Contains Dairy, Gluten.'
+      allergens: 'Contains Pure Dairy Butter, Gluten.'
     },
     {
       id: 'floral-pastel-celebration-cupcakes',
-      name: 'Eggless Floral Buttercream Cupcakes',
+      name: 'Artisanal Floral Buttercream Cupcakes',
       category: 'Cupcakes',
       price: 750,
-      short_description: '100% Eggless box of delicate cupcakes piped with hand-piped hydrangeas & garden blooms.',
-      description: 'Miniature works of edible art made with fluffy 100% eggless vanilla sponge and silky Swiss-style buttercream.',
+      short_description: 'Box of delicate cupcakes piped with hand-piped hydrangeas & garden blooms.',
+      description: 'Miniature works of edible art made with fluffy vanilla sponge and silky Swiss-style buttercream.',
       image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
       is_signature: 1,
@@ -214,14 +214,14 @@ function seedInitialProducts() {
         { id: 'box-of-12', label: 'Box of 12 Assorted', price: 1400 }
       ]),
       flavor_notes: JSON.stringify(['Vanilla Bean', 'Raspberry Curd', 'Silky Buttercream']),
-      allergens: '100% Pure Veg & Eggless. Contains Dairy, Gluten.'
+      allergens: 'Contains Pure Dairy Butter, Gluten.'
     },
     {
       id: 'nyc-style-chunky-chocolate-chip-cookies',
-      name: 'Eggless NYC Chunky Choc-Chip Cookies',
+      name: 'NYC Style Chunky Choc-Chip Cookies',
       category: 'Cookies',
       price: 520,
-      short_description: '100% Eggless extra-thick golden cookies packed with melted chocolate chunks & flaky sea salt.',
+      short_description: 'Extra-thick golden cookies packed with melted chocolate chunks & flaky sea salt.',
       description: 'Crisp on the outer rim and soft, chewy in the center. Made with brown butter, loaded with chocolate chunks, and finished with Maldon sea salt.',
       image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
@@ -234,15 +234,15 @@ function seedInitialProducts() {
         { id: 'pack-of-8', label: 'Pack of 8 Giant Cookies', price: 980 }
       ]),
       flavor_notes: JSON.stringify(['Browned Butter', 'Belgian Chocolate Chunks', 'Maldon Sea Salt']),
-      allergens: '100% Pure Veg & Eggless. Contains Dairy, Gluten.'
+      allergens: 'Contains Pure Dairy Butter, Gluten.'
     },
     {
       id: 'paris-macaron-gift-box',
-      name: 'Eggless Parisian Macaron Collection',
+      name: 'Artisan Parisian Macaron Collection',
       category: 'Desserts',
       price: 850,
-      short_description: '100% Eggless crisp almond meringue shells with luscious ganache & fruit reduction fillings.',
-      description: 'Handcrafted French-style macarons made with pure aquafaba and almond flour. 100% Eggless with delicate pieds and soft chewy centers.',
+      short_description: 'Crisp almond meringue shells with luscious ganache & fruit reduction fillings.',
+      description: 'Handcrafted French-style macarons made with pure aquafaba and almond flour. Featuring delicate pieds and soft chewy centers.',
       image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=1000&q=80',
       is_bestseller: 1,
       is_signature: 1,
@@ -254,7 +254,7 @@ function seedInitialProducts() {
         { id: 'box-of-12', label: 'Luxury Keepsake Box of 12', price: 1600 }
       ]),
       flavor_notes: JSON.stringify(['Rose Lychee', 'Dark Cocoa Ganache', 'Pistachio', 'Salted Caramel']),
-      allergens: '100% Pure Veg & Eggless. Contains Almonds (Nuts), Dairy.'
+      allergens: 'Contains Almonds (Nuts), Pure Dairy Butter.'
     }
   ];
 
