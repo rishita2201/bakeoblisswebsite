@@ -33,7 +33,7 @@ export const Footer = () => {
             </div>
             
             <p className="text-xs sm:text-sm font-serif text-[#EFE3D3]/75 leading-relaxed font-light">
-              Chennai's premier 100% eggless artisanal home patisserie. Slow-baked with pure cultured dairy butter, single-origin Belgian cocoa, and zero animal gelatin in our dedicated vegetarian studio.
+              Chennai's 100% pure vegetarian home bakery in Perambur. Freshly baked cakes, fudgy brownies, and delicious treats made with pure butter and love.
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
@@ -51,7 +51,7 @@ export const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2.5 rounded-full bg-[#2D1A16] text-gold-300 hover:bg-emerald-600 hover:text-white transition-all duration-200 border border-gold-500/40"
-                aria-label="WhatsApp Atelier"
+                aria-label="WhatsApp Bake O Bliss"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
@@ -61,32 +61,32 @@ export const Footer = () => {
           {/* Column 2: Navigation Links */}
           <div className="space-y-4">
             <h4 className="font-serif text-base font-bold tracking-wider uppercase text-gold-300 flex items-center gap-2">
-              <span>❧ Explorations</span>
+              <span>❧ Quick Links</span>
             </h4>
             <ul className="space-y-2.5 text-xs font-serif tracking-wide text-[#EFE3D3]/85">
               <li>
                 <Link to="/menu" className="hover:text-gold-300 transition-colors">
-                  The Full Menu Catalogue
+                  Our Menu
                 </Link>
               </li>
               <li>
                 <Link to="/custom-orders" className="hover:text-gold-300 transition-colors">
-                  Commission Bespoke Cakes
+                  Custom Cakes
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="hover:text-gold-300 transition-colors">
-                  Atelier Story & Philosophy
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link to="/cart" className="hover:text-gold-300 transition-colors">
-                  Review Shopping Basket
+                  Shopping Cart
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="hover:text-gold-300 transition-colors">
-                  Contact Studio
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -96,7 +96,7 @@ export const Footer = () => {
           <div className="space-y-4">
             <h4 className="font-serif text-base font-bold tracking-wider uppercase text-gold-300 flex items-center gap-2">
               <MapPin className="w-4 h-4 text-gold-400" />
-              <span>Studio Location</span>
+              <span>Bakery Location</span>
             </h4>
             <div className="space-y-2.5 text-xs font-serif text-[#EFE3D3]/80 leading-relaxed">
               <p className="font-bold text-gold-200">{BAKERY_CONFIG.location.title}</p>

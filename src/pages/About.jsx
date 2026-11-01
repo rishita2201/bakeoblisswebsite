@@ -12,7 +12,7 @@ export const About = () => {
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
         <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
-          Notre Histoire & Philosophie
+          Our Story & Philosophy
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-tight">
           Baked with Heart, <br />
@@ -20,7 +20,7 @@ export const About = () => {
         </h1>
         <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-          Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>. We are a dedicated 100% pure vegetarian & eggless home studio operating from North Town Apartment, Perambur, Chennai.
+          Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>. We are a dedicated 100% pure vegetarian & eggless home bakery operating from North Town Apartment, Perambur, Chennai.
         </p>
       </div>
 
@@ -59,10 +59,10 @@ export const About = () => {
 
           <div className="space-y-4 text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
             <p>
-              {BAKERY_CONFIG.brandName} began from a cozy home oven and a deep-seated passion for honest, delightful patisserie in Perambur, Chennai. In a market where vegetarian celebration cakes are often treated as an afterthought or made with chalky premixes and vegetable shortenings, we set out to prove that eggless cakes can be lighter, more flavorful, and breathtakingly moist.
+              {BAKERY_CONFIG.brandName} began from a home oven and a deep passion for baking fresh, delicious cakes in Perambur, Chennai. In a market where vegetarian celebration cakes are often treated as an afterthought or made with premixes and vegetable shortenings, we set out to prove that eggless cakes can be lighter, more flavorful, and wonderfully moist.
             </p>
             <p>
-              Operating strictly as a 100% vegetarian studio, we never permit eggs or animal gelatin in our kitchen. From birthday cakes baked for family gatherings to tiered wedding showpieces, we bake exclusively to order, so each customer receives fresh confectionery made specially for them.
+              Operating strictly as a 100% vegetarian kitchen, we never permit eggs or animal gelatin in our kitchen. From birthday cakes baked for family gatherings to tiered wedding cakes, we bake exclusively to order, so each customer receives fresh bakes made specially for them.
             </p>
           </div>
 
@@ -86,16 +86,16 @@ export const About = () => {
           </h2>
           <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-2 mx-auto" />
           <p className="text-xs sm:text-sm font-serif text-espresso/75">
-            Four guiding principles that shape every recipe that leaves our studio.
+            Four guiding principles that shape every recipe that leaves our kitchen.
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
             <span className="font-serif text-gold-700 font-bold text-lg block">I</span>
-            <h3 className="font-serif text-base font-bold text-espresso">100% Eggless Sanctity</h3>
+            <h3 className="font-serif text-base font-bold text-espresso">100% Pure Vegetarian</h3>
             <p className="text-xs font-serif text-espresso/70 leading-relaxed">
-              Dedicated vegetarian bake-ware. Zero animal fat, zero gelatin, zero compromises.
+              Dedicated vegetarian utensils. Zero animal fat, zero gelatin, zero compromises.
             </p>
           </div>
 
@@ -103,23 +103,23 @@ export const About = () => {
             <span className="font-serif text-gold-700 font-bold text-lg block">II</span>
             <h3 className="font-serif text-base font-bold text-espresso">Freshly Whipped to Order</h3>
             <p className="text-xs font-serif text-espresso/70 leading-relaxed">
-              Never frozen, never thawed. Sponges are baked within hours of pickup or delivery.
+              Never frozen, never stored. Cakes are baked fresh for your designated day.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
             <span className="font-serif text-gold-700 font-bold text-lg block">III</span>
-            <h3 className="font-serif text-base font-bold text-espresso">Balanced Nuanced Sweetness</h3>
+            <h3 className="font-serif text-base font-bold text-espresso">Balanced Sweetness</h3>
             <p className="text-xs font-serif text-espresso/70 leading-relaxed">
-              Carefully tempered sugar levels allowing real Madagascar vanilla and dark cocoa to shine.
+              Carefully balanced sugar levels allowing real vanilla and rich cocoa to shine.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
             <span className="font-serif text-gold-700 font-bold text-lg block">IV</span>
-            <h3 className="font-serif text-base font-bold text-espresso">Art Nouveau Botanicals</h3>
+            <h3 className="font-serif text-base font-bold text-espresso">Thoughtful Styling</h3>
             <p className="text-xs font-serif text-espresso/70 leading-relaxed">
-              Whiplash piping, edible organic petals, and delicate vintage aesthetics.
+              Hand-piped buttercream, edible petals, and elegant personalized decorations.
             </p>
           </div>
         </div>
@@ -138,25 +138,25 @@ export const About = () => {
           <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-1" />
 
           <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-            We source only pristine raw goods for our confectionery:
+            We use only the best quality ingredients in our kitchen:
           </p>
 
           <div className="space-y-3 text-xs sm:text-sm font-serif text-espresso/80">
             <div className="flex items-start gap-3">
               <span className="text-gold-700 font-bold">✦</span>
-              <span><strong>100% Pure Dairy Butter:</strong> We never use margarine or hydrogenated vegetable shortening.</span>
+              <span><strong>100% Pure Dairy Butter:</strong> We never use margarine or vegetable shortening.</span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gold-700 font-bold">✦</span>
-              <span><strong>Couverture Belgian Chocolate:</strong> Rich, slow-tempered Callebaut chocolate and single-origin cocoa.</span>
+              <span><strong>Rich Chocolate & Cocoa:</strong> Rich, slow-melted chocolate and premium dark cocoa.</span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gold-700 font-bold">✦</span>
-              <span><strong>Hand-Cooked Fruit Compotes:</strong> Made in small batches using whole berries and fresh citrus zest.</span>
+              <span><strong>Homemade Fruit Compotes:</strong> Made in small batches using real berries and fresh citrus zest.</span>
             </div>
             <div className="flex items-start gap-3">
               <span className="text-gold-700 font-bold">✦</span>
-              <span><strong>Real Madagascar Vanilla:</strong> Pure vanilla bean extract and scraped vanilla pods, never synthetic vanillin.</span>
+              <span><strong>Pure Vanilla:</strong> Quality vanilla extract and real vanilla beans for natural fragrance.</span>
             </div>
           </div>
         </div>
@@ -186,7 +186,7 @@ export const About = () => {
           </h2>
           <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-2 mx-auto" />
           <p className="text-sm font-serif text-gold-100/80 font-light leading-relaxed">
-            Whether for an intimate afternoon tea, a gift box of brownies, or a bespoke multi-tiered anniversary cake, we would be delighted to bake for you.
+            Whether for an afternoon treat, a gift box of brownies, or a custom tiered anniversary cake, we would love to bake for you.
           </p>
           <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
@@ -199,7 +199,7 @@ export const About = () => {
               to="/custom-orders"
               className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
             >
-              Commission Bespoke Cake
+              Order Custom Cake
             </Link>
           </div>
         </div>

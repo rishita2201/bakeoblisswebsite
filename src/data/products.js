@@ -1,5 +1,5 @@
 /**
- * BAKE O BLISS - ARTISANAL PRODUCT CATALOGUE
+ * BAKE O BLISS - FRESH PRODUCT CATALOGUE
  * 
  * Location: North Town Apartment, Perambur, Chennai
  * Note: Since Bake O Bliss is exclusively a 100% pure vegetarian & eggless bakery,
@@ -22,8 +22,8 @@ export const PRODUCTS = [
     name: 'Vintage Raspberry & Rose Petal Cake',
     category: 'Cakes',
     price: 1450,
-    shortDescription: 'Delicate vanilla sponge layered with house raspberry compote & organic rosewater Swiss buttercream.',
-    description: 'An ethereal celebration centerpiece inspired by European tea salons. Aromatic Madagascar vanilla sponge filled with tart hand-cooked raspberry reduction, frosted with silky rosewater buttercream and adorned with edible dried organic rose petals and blush piping.',
+    shortDescription: 'Soft vanilla sponge layered with homemade raspberry compote and rosewater buttercream.',
+    description: 'A lovely celebration cake baked with fragrant vanilla sponge, sweet homemade raspberry compote, smooth rosewater buttercream, and dried rose petals.',
     image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80',
@@ -38,7 +38,7 @@ export const PRODUCTS = [
       { id: '1kg', label: '1 kg (Serves 8-12)', price: 2600 },
       { id: '1.5kg', label: '1.5 kg (Serves 14-18)', price: 3750 }
     ],
-    flavorNotes: ['Madagascar Vanilla', 'Tart Raspberry', 'Damask Rose Buttercream'],
+    flavorNotes: ['Madagascar Vanilla', 'Tart Raspberry', 'Rose Buttercream'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
@@ -46,8 +46,8 @@ export const PRODUCTS = [
     name: 'Belgian Dark Chocolate Truffle Cake',
     category: 'Cakes',
     price: 1550,
-    shortDescription: 'Intense 70% Callebaut chocolate sponge drenched in espresso ganache & velvet cocoa dusting.',
-    description: 'The ultimate indulgence for true chocolate aficionados. Ultra-rich moist layers baked with single-origin Belgian cocoa, filled with silky dark chocolate ganache, and crowned with hand-rolled artisan truffles and edible gold leaf.',
+    shortDescription: 'Moist dark chocolate sponge layered with rich chocolate ganache and cocoa dusting.',
+    description: 'The ultimate treat for chocolate lovers. Moist layers baked with rich dark chocolate, filled with smooth chocolate ganache, and topped with chocolate truffles.',
     image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=1000&q=80',
@@ -62,7 +62,7 @@ export const PRODUCTS = [
       { id: '1kg', label: '1 kg (Serves 8-12)', price: 2850 },
       { id: '1.5kg', label: '1.5 kg (Serves 14-18)', price: 4100 }
     ],
-    flavorNotes: ['70% Belgian Dark Chocolate', 'Silky Ganache', 'Espresso Undertone'],
+    flavorNotes: ['70% Dark Chocolate', 'Smooth Ganache', 'Light Coffee Notes'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
@@ -70,8 +70,8 @@ export const PRODUCTS = [
     name: 'Salted Caramel Biscoff Drip Cake',
     category: 'Cakes',
     price: 1600,
-    shortDescription: 'Spiced speculoos sponge layered with house salted caramel drizzle & Lotus biscuit crumb.',
-    description: 'Warm spices meet velvety sweetness. Fluffy Biscoff cookie butter sponge paired with layers of salted butter caramel cream, finished with an amber caramel drip and loaded with crispy Lotus biscuits.',
+    shortDescription: 'Spiced Biscoff sponge layered with caramel drizzle and Lotus biscuit crumb.',
+    description: 'Warm spices meet velvety sweetness. Fluffy Biscoff cookie sponge paired with salted caramel cream, finished with a golden caramel drip and crispy Lotus biscuits.',
     image: 'https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80'
@@ -85,16 +85,16 @@ export const PRODUCTS = [
       { id: '1kg', label: '1 kg (Serves 8-12)', price: 2950 },
       { id: '1.5kg', label: '1.5 kg (Serves 14-18)', price: 4200 }
     ],
-    flavorNotes: ['Lotus Speculoos', 'Sea Salt Caramel', 'Brown Butter Notes'],
+    flavorNotes: ['Lotus Biscoff', 'Salted Caramel', 'Pure Butter Cream'],
     allergens: 'Contains Pure Dairy Butter, Gluten, Soy.'
   },
   {
     id: 'floral-pastel-celebration-cupcakes',
-    name: 'Artisanal Floral Buttercream Cupcakes',
+    name: 'Floral Buttercream Cupcakes',
     category: 'Cupcakes',
     price: 750,
-    shortDescription: 'Box of delicate cupcakes piped with hand-crafted floral hydrangeas & garden English roses.',
-    description: 'Each cupcake is a miniature work of edible floral art. Made with fluffy vanilla bean sponge, topped with silky Swiss-style buttercream piped into subtle dusty rose and ivory petals.',
+    shortDescription: 'Box of delicate cupcakes piped with pretty buttercream flowers and garden roses.',
+    description: 'Fluffy vanilla sponge cupcakes topped with smooth, silky buttercream piped into lovely pastel floral designs.',
     image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=1000&q=80'
@@ -115,8 +115,8 @@ export const PRODUCTS = [
     name: 'Dark Chocolate Ganache Cupcakes',
     category: 'Cupcakes',
     price: 680,
-    shortDescription: 'Moist chocolate cupcakes topped with whipped Belgian dark ganache swirl & crisp pearls.',
-    description: 'Decadent, deep chocolate cupcakes made with premium Dutch cocoa and cultured butter, crowned with whipped Belgian dark chocolate ganache and chocolate crisp pearls.',
+    shortDescription: 'Moist chocolate cupcakes topped with whipped dark chocolate ganache swirl.',
+    description: 'Delicious chocolate cupcakes made with rich cocoa and pure butter, topped with whipped dark chocolate ganache and chocolate pearls.',
     image: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [],
     isBestseller: false,
@@ -127,7 +127,7 @@ export const PRODUCTS = [
       { id: 'box-of-6', label: 'Box of 6 Cupcakes', price: 680 },
       { id: 'box-of-12', label: 'Box of 12 Cupcakes', price: 1250 }
     ],
-    flavorNotes: ['Dutch Cocoa', 'Whipped Ganache', 'Dark Chocolate Pearls'],
+    flavorNotes: ['Rich Cocoa', 'Whipped Ganache', 'Dark Chocolate Pearls'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
@@ -135,8 +135,8 @@ export const PRODUCTS = [
     name: 'Classic Crinkle-Top Fudge Brownies',
     category: 'Brownies',
     price: 650,
-    shortDescription: 'Signature ultra-fudgy brownies with that coveted shiny paper-thin crinkle crust.',
-    description: 'Our pride and joy. Slow-melted French dark chocolate blended with pure dairy butter and baked into a dense, gooey center with crisp edges and a shiny, paper-thin crinkle top.',
+    shortDescription: 'Fudgy brownies with that classic shiny paper-thin crinkle crust.',
+    description: 'Our customer favourite. Melted dark chocolate blended with pure dairy butter and baked into a dense, gooey center with crisp edges and a shiny crinkle top.',
     image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=1000&q=80'
@@ -150,7 +150,7 @@ export const PRODUCTS = [
       { id: 'box-of-8', label: 'Box of 8 Large Squares', price: 1200 },
       { id: 'box-of-12', label: 'Party Box of 12 Squares', price: 1750 }
     ],
-    flavorNotes: ['French Dark Chocolate', 'Gooey Fudge Center', 'Pure Dairy Butter'],
+    flavorNotes: ['Dark Chocolate', 'Gooey Fudge Center', 'Pure Dairy Butter'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
@@ -158,8 +158,8 @@ export const PRODUCTS = [
     name: 'Salted Caramel & Roasted Walnut Brownies',
     category: 'Brownies',
     price: 720,
-    shortDescription: 'Deep chocolate brownie squares swirled with house caramel & roasted California walnuts.',
-    description: 'Rich dark chocolate brownie base generously swirled with our slow-simmered artisanal sea salt caramel and oven-toasted California walnuts for an addictive crunch.',
+    shortDescription: 'Rich chocolate brownies swirled with homemade salted caramel and roasted walnuts.',
+    description: 'Fudgy chocolate brownie squares swirled with homemade salted caramel and toasted walnuts for a delicious crunch.',
     image: 'https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [],
     isBestseller: false,
@@ -167,10 +167,10 @@ export const PRODUCTS = [
     availability: 'in_stock',
     preparationTime: '24 hours advance notice',
     variants: [
-      { id: 'box-of-4', label: 'Box of 4 Gourmet Squares', price: 720 },
-      { id: 'box-of-8', label: 'Box of 8 Gourmet Squares', price: 1350 }
+      { id: 'box-of-4', label: 'Box of 4 Squares', price: 720 },
+      { id: 'box-of-8', label: 'Box of 8 Squares', price: 1350 }
     ],
-    flavorNotes: ['Toasted Walnuts', 'Fleur de Sel Caramel', 'Dark Chocolate'],
+    flavorNotes: ['Toasted Walnuts', 'Salted Caramel', 'Dark Chocolate'],
     allergens: 'Contains Tree Nuts, Pure Dairy Butter, Gluten.'
   },
   {
@@ -178,8 +178,8 @@ export const PRODUCTS = [
     name: 'NYC Style Chunky Choc-Chip Cookies',
     category: 'Cookies',
     price: 520,
-    shortDescription: 'Extra-thick golden cookies packed with melted chocolate chunks & flaky Maldon sea salt.',
-    description: 'Crisp on the outer rim and soft, gooey in the center. Made with brown butter, loaded with semi-sweet and milk chocolate chunks, and finished with Maldon sea salt flakes.',
+    shortDescription: 'Thick golden cookies packed with melted chocolate chunks and a pinch of sea salt.',
+    description: 'Crisp on the outside and soft, gooey in the center. Made with pure butter and loaded with rich chocolate chunks.',
     image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80'
@@ -192,7 +192,7 @@ export const PRODUCTS = [
       { id: 'pack-of-4', label: 'Pack of 4 Giant Cookies (100g each)', price: 520 },
       { id: 'pack-of-8', label: 'Pack of 8 Giant Cookies', price: 980 }
     ],
-    flavorNotes: ['Browned Butter', 'Belgian Chocolate Chunks', 'Maldon Sea Salt'],
+    flavorNotes: ['Pure Butter', 'Chocolate Chunks', 'Sea Salt'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
@@ -200,8 +200,8 @@ export const PRODUCTS = [
     name: 'Pistachio & Rose Pure Butter Shortbread',
     category: 'Cookies',
     price: 480,
-    shortDescription: 'Melt-in-mouth Scottish shortbread infused with Persian rose & slivered Iranian pistachios.',
-    description: 'Delicately crumbly butter shortbread made with pure cultured dairy butter, scented with green cardamom and organic rose petals, rolled in roasted Iranian pistachio crumb.',
+    shortDescription: 'Melt-in-mouth butter cookies infused with rose and roasted pistachios.',
+    description: 'Delicately crumbly butter cookies made with pure dairy butter, cardamom, rose petals, and roasted pistachios.',
     image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [],
     isBestseller: false,
@@ -210,18 +210,18 @@ export const PRODUCTS = [
     preparationTime: '24 hours advance notice',
     variants: [
       { id: 'jar-200g', label: 'Gift Jar (200 grams)', price: 480 },
-      { id: 'box-400g', label: 'Gourmet Tin (400 grams)', price: 890 }
+      { id: 'box-400g', label: 'Tin Box (400 grams)', price: 890 }
     ],
-    flavorNotes: ['Pure Cultured Butter', 'Toasted Pistachios', 'Persian Rose'],
+    flavorNotes: ['Pure Butter', 'Toasted Pistachios', 'Rose Petals'],
     allergens: 'Contains Tree Nuts, Pure Dairy Butter, Gluten.'
   },
   {
     id: 'paris-macaron-gift-box',
-    name: 'Artisan Parisian Macaron Collection',
+    name: 'Classic Macaron Box',
     category: 'Desserts',
     price: 850,
-    shortDescription: 'Crisp almond meringue shells with luscious ganache & fruit reduction fillings.',
-    description: 'Handcrafted French-style macarons made with pure aquafaba and almond flour, featuring delicate pieds and soft chewy centers. Includes Rose Lychee, Dark Chocolate, Salted Caramel, and Pistachio Praline.',
+    shortDescription: 'Crisp egg-free macarons with smooth chocolate and fruit fillings.',
+    description: 'Delicate egg-free macarons made with almond flour and delicious fillings including Rose Lychee, Dark Chocolate, Salted Caramel, and Pistachio.',
     image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80'
@@ -231,19 +231,19 @@ export const PRODUCTS = [
     availability: 'in_stock',
     preparationTime: '24 hours advance notice',
     variants: [
-      { id: 'box-of-6', label: 'Prestige Box of 6 Assorted', price: 850 },
-      { id: 'box-of-12', label: 'Luxury Keepsake Box of 12', price: 1600 }
+      { id: 'box-of-6', label: 'Box of 6 Assorted', price: 850 },
+      { id: 'box-of-12', label: 'Box of 12 Assorted', price: 1600 }
     ],
-    flavorNotes: ['Rose Lychee', 'Dark Cocoa Ganache', 'Pistachio', 'Salted Caramel'],
+    flavorNotes: ['Rose Lychee', 'Dark Chocolate', 'Pistachio', 'Salted Caramel'],
     allergens: 'Contains Almonds (Nuts), Pure Dairy Butter.'
   },
   {
     id: 'tiered-floral-wedding-cake',
-    name: 'Two-Tiered Botanical Celebration Cake',
+    name: 'Two-Tiered Celebration Cake',
     category: 'Special Occasion Treats',
     price: 4900,
-    shortDescription: 'Two-tiered centerpiece cake finished with textured ivory stucco & fresh botanical blooms.',
-    description: 'Created for birthdays, engagements, and milestone anniversaries. A breathtaking two-tier creation with your choice of sponge flavours, covered in subtle rustic buttercream texture, natural greenery, and garden florals.',
+    shortDescription: 'Two-tiered celebration cake with textured ivory frosting and fresh flowers.',
+    description: 'Perfect for birthdays, engagements, and anniversaries. A lovely two-tier cake with your choice of flavours, textured buttercream, and fresh floral decoration.',
     image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [
       'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80'
@@ -256,16 +256,16 @@ export const PRODUCTS = [
       { id: '2-tier-2kg', label: '2 Tiers - 2.5 kg (Serves 20-25)', price: 4900 },
       { id: '2-tier-3.5kg', label: '2 Tiers - 3.5 kg (Serves 35-40)', price: 6800 }
     ],
-    flavorNotes: ['Custom Flavour Selection', 'Velvety Moist Crumb', 'Fresh Floral Styling'],
+    flavorNotes: ['Custom Flavour Selection', 'Moist Cake Crumb', 'Fresh Floral Styling'],
     allergens: 'Contains Pure Dairy Butter, Gluten.'
   },
   {
     id: 'luxury-festive-dessert-hamper',
-    name: 'Grand Confection Keepsake Hamper',
+    name: 'Celebration Gift Hamper',
     category: 'Special Occasion Treats',
     price: 2450,
-    shortDescription: 'Curated gift box with brownies, macarons, pistachio shortbread & artisan confections.',
-    description: 'The ultimate bespoke gifting experience. Beautifully presented in a reusable pastel rigid box tied with silk ribbon and personal calligraphy card. Contains 4 fudge brownies, 6 macarons, 1 jar pistachio shortbread, and chocolate crispies.',
+    shortDescription: 'Curated gift box with brownies, macarons, pistachio cookies, and sweet treats.',
+    description: 'A lovely gift box tied with satin ribbon. Includes 4 fudge brownies, 6 macarons, 1 jar pistachio shortbread, and chocolate treats.',
     image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=80',
     additionalImages: [],
     isBestseller: true,
@@ -274,9 +274,9 @@ export const PRODUCTS = [
     preparationTime: '48 hours advance notice',
     variants: [
       { id: 'classic-hamper', label: 'Classic Gift Box', price: 2450 },
-      { id: 'luxury-keepsake-hamper', label: 'Luxury Grand Hamper with Floral Accent', price: 3800 }
+      { id: 'luxury-keepsake-hamper', label: 'Grand Gift Box with Floral Accent', price: 3800 }
     ],
-    flavorNotes: ['Curated Assortment of Best-Selling Confections'],
+    flavorNotes: ['Assortment of Best-Selling Bakes'],
     allergens: 'Varies by item. Contains Pure Dairy Butter, Nuts.'
   }
 ];

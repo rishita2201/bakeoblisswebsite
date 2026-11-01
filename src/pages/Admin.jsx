@@ -153,7 +153,7 @@ export const Admin = () => {
               Admin Dashboard
             </h1>
             <p className="text-xs text-chocolate/70">
-              Enter your secret PIN to view incoming customer orders, bespoke inquiries, and manage your kitchen studio.
+              Enter your secret PIN to view incoming customer orders, custom cake requests, and manage your bakery.
             </p>
           </div>
 
@@ -261,7 +261,7 @@ export const Admin = () => {
             <div className="flex items-baseline justify-between">
               <span className="font-serif text-3xl font-bold text-chocolate">{stats.totalInquiries}</span>
               <span className="text-xs text-rose-700 font-medium bg-blush/50 px-2 py-0.5 rounded-full">
-                Bespoke Cakes
+                Custom Cakes
               </span>
             </div>
           </div>
@@ -539,7 +539,7 @@ export const Admin = () => {
         <div className="space-y-4">
           <div className="flex items-center justify-between">
             <h2 className="font-serif text-xl font-bold text-chocolate">
-              Bespoke Custom Cake Consultations
+              Custom Cake Requests
             </h2>
             <span className="text-xs text-chocolate/60">{inquiries.length} inquiries received</span>
           </div>

@@ -77,7 +77,7 @@ export const generateCartOrderWhatsAppUrl = ({
 };
 
 /**
- * Generates WhatsApp URL for Custom Cake Bespoke Consultation
+ * Generates WhatsApp URL for Custom Cake Inquiry
  */
 export const generateCustomCakeWhatsAppUrl = ({
   customerName,
@@ -92,7 +92,7 @@ export const generateCustomCakeWhatsAppUrl = ({
 }) => {
   const divider = '----------------------------------------';
   
-  let msg = `🎂 *BESPOKE CAKE INQUIRY - ${BAKERY_CONFIG.brandName.toUpperCase()}* 🎂\n`;
+  let msg = `🎂 *CUSTOM CAKE INQUIRY - ${BAKERY_CONFIG.brandName.toUpperCase()}* 🎂\n`;
   msg += `${divider}\n\n`;
   
   msg += `👤 *Customer Details:*\n`;

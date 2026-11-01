@@ -115,7 +115,7 @@ export const NouveauVegCameo = ({ size = "normal" }) => {
       </span>
       <span className="text-espresso/50 hidden sm:inline">•</span>
       <span className="text-espresso/80 italic font-serif hidden sm:inline text-[11px]">
-        Eggless Patisserie
+        Eggless Bakery
       </span>
     </div>
   );

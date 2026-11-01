@@ -106,23 +106,23 @@ export const CustomOrders = () => {
       <div className="text-center max-w-3xl mx-auto space-y-3">
         <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
         <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
-          Commandes Sur Mesure
+          Made Specially For You
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-tight">
-          Bespoke Custom Cakes
+          Custom Cake Orders
         </h1>
         <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-          Commission a singular, 100% pure vegetarian & eggless centerpiece tailored to your personal aesthetic, flavor profile, and celebration story in Chennai.
+          Order a special 100% pure vegetarian and eggless cake tailored to your celebration, favourite flavours, and design in Chennai.
         </p>
       </div>
 
       {/* Inspiration Gallery */}
       <section className="space-y-6">
         <div className="text-center space-y-1">
-          <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">Portfolio d'Inspiration</span>
+          <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">Design Inspiration</span>
           <h2 className="font-serif text-2xl sm:text-3xl font-normal text-espresso">
-            Aesthetic Styles We Love To Create
+            Cake Styles We Love To Create
           </h2>
         </div>
 
@@ -153,15 +153,15 @@ export const CustomOrders = () => {
       <div className="bg-parchment-100/80 border border-gold-500/40 rounded-[32px] p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-xs font-serif text-espresso/80 shadow-nouveau">
         <div className="space-y-1">
           <h4 className="font-bold text-espresso text-sm">✦ Advance Notice</h4>
-          <p>Bespoke tiered and sculpted cakes require a minimum of <strong>48 to 72 hours</strong> notice for design consultation and slot booking.</p>
+          <p>Custom tiered and decorated cakes require a minimum of <strong>48 to 72 hours</strong> advance notice so we can prepare your design fresh.</p>
         </div>
         <div className="space-y-1">
           <h4 className="font-bold text-emerald-800 text-sm">🌱 100% Pure Veg & Eggless</h4>
-          <p>Every cake is prepared with pure dairy butter in our dedicated vegetarian studio. Zero gelatin, zero eggs.</p>
+          <p>Every cake is prepared with pure dairy butter in our dedicated vegetarian kitchen. Zero gelatin, zero eggs.</p>
         </div>
         <div className="space-y-1">
-          <h4 className="font-bold text-espresso text-sm">✦ Studio Location</h4>
-          <p>Tower 4, North Town Apartment, Perambur, Chennai. Self-pickup or air-conditioned doorstep delivery.</p>
+          <h4 className="font-bold text-espresso text-sm">✦ Bakery Location</h4>
+          <p>Tower 4, North Town Apartment, Perambur, Chennai. Self-pickup or safe doorstep delivery.</p>
         </div>
       </div>
 
@@ -210,10 +210,10 @@ export const CustomOrders = () => {
           
           <div className="text-center border-b border-gold-500/30 pb-4 space-y-1">
             <h2 className="font-serif text-3xl font-normal text-espresso">
-              Bespoke Cake Commission
+              Custom Cake Order Details
             </h2>
             <p className="text-xs font-serif text-espresso/70 italic">
-              Share your celebration vision. We will review slot availability and respond with a tailored quotation.
+              Tell us about your celebration. We will check our baking schedule and reply on WhatsApp with ideas and pricing.
             </p>
           </div>
 
@@ -370,10 +370,10 @@ export const CustomOrders = () => {
               className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
             >
               <MessageCircle className="w-4 h-4 text-gold-300" />
-              <span>Submit Bespoke Cake Inquiry via WhatsApp</span>
+              <span>Send Custom Cake Request via WhatsApp</span>
             </button>
             <p className="text-center text-[11px] font-serif text-espresso/60 mt-3">
-              Your inquiry will be logged in our studio database and opened in WhatsApp for personalized consultation.
+              Your inquiry is saved in our system and opens directly in WhatsApp to finalize details with our baker.
             </p>
           </div>
 

@@ -16,31 +16,31 @@ export const Home = () => {
     {
       title: 'Celebration Cakes',
       category: 'Cakes',
-      description: 'Artisanal layered sponges with Swiss-style buttercream & organic botanical styling.',
+      description: 'Soft layered cakes with smooth buttercream and lovely decorations.',
       image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Cupcakes',
       category: 'Cupcakes',
-      description: 'Hand-piped floral hydrangeas, garden roses & whipped Belgian ganache.',
+      description: 'Fluffy vanilla and chocolate cupcakes with delicious buttercream flowers.',
       image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Fudge Brownies',
       category: 'Brownies',
-      description: 'Paper-thin shiny crinkle tops with dense, gooey chocolate centers.',
+      description: 'Gooey, rich chocolate brownies with that classic shiny crinkle top.',
       image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
     },
     {
-      title: 'Artisanal Cookies',
+      title: 'Fresh Baked Cookies',
       category: 'Cookies',
-      description: 'NYC style chunky choc-chip & pure butter Persian pistachio shortbread.',
+      description: 'Chunky chocolate chip cookies and melt-in-mouth pistachio butter shortbread.',
       image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80',
     },
     {
       title: 'Desserts & Macarons',
       category: 'Desserts',
-      description: 'Eggless aquafaba Parisian macarons & delicate seasonal berry tarts.',
+      description: 'Crisp egg-free macarons and delicious sweet party treats.',
       image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=600&q=80',
     },
   ];
@@ -49,40 +49,40 @@ export const Home = () => {
     {
       icon: Clock,
       title: 'Freshly Baked to Order',
-      description: 'We never freeze or store pre-made sponges. Every batter is whipped fresh for your designated celebration slot.',
+      description: 'We bake fresh only after you place your order. No pre-made or frozen cakes.',
     },
     {
       icon: ShieldCheck,
       title: '100% Pure Vegetarian',
-      description: 'Strictly sanitized vegetarian bake-ware. Zero gelatin, zero animal shortening, 100% egg-free confectionery.',
+      description: 'Dedicated vegetarian kitchen with pure utensils. Zero gelatin, zero eggs.',
     },
     {
       icon: Award,
-      title: 'Pure Dairy Butter & Couverture',
-      description: 'No vegetable margarine or compound chocolate. We bake with cultured dairy butter and Belgian Callebaut cocoa.',
+      title: 'Pure Dairy Butter',
+      description: 'No margarine or cheap shortening. We bake with real butter and rich chocolate.',
     },
     {
       icon: Sparkles,
-      title: 'Bespoke Artistry',
-      description: 'Every centerpiece is styled with vintage Lambeth piping, organic botanicals, and bespoke personalized plaques.',
+      title: 'Personalized Designs',
+      description: 'Customized cake flavours, colours, and name plaques tailored to your celebration.',
     },
   ];
 
   const sampleTestimonials = [
     {
-      quote: "Finding an authentic 100% eggless bakery in Chennai with this level of French patisserie finesse is a dream come true! The Vintage Raspberry cake was the star of our anniversary.",
+      quote: "Finding an authentic 100% pure veg home bakery in Chennai with this level of delicious quality is a dream come true! The Raspberry Rose cake was the star of our anniversary.",
       author: 'Deepika & Karthik',
       occasion: 'Anniversary Celebration (Kilpauk, Chennai)',
       stars: 5,
     },
     {
-      quote: "The fudge brownies have that genuine shiny crinkle crust you normally only see with egg recipes. Dense, rich, and utterly chocolate heaven. Pure magic!",
+      quote: "The fudge brownies have that genuine shiny crinkle crust and rich chocolate flavor. Dense, gooey, and delicious. My kids loved every bite!",
       author: 'Aditya Raman',
       occasion: 'Birthday Party (Perambur, Chennai)',
       stars: 5,
     },
     {
-      quote: "Ordering through WhatsApp was so effortless and warm. The baker at North Town Apartment guided us on sizing and design for our daughter's milestone birthday.",
+      quote: "Ordering through WhatsApp was so quick and easy. The baker at North Town Apartment helped us pick the perfect size and flavour for my daughter's birthday.",
       author: 'Meenakshi Sundaram',
       occasion: '1st Birthday Celebration (Anna Nagar, Chennai)',
       stars: 5,
@@ -95,19 +95,19 @@ export const Home = () => {
       {/* 1. HERO SECTION */}
       <Hero />
 
-      {/* 2. EXPLORE BY CATEGORY (Belle Époque Vitrine Gallery) */}
+      {/* 2. EXPLORE BY CATEGORY */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
           <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
-            L'Éventail de Pâtisserie
+            Fresh From Our Kitchen
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-espresso">
-            Artisanal Collections
+            Explore Our Categories
           </h2>
           <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-2 mx-auto" />
           <p className="text-sm font-serif text-espresso/70 italic">
-            Handcrafted with devotion, baked in small batches in our dedicated vegetarian studio.
+            Baked fresh to order with pure dairy butter in our vegetarian home studio in Perambur, Chennai.
           </p>
         </div>
 
@@ -144,10 +144,10 @@ export const Home = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4 border-b border-gold-500/30 pb-4">
           <div className="space-y-1">
             <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold">
-              Les Créations Prisées
+              Customer Favourites
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
-              Signature Bestsellers
+              Popular Bestsellers
             </h2>
           </div>
           <Link
@@ -166,7 +166,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 4. ATELIER STORY PREVIEW (Art Nouveau Parchment Cartouche) */}
+      {/* 4. ABOUT US PREVIEW */}
       <section className="bg-parchment-100/70 py-16 sm:py-24 border-y border-gold-500/35 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -206,7 +206,7 @@ export const Home = () => {
             {/* Story Details */}
             <div className="lg:col-span-7 space-y-6">
               <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
-                ❧ Behind The Whisk • Perambur Studio
+                ❧ Behind The Whisk • Perambur Home Studio
               </span>
               
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-espresso leading-tight">
@@ -217,7 +217,7 @@ export const Home = () => {
               <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-1" />
 
               <p className="text-base text-espresso/80 leading-relaxed font-serif font-light">
-                At <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, our home studio in North Town Apartment, Perambur was founded on an unyielding principle: that 100% pure vegetarian and eggless cakes should taste richer, lighter, and far more ethereal than commercial bakery counterparts.
+                At <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, our home bakery in North Town Apartment, Perambur was started with a simple belief: that 100% pure vegetarian and eggless cakes should taste delicious, moist, and richer than commercial shop cakes.
               </p>
 
               <div className="space-y-3 pt-2 text-sm font-serif text-espresso/80">
@@ -226,7 +226,7 @@ export const Home = () => {
                     ✦
                   </span>
                   <p>
-                    <strong>Strictly Vegetarian Studio:</strong> Dedicated sanitized vegetarian bake-ware. Zero animal gelatin, zero eggs, zero cross-contamination.
+                    <strong>100% Pure Vegetarian Kitchen:</strong> Dedicated vegetarian utensils. Zero gelatin, zero eggs, zero animal fats.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -234,7 +234,7 @@ export const Home = () => {
                     ✦
                   </span>
                   <p>
-                    <strong>Authentic European Couverture:</strong> Single-origin Belgian dark chocolate and French cocoa melted with pure cultured dairy butter.
+                    <strong>Quality Butter & Rich Cocoa:</strong> Rich chocolate and pure dairy butter slow-baked to delicious perfection.
                   </p>
                 </div>
               </div>
@@ -244,14 +244,14 @@ export const Home = () => {
                   to="/about"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau"
                 >
-                  <span>Our Story & Philosophy</span>
+                  <span>Read Our Story</span>
                   <ArrowRight className="w-3.5 h-3.5 text-gold-300" />
                 </Link>
                 <Link
                   to="/custom-orders"
                   className="text-xs font-serif font-bold uppercase tracking-widest text-gold-700 hover:text-gold-800 underline"
                 >
-                  Commission a Cake
+                  Order a Custom Cake
                 </Link>
               </div>
             </div>
@@ -260,14 +260,14 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 5. QUALITY PILLARS (Belle Époque Cameos) */}
+      {/* 5. QUALITY PILLARS */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-14 space-y-2">
           <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
-            Les Engagements de Qualité
+            Our Quality Promise
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
-            Our Artisanal Pillars
+            Why Choose Us
           </h2>
           <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-2 mx-auto" />
         </div>
@@ -295,12 +295,12 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 6. CUSTOMER TESTIMONIALS (Antique Salon Reviews) */}
+      {/* 6. CUSTOMER TESTIMONIALS */}
       <section className="bg-parchment-100/60 py-16 sm:py-24 border-y border-gold-500/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-xl mx-auto mb-12 space-y-2">
             <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-700 font-bold block">
-              Témoignages de Connaisseurs
+              Customer Reviews
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
               Loved Across Chennai
@@ -334,15 +334,15 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 7. INSTAGRAM SALON */}
+      {/* 7. INSTAGRAM SHOWCASE */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between mb-8 gap-4 text-center sm:text-left">
           <div>
             <span className="text-xs font-serif uppercase tracking-[0.25em] text-gold-700 font-bold block">
-              Galerie Instagram • @bakeobliss
+              Follow Us on Instagram • @bakeobliss
             </span>
             <h2 className="font-serif text-2xl sm:text-3xl font-normal text-espresso">
-              Fresh from Our Instagram Studio
+              Fresh from Our Instagram
             </h2>
             <p className="text-xs font-serif italic text-espresso/70 mt-1 max-w-xl">
               "Freshly baked, made with love 🤎 | Cakes • Brownies • Cookies • Bakes | Made to make your moments sweeter ✨"
@@ -391,7 +391,7 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* 8. GRAND BESPOKE COMMISSION BANNER */}
+      {/* 8. CUSTOM CAKE COMMISSION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
         <div className="bg-espresso text-gold-100 rounded-[40px] p-8 sm:p-14 text-center relative overflow-hidden border border-gold-500 shadow-nouveau-lg">
           <NouveauCorner position="top-left" className="absolute top-4 left-4 w-12 h-12 text-gold-400" />
@@ -401,24 +401,24 @@ export const Home = () => {
 
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <span className="text-xs uppercase font-serif tracking-[0.25em] text-gold-300 font-semibold block">
-              Bespeaking for Weddings, Anniversaries & Milestones
+              Special Cakes for Weddings, Birthdays & Anniversaries
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white">
-              Commission Your Centerpiece
+              Order Your Custom Cake
             </h2>
             <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-2 mx-auto" />
             <p className="text-sm font-serif text-gold-100/80 max-w-lg mx-auto font-light leading-relaxed">
-              Share your celebration vision with our Perambur home studio. Every tiered centerpiece is crafted from scratch with 100% pure vegetarian sanctity.
+              Tell us what design and flavour you would love for your special occasion. Every cake is baked fresh from scratch in our 100% pure vegetarian home kitchen in Perambur, Chennai.
             </p>
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/custom-orders"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gold-500 hover:bg-gold-600 text-espresso text-xs font-serif font-bold tracking-widest uppercase shadow-md transition-colors"
               >
-                Inquire for Custom Cake
+                Order Custom Cake
               </Link>
               <a
-                href={createWhatsAppLink("Hello Bake O Bliss! I would like to inquire about commissioning a custom 100% pure veg cake.")}
+                href={createWhatsAppLink("Hello Bake O Bliss! I would like to inquire about ordering a custom cake.")}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"

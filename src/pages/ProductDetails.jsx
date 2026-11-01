@@ -38,7 +38,7 @@ export const ProductDetails = () => {
   if (!product) {
     return (
       <div className="py-24 text-center max-w-md mx-auto px-4 space-y-4">
-        <h2 className="font-serif text-2xl font-bold text-espresso">Creation Not Found</h2>
+        <h2 className="font-serif text-2xl font-bold text-espresso">Product Not Found</h2>
         <p className="text-sm font-serif text-espresso/70">
           The treat you are looking for may have been updated or moved.
         </p>
@@ -70,7 +70,7 @@ export const ProductDetails = () => {
     if (navigator.share) {
       navigator.share({
         title: product.name,
-        text: `Take a look at this artisanal confection from ${BAKERY_CONFIG.brandName}!`,
+        text: `Take a look at this delicious treat from ${BAKERY_CONFIG.brandName}!`,
         url: window.location.href,
       }).catch(() => {});
     } else {
@@ -199,7 +199,7 @@ export const ProductDetails = () => {
           {product.variants && product.variants.length > 0 && (
             <div className="space-y-2.5 pt-1">
               <label className="text-xs font-serif font-bold uppercase tracking-wider text-espresso block">
-                Select Creation Size / Box:
+                Select Size / Option:
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {product.variants.map((v) => {
@@ -324,7 +324,7 @@ export const ProductDetails = () => {
         <section className="pt-12 border-t border-gold-500/30 space-y-8">
           <div className="flex items-center justify-between">
             <h3 className="font-serif text-2xl sm:text-3xl font-bold text-espresso">
-              Complementary Confections
+              You May Also Like
             </h3>
             <Link to="/menu" className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800">
               Browse Menu →

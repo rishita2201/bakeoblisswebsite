@@ -89,7 +89,7 @@ export default {
         }
       },
       fontFamily: {
-        display: ['"Cinzel Decorative"', '"Italiana"', '"Cormorant Garamond"', 'serif'],
+        display: ['"Cinzel Decorative"', '"Cormorant Garamond"', 'serif'],
         serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
         sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
       },

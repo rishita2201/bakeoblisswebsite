@@ -24,27 +24,27 @@ export const Hero = () => {
               <NouveauVegCameo />
             </div>
 
-            {/* Main Headline with French Belle Époque Flourish */}
+            {/* Main Headline */}
             <div className="space-y-2">
               <span className="font-serif italic text-lg sm:text-xl text-gold-700 block tracking-wide">
-                L’Art de la Pâtisserie Artisanal
+                Fresh Homemade Pure Veg Bakery
               </span>
               <h1 className="font-serif text-4xl sm:text-6xl lg:text-6xl font-normal text-espresso leading-[1.12]">
-                Baked with Devotion, <br />
+                Baked with Love, <br />
                 <span className="italic font-serif text-[#A8636C] font-normal">
                   Made to Delight.
                 </span>
               </h1>
             </div>
 
-            {/* Sinuous Whiplash Divider */}
+            {/* Sinuous Divider */}
             <div className="flex justify-center lg:justify-start">
               <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-1" />
             </div>
 
-            {/* Editorial Poetic Description */}
+            {/* Simple, Warm Description */}
             <p className="text-base sm:text-lg text-espresso/80 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-serif font-light">
-              Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, Chennai’s boutique 100% pure vegetarian home studio in Perambur. Each tiered centerpiece, crinkle-top chocolate brownie, and delicate French macaron is slow-baked from scratch using pure dairy butter, single-origin Belgian cocoa, and natural botanicals.
+              Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, Chennai’s 100% pure vegetarian home bakery located at North Town Apartment, Perambur. Every celebration cake, fudgy brownie, and cookie is baked fresh to order using pure dairy butter, rich chocolate, and quality ingredients.
             </p>
 
             {/* Call to Actions with Gilded Buttons */}
@@ -53,7 +53,7 @@ export const Hero = () => {
                 to="/menu"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 group"
               >
-                <span>Explore The Menu</span>
+                <span>Explore Our Menu</span>
                 <ArrowRight className="w-3.5 h-3.5 text-gold-300 group-hover:translate-x-1 transition-transform" />
               </Link>
 
@@ -61,7 +61,7 @@ export const Hero = () => {
                 to="/custom-orders"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-parchment-100 hover:bg-gold-100 text-espresso border border-gold-500/60 text-xs font-serif font-bold tracking-widest uppercase transition-all duration-300 shadow-xs"
               >
-                <span>Commission Bespoke Cake</span>
+                <span>Order Custom Cake</span>
               </Link>
             </div>
 
@@ -102,7 +102,7 @@ export const Hero = () => {
                 <div className="rounded-[110px_110px_18px_18px] overflow-hidden aspect-[4/5] bg-cream relative">
                   <img
                     src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80"
-                    alt="Artisanal Handcrafted 100% Pure Veg Raspberry Rose Cake by Bake O Bliss"
+                    alt="Fresh Homemade Raspberry Rose Cake by Bake O Bliss"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     loading="eager"
                   />

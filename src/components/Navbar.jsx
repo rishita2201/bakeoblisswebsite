@@ -26,9 +26,9 @@ export const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Our Menu', path: '/menu' },
-    { name: 'Bespoke Cakes', path: '/custom-orders' },
-    { name: 'Atelier Story', path: '/about' },
-    { name: 'Contact & Studio', path: '/contact' },
+    { name: 'Custom Cakes', path: '/custom-orders' },
+    { name: 'About Us', path: '/about' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   return (
@@ -36,9 +36,9 @@ export const Navbar = () => {
       {/* Top Gilded Announcement Ribbon */}
       <div className="bg-[#23120E] text-[#EEDDB8] text-[11px] sm:text-xs py-2 px-4 text-center font-serif tracking-widest uppercase border-b border-gold-600/40 flex items-center justify-center gap-2 sm:gap-4">
         <span className="text-gold-400">❧</span>
-        <span className="font-semibold text-gold-300">100% Pure Vegetarian & Eggless Atelier</span>
+        <span className="font-semibold text-gold-300">100% Pure Vegetarian & Eggless Home Bakery</span>
         <span className="hidden md:inline text-gold-500/70">• North Town Apartment, Perambur, Chennai</span>
-        <span className="hidden sm:inline text-gold-500/70">• Artisanal Scratch Baking</span>
+        <span className="hidden sm:inline text-gold-500/70">• Freshly Baked to Order</span>
         <span className="text-gold-400">❧</span>
       </div>
 
@@ -73,7 +73,7 @@ export const Navbar = () => {
               <div className="flex items-center gap-1.5 mt-1">
                 <span className="w-3 h-[1px] bg-gold-500/60" />
                 <span className="text-[10px] tracking-[0.3em] uppercase text-gold-700 font-serif font-semibold">
-                  Maison de Pâtisserie Pure Végétale
+                  Pure Vegetarian Home Bakery
                 </span>
                 <span className="w-3 h-[1px] bg-gold-500/60" />
               </div>
@@ -160,7 +160,7 @@ export const Navbar = () => {
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-espresso text-gold-200 text-xs font-serif tracking-widest uppercase hover:bg-espresso-800 transition-colors border border-gold-500/40 shadow-soft"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp Atelier ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
+                <span>WhatsApp Us ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
               </a>
             </div>
           </div>

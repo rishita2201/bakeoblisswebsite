@@ -140,7 +140,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
                 "{searchQuery}"
               </span>
             )}
-            <span>({filteredProducts.length} artisanal creations found)</span>
+            <span>({filteredProducts.length} items found)</span>
           </div>
 
           <button

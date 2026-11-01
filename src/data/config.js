@@ -2,23 +2,23 @@
  * BAKE O BLISS - GLOBAL CONFIGURATION
  * 
  * Location: North Town Apartment, Perambur, Chennai
- * Specialty: 100% Pure Vegetarian & Eggless Artisanal Home Bakery
+ * Specialty: 100% Pure Vegetarian & Eggless Home Bakery
  */
 
 export const BAKERY_CONFIG = {
   brandName: 'Bake O Bliss',
-  tagline: '100% Pure Vegetarian & Eggless Artisanal Home Bakery',
-  shortDescription: 'Chennai’s boutique home bakery crafting 100% eggless celebration cakes, gourmet crinkle-top brownies, artisanal cupcakes, and handcrafted confections made fresh to order with pure dairy butter and finest couverture chocolate.',
+  tagline: '100% Pure Vegetarian & Eggless Home Bakery',
+  shortDescription: 'Chennai’s home bakery crafting 100% pure vegetarian celebration cakes, fudgy crinkle-top brownies, cupcakes, and sweet treats made fresh to order with pure dairy butter and rich chocolate.',
   
   // Dietary Speciality
-  dietaryNote: '100% Pure Vegetarian & Eggless Studio • Sanitized strictly vegetarian bake-ware • Zero gelatin • Zero animal fat',
+  dietaryNote: '100% Pure Vegetarian & Eggless Kitchen • Dedicated vegetarian utensils • Zero gelatin • Zero eggs',
   isPureVeg: true,
 
   // WhatsApp ordering contact
   // FORMAT: Country code without '+' or special characters for wa.me links
   whatsappNumber: '919876543210', 
   whatsappDisplayNumber: '+91 98765 43210',
-  whatsappDefaultGreeting: 'Hello Bake O Bliss! I would like to inquire about placing an order for your 100% pure veg bakes.',
+  whatsappDefaultGreeting: 'Hello Bake O Bliss! I would like to inquire about placing an order.',
 
   // Social & Web Links
   instagramHandle: '@bakeobliss',
@@ -27,20 +27,20 @@ export const BAKERY_CONFIG = {
   
   // Location & Studio Address
   location: {
-    title: 'Bake O Bliss Home Studio',
+    title: 'Bake O Bliss Home Bakery',
     address: 'Flat No. 803, Tower 4, North Town Apartment, Stephenson Road, Binny Garden, Perambur',
     city: 'Chennai',
     state: 'Tamil Nadu',
     pincode: '600012',
     country: 'India',
-    landmark: 'North Town Apartment (Perambur / Binny Garden). Studio pickup available at Tower 4.',
+    landmark: 'North Town Apartment (Perambur / Binny Garden). Self-pickup available at Tower 4.',
     googleMapsSearchUrl: 'https://maps.google.com/?q=North+Town+Apartment+Stephenson+Road+Binny+Garden+Perambur+Chennai+600012'
   },
   
   operatingHours: {
     days: 'Tuesday – Sunday (Closed on Mondays)',
     hours: '10:00 AM – 7:30 PM',
-    leadTimeNotice: 'Standard bakes require 24 hours advance notice. Bespoke custom celebration cakes require 48-72 hours.',
+    leadTimeNotice: 'Standard bakes require 24 hours advance notice. Custom celebration cakes require 48-72 hours.',
   },
 
   // Currency & Ordering Settings

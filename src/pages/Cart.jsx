@@ -42,17 +42,17 @@ export const Cart = () => {
       <div className="text-center max-w-xl mx-auto space-y-2">
         <NouveauArchCrest className="w-14 h-7 text-gold-500 mx-auto" />
         <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
-          Votre Panier
+          Your Order
         </span>
         <h1 className="font-serif text-3xl sm:text-4xl font-normal text-espresso">
-          Your Shopping Basket
+          Your Shopping Cart
         </h1>
         <NouveauFloralDivider className="w-44 h-5 text-gold-500 my-1 mx-auto" />
       </div>
 
       <div className="flex items-center justify-between pb-3 border-b border-gold-500/30">
         <span className="text-xs font-serif text-espresso/70">
-          {totalItemsCount} creation{totalItemsCount > 1 ? 's' : ''} in basket
+          {totalItemsCount} item{totalItemsCount > 1 ? 's' : ''} in cart
         </span>
         <button
           type="button"
@@ -79,7 +79,7 @@ export const Cart = () => {
               className="inline-flex items-center gap-2 text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 transition-colors"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Add More Confections</span>
+              <span>Add More Items</span>
             </Link>
           </div>
         </div>

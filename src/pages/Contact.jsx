@@ -45,14 +45,14 @@ export const Contact = () => {
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <NouveauArchCrest className="w-16 h-8 text-gold-500 mx-auto" />
         <span className="text-xs uppercase font-serif tracking-[0.3em] text-gold-700 font-bold block">
-          Contact & Studio
+          Contact Us
         </span>
         <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-espresso">
           Get in Touch
         </h1>
         <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-          Have an inquiry regarding cake sizing, dietary requests, or bespoke celebrations? Connect directly with our Chennai home studio.
+          Have a question about cake sizing, flavours, or custom orders? Connect directly with our friendly home bakery in Perambur, Chennai.
         </p>
       </div>
 
@@ -68,13 +68,13 @@ export const Contact = () => {
             </div>
             <div>
               <span className="text-[10px] font-serif font-bold uppercase tracking-wider text-gold-700">
-                Ligne Directe WhatsApp
+                Direct WhatsApp Chat
               </span>
               <h3 className="font-serif text-xl font-bold text-espresso">
                 WhatsApp Order Line
               </h3>
               <p className="text-xs font-serif text-espresso/70 mt-1">
-                The fastest way to consult with our baker for quick questions, scheduling, and photo sharing.
+                The fastest way to reach our baker for quick questions, scheduling, and custom cake photos.
               </p>
             </div>
             <a
@@ -95,13 +95,13 @@ export const Contact = () => {
             </div>
             <div>
               <span className="text-[10px] font-serif font-bold uppercase tracking-wider text-gold-700">
-                Galerie Sociale
+                Instagram Page
               </span>
               <h3 className="font-serif text-xl font-bold text-espresso">
                 Follow {BAKERY_CONFIG.instagramHandle}
               </h3>
               <p className="text-xs font-serif text-espresso/70 mt-1">
-                Explore our daily baking stories, behind-the-scenes creations, and seasonal menu previews.
+                Explore our recent bakes, behind-the-scenes videos, and customer celebration photos.
               </p>
             </div>
             <a
@@ -110,7 +110,7 @@ export const Contact = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-espresso text-gold-200 hover:bg-espresso-800 text-xs font-serif font-bold tracking-wider uppercase border border-gold-500/50 transition-colors shadow-xs"
             >
-              <span>Visit Instagram Atelier</span>
+              <span>Visit Our Instagram</span>
               <ExternalLink className="w-3.5 h-3.5" />
             </a>
           </div>
@@ -120,7 +120,7 @@ export const Contact = () => {
             <div className="space-y-1">
               <div className="flex items-center gap-2 font-bold text-espresso text-sm">
                 <MapPin className="w-4 h-4 text-gold-600" />
-                <span>Boutique Home Studio</span>
+                <span>Home Bakery Location</span>
               </div>
               <p className="font-bold text-espresso">{BAKERY_CONFIG.location.title}</p>
               <p>{BAKERY_CONFIG.location.address}</p>

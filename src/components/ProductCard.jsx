@@ -52,7 +52,7 @@ export const ProductCard = ({ product }) => {
         {/* Hover Vignette Overlay */}
         <div className="absolute inset-0 bg-espresso/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
           <span className="px-5 py-2 rounded-full bg-white/95 text-espresso font-serif text-xs font-semibold tracking-wider uppercase shadow-nouveau border border-gold-500/50 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            View Creation
+            View Details
           </span>
         </div>
       </Link>

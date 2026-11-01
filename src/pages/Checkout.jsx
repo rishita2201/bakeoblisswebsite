@@ -196,7 +196,7 @@ export const Checkout = () => {
               to="/menu"
               className="text-xs font-serif font-bold uppercase tracking-wider text-gold-700 hover:text-gold-800 underline"
             >
-              Browse More Confections
+              Browse More Treats
             </Link>
           </div>
         </div>
