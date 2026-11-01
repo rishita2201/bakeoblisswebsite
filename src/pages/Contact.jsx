@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   Instagram, MessageCircle, MapPin, Clock, Mail, 
-  Send, CheckCircle2, ExternalLink 
+  Send, CheckCircle2, ExternalLink, Phone 
 } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
@@ -77,15 +77,24 @@ export const Contact = () => {
                 The fastest way to reach our baker for quick questions, scheduling, and custom cake photos.
               </p>
             </div>
-            <a
-              href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-serif font-bold tracking-wider uppercase shadow-xs transition-colors"
-            >
-              <span>Chat on WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-2.5 pt-1">
+              <a
+                href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-serif font-bold tracking-wider uppercase shadow-xs transition-colors"
+              >
+                <span>WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
+                <ExternalLink className="w-3.5 h-3.5" />
+              </a>
+              <a
+                href={`tel:${BAKERY_CONFIG.whatsappNumber}`}
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-parchment-100 hover:bg-gold-100 text-espresso text-xs font-serif font-bold tracking-wider uppercase border border-gold-500/50 shadow-xs transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-gold-700" />
+                <span>Call ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
+              </a>
+            </div>
           </div>
 
           {/* Instagram Card */}
@@ -201,7 +210,7 @@ export const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="e.g. +91 98765 43210"
+                      placeholder="e.g. +91 98415 11011"
                       className="w-full px-4 py-3 rounded-xl bg-parchment-50 border border-gold-500/40 text-sm text-espresso outline-none focus:border-gold-600"
                     />
                   </div>

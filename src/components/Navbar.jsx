@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X, MessageCircle } from 'lucide-react';
+import { ShoppingBag, Menu, X, MessageCircle, Phone } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
@@ -132,7 +132,7 @@ export const Navbar = () => {
 
         {/* Mobile Navigation Drawer */}
         {mobileMenuOpen && (
-          <div className="lg:hidden fixed inset-x-0 top-[96px] bg-[#FAF5EE] border-b border-gold-500/40 shadow-xl z-50 animate-fadeIn p-6 space-y-4">
+          <div className="lg:hidden absolute top-full inset-x-0 bg-[#FAF5EE] border-b border-gold-500/40 shadow-2xl z-50 animate-fadeIn p-6 space-y-4 max-h-[calc(100vh-100px)] overflow-y-auto">
             <div className="divide-y divide-gold-500/20">
               {navLinks.map((link) => (
                 <NavLink
@@ -140,7 +140,7 @@ export const Navbar = () => {
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={({ isActive }) =>
-                    `block py-3 font-serif text-base tracking-wider uppercase ${
+                    `block py-3 font-serif text-base tracking-wider uppercase transition-colors ${
                       isActive
                         ? 'text-gold-700 font-bold pl-2 border-l-2 border-gold-500'
                         : 'text-espresso hover:text-gold-700'
@@ -152,15 +152,23 @@ export const Navbar = () => {
               ))}
             </div>
 
-            <div className="pt-2">
+            <div className="pt-2 space-y-2.5">
               <a
                 href={createWhatsAppLink(BAKERY_CONFIG.whatsappDefaultGreeting)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-espresso text-gold-200 text-xs font-serif tracking-widest uppercase hover:bg-espresso-800 transition-colors border border-gold-500/40 shadow-soft"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-espresso text-gold-200 text-xs font-serif tracking-widest uppercase hover:bg-espresso-800 transition-colors border border-gold-500/40 shadow-soft"
               >
                 <MessageCircle className="w-4 h-4 text-emerald-400" />
                 <span>WhatsApp Us ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
+              </a>
+
+              <a
+                href={`tel:${BAKERY_CONFIG.whatsappNumber}`}
+                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-parchment-100 text-espresso text-xs font-serif tracking-widest uppercase hover:bg-gold-100 transition-colors border border-gold-500/40 shadow-xs"
+              >
+                <Phone className="w-3.5 h-3.5 text-gold-700" />
+                <span>Call Directly ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
               </a>
             </div>
           </div>

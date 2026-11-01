@@ -16,8 +16,10 @@ export const BAKERY_CONFIG = {
 
   // WhatsApp ordering contact
   // FORMAT: Country code without '+' or special characters for wa.me links
-  whatsappNumber: '919876543210', 
-  whatsappDisplayNumber: '+91 98765 43210',
+  whatsappNumber: '919841511011', 
+  whatsappDisplayNumber: '+91 98415 11011',
+  phoneNumber: '+91 98415 11011',
+  phoneCallUrl: 'tel:+919841511011',
   whatsappDefaultGreeting: 'Hello Bake O Bliss! I would like to inquire about placing an order.',
 
   // Social & Web Links

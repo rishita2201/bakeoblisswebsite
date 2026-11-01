@@ -85,7 +85,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
             </div>
 
             {/* Sort Selector */}
-            <div className="flex items-center gap-2 self-end sm:self-auto">
+            <div className="flex items-center justify-between sm:justify-start gap-2 w-full sm:w-auto">
               <label htmlFor="sort-dropdown" className="text-xs font-serif tracking-wider uppercase text-espresso/70 font-semibold whitespace-nowrap">
                 Sort by:
               </label>
@@ -93,7 +93,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
                 id="sort-dropdown"
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="py-2.5 px-3.5 rounded-xl bg-white border border-gold-500/50 text-xs font-serif font-medium text-espresso focus:border-gold-600 focus:outline-none shadow-xs cursor-pointer"
+                className="py-2.5 px-3.5 rounded-xl bg-white border border-gold-500/50 text-xs font-serif font-medium text-espresso focus:border-gold-600 focus:outline-none shadow-xs cursor-pointer flex-grow sm:flex-grow-0"
               >
                 <option value="featured">Featured & Bestsellers</option>
                 <option value="price-low">Price: Low to High</option>
@@ -104,14 +104,14 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
           </div>
 
           {/* Category Filter Ribbons */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
             {CATEGORIES.map((category) => {
               const isActive = selectedCategory === category;
               return (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-5 py-2.5 rounded-full text-xs font-serif tracking-widest uppercase whitespace-nowrap transition-all duration-300 ${
+                  className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-serif tracking-widest uppercase whitespace-nowrap transition-all duration-300 shrink-0 ${
                     isActive
                       ? 'bg-espresso text-gold-200 border border-gold-500 shadow-nouveau font-bold'
                       : 'bg-white hover:bg-gold-50 text-espresso/80 border border-gold-500/35 hover:border-gold-500/70'

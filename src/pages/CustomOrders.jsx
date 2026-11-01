@@ -244,7 +244,7 @@ export const CustomOrders = () => {
                 name="customerPhone"
                 value={formData.customerPhone}
                 onChange={handleChange}
-                placeholder="e.g. +91 98765 43210"
+                placeholder="e.g. +91 98415 11011"
                 className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm font-serif text-espresso outline-none ${
                   errors.customerPhone ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                 }`}

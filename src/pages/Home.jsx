@@ -423,7 +423,7 @@ export const Home = () => {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-espresso-800 hover:bg-espresso-700 text-gold-200 border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-colors"
               >
-                Chat on WhatsApp (+91 98765 43210)
+                Chat on WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})
               </a>
             </div>
           </div>

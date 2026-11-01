@@ -239,7 +239,7 @@ export const Checkout = () => {
                     name="customerPhone"
                     value={formData.customerPhone}
                     onChange={handleChange}
-                    placeholder="e.g. +91 98765 43210"
+                    placeholder="e.g. +91 98415 11011"
                     className={`w-full px-4 py-3 rounded-xl bg-parchment-50 border text-sm text-espresso outline-none ${
                       errors.customerPhone ? 'border-rose-500' : 'border-gold-500/40 focus:border-gold-600'
                     }`}
@@ -382,10 +382,10 @@ export const Checkout = () => {
             <div className="bg-white rounded-[32px] p-6 sm:p-7 border border-gold-500/40 shadow-nouveau space-y-5 sticky top-28">
               <div className="flex items-center justify-between border-b border-gold-500/30 pb-3">
                 <h3 className="font-serif text-lg font-bold text-espresso">
-                  Basket Items ({totalItemsCount})
+                  Cart Items ({totalItemsCount})
                 </h3>
                 <Link to="/cart" className="text-xs font-serif font-bold text-gold-700 hover:underline uppercase tracking-wider">
-                  Edit Basket
+                  Edit Cart
                 </Link>
               </div>
 

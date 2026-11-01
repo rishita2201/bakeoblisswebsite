@@ -249,7 +249,8 @@ export const ProductDetails = () => {
               <button
                 type="button"
                 onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-9 h-9 rounded-xl bg-parchment-100 hover:bg-gold-200 text-espresso flex items-center justify-center font-bold text-sm"
+                className="w-10 h-10 rounded-xl bg-parchment-100 hover:bg-gold-200 active:scale-95 text-espresso flex items-center justify-center font-bold text-base transition-transform"
+                aria-label="Decrease quantity"
               >
                 -
               </button>
@@ -259,7 +260,8 @@ export const ProductDetails = () => {
               <button
                 type="button"
                 onClick={() => setQuantity(quantity + 1)}
-                className="w-9 h-9 rounded-xl bg-parchment-100 hover:bg-gold-200 text-espresso flex items-center justify-center font-bold text-sm"
+                className="w-10 h-10 rounded-xl bg-parchment-100 hover:bg-gold-200 active:scale-95 text-espresso flex items-center justify-center font-bold text-base transition-transform"
+                aria-label="Increase quantity"
               >
                 +
               </button>
@@ -278,20 +280,20 @@ export const ProductDetails = () => {
             <button
               type="button"
               onClick={handleAddToCart}
-              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2"
+              className="w-full py-4 rounded-full gold-button text-gold-100 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-nouveau flex items-center justify-center gap-2 active:scale-[0.98]"
             >
               <ShoppingBag className="w-4 h-4 text-gold-300" />
-              <span>Add to Basket • {formatCurrency(currentTotalPrice)}</span>
+              <span>Add to Cart • {formatCurrency(currentTotalPrice)}</span>
             </button>
 
             <a
               href={directWhatsAppUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3.5 rounded-full bg-white hover:bg-gold-50 text-emerald-800 border border-emerald-600/50 text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-xs"
+              className="w-full py-3.5 rounded-full bg-white hover:bg-gold-50 text-emerald-800 border border-emerald-600/50 text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center justify-center gap-2 shadow-xs active:scale-[0.98]"
             >
               <MessageCircle className="w-4 h-4 text-emerald-600 fill-current" />
-              <span>Inquire & Order via WhatsApp</span>
+              <span>Order via WhatsApp ({BAKERY_CONFIG.whatsappDisplayNumber})</span>
             </a>
           </div>
 

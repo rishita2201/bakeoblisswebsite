@@ -95,19 +95,19 @@ export const ProductCard = ({ product }) => {
             <button
               onClick={handleQuickAdd}
               type="button"
-              className="p-2.5 rounded-full bg-parchment-100 hover:bg-gold-500 text-espresso hover:text-white transition-all duration-200 border border-gold-500/50 shadow-xs flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-parchment-100 hover:bg-gold-500 text-espresso hover:text-white active:scale-95 transition-all duration-200 border border-gold-500/50 shadow-xs flex items-center justify-center shrink-0"
               title="Add default size to basket"
               aria-label={`Add ${product.name} to basket`}
             >
-              <ShoppingBag className="w-3.5 h-3.5" />
+              <ShoppingBag className="w-4 h-4" />
             </button>
             <Link
               to={`/product/${product.id}`}
-              className="p-2.5 rounded-full bg-espresso hover:bg-espresso-800 text-gold-200 transition-all duration-200 border border-gold-500/50 flex items-center justify-center"
+              className="w-10 h-10 rounded-full bg-espresso hover:bg-espresso-800 text-gold-200 active:scale-95 transition-all duration-200 border border-gold-500/50 flex items-center justify-center shrink-0"
               title="View full options & customise"
               aria-label={`View ${product.name} details`}
             >
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

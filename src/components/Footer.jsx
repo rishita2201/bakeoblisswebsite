@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, MapPin, Clock, Heart, Sparkles } from 'lucide-react';
+import { Instagram, MessageCircle, MapPin, Clock, Heart, Sparkles, Phone } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
 import { createWhatsAppLink } from '../utils/whatsapp';
 import { NouveauArchCrest, NouveauFloralDivider } from './ArtNouveauDecorations';
@@ -111,6 +111,15 @@ export const Footer = () => {
                   <p>{BAKERY_CONFIG.operatingHours.hours}</p>
                 </div>
               </div>
+
+              <a
+                href={`tel:${BAKERY_CONFIG.whatsappNumber}`}
+                className="pt-1 flex items-center gap-2 text-xs text-gold-300 hover:text-white transition-colors"
+                title="Call Bake O Bliss"
+              >
+                <Phone className="w-3.5 h-3.5 text-gold-400" />
+                <span className="font-semibold">{BAKERY_CONFIG.whatsappDisplayNumber}</span>
+              </a>
             </div>
           </div>
 

@@ -26,10 +26,10 @@ export const Hero = () => {
 
             {/* Main Headline */}
             <div className="space-y-2">
-              <span className="font-serif italic text-lg sm:text-xl text-gold-700 block tracking-wide">
+              <span className="font-serif italic text-base sm:text-xl text-gold-700 block tracking-wide">
                 Fresh Homemade Pure Veg Bakery
               </span>
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-6xl font-normal text-espresso leading-[1.12]">
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-[1.15] sm:leading-[1.12]">
                 Baked with Love, <br />
                 <span className="italic font-serif text-[#A8636C] font-normal">
                   Made to Delight.
@@ -66,18 +66,18 @@ export const Hero = () => {
             </div>
 
             {/* Triptych Guarantees with Filigree Borders */}
-            <div className="pt-6 border-t border-gold-500/30 grid grid-cols-3 gap-3 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
-              <div className="p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
-                <span className="font-serif text-lg sm:text-xl font-bold text-espresso block">100%</span>
-                <span className="text-[10px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Pure Veg & Eggless</span>
+            <div className="pt-6 border-t border-gold-500/30 grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+              <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
+                <span className="font-serif text-base sm:text-xl font-bold text-espresso block">100%</span>
+                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Pure Veg & Eggless</span>
               </div>
-              <div className="p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
-                <span className="font-serif text-lg sm:text-xl font-bold text-espresso block">Pure</span>
-                <span className="text-[10px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Dairy Butter Only</span>
+              <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
+                <span className="font-serif text-base sm:text-xl font-bold text-espresso block">Pure</span>
+                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Dairy Butter</span>
               </div>
-              <div className="p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
-                <span className="font-serif text-lg sm:text-xl font-bold text-espresso block">Chennai</span>
-                <span className="text-[10px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Perambur Studio</span>
+              <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
+                <span className="font-serif text-base sm:text-xl font-bold text-espresso block">Perambur</span>
+                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Chennai Bakery</span>
               </div>
             </div>
 
@@ -111,12 +111,12 @@ export const Hero = () => {
               </div>
 
               {/* Floating Cameo Medallion at Arch Base */}
-              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-[#FFFDF9] py-2.5 px-5 rounded-full border border-gold-500 shadow-nouveau flex items-center gap-3 whitespace-nowrap z-20">
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 flex-shrink-0 animate-pulse" />
-                <span className="font-serif text-xs font-semibold text-espresso tracking-wide">
+              <div className="absolute -bottom-5 sm:-bottom-6 left-1/2 -translate-x-1/2 bg-[#FFFDF9] py-1.5 sm:py-2.5 px-3.5 sm:px-5 rounded-full border border-gold-500 shadow-nouveau flex items-center gap-2 sm:gap-3 whitespace-nowrap z-20 max-w-[92vw]">
+                <span className="w-2 sm:w-2.5 h-2 sm:h-2.5 rounded-full bg-emerald-600 flex-shrink-0 animate-pulse" />
+                <span className="font-serif text-[11px] sm:text-xs font-semibold text-espresso tracking-wide">
                   Sanitized 100% Eggless Kitchen
                 </span>
-                <span className="text-gold-500 font-serif italic text-xs">• Tower 4</span>
+                <span className="text-gold-500 font-serif italic text-[11px] sm:text-xs">• Tower 4</span>
               </div>
 
             </div>
