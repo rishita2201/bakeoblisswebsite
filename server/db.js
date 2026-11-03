@@ -90,15 +90,15 @@ export function initDatabase() {
   // Default bakery settings with Chennai North Town Apartment address
   const defaultSettings = [
     ['brandName', 'Bake O Bliss'],
-    ['tagline', '100% Pure Vegetarian & Eggless Home Bakery'],
-    ['dietaryNote', '100% Pure Vegetarian & Eggless Home Bakery'],
+    ['tagline', 'Artisanal Homemade Bakery'],
+    ['dietaryNote', 'Dedicated kitchen • Pure butter • Zero gelatin • Zero eggs'],
     ['whatsappNumber', '919841511011'],
     ['whatsappDisplayNumber', '+91 98415 11011'],
     ['address', 'Flat No. 803, Tower 4, North Town Apartment, Stephenson Road, Binny Garden, Perambur'],
     ['city', 'Chennai'],
     ['state', 'Tamil Nadu'],
     ['pincode', '600012'],
-    ['operatingDays', 'Tuesday – Sunday (Closed Mondays)'],
+    ['operatingDays', 'Monday – Sunday (All 7 Days)'],
     ['operatingHours', '10:00 AM – 7:30 PM'],
     ['adminPin', '8034'] // Flat 803 Tower 4
   ];

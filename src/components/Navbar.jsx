@@ -73,7 +73,7 @@ export const Navbar = () => {
               <div className="flex items-center gap-1.5 mt-1">
                 <span className="w-3 h-[1px] bg-gold-500/60" />
                 <span className="text-[10px] tracking-[0.3em] uppercase text-gold-700 font-serif font-semibold">
-                  Pure Vegetarian Home Bakery
+                  Fresh Artisanal Home Bakery
                 </span>
                 <span className="w-3 h-[1px] bg-gold-500/60" />
               </div>

@@ -242,7 +242,7 @@ export const Contact = () => {
                       <option value="General Inquiry">General Question</option>
                       <option value="Custom Cake Consultation">Custom Cake Consultation</option>
                       <option value="Party & Hamper Gifting">Party Gifting & Hampers</option>
-                      <option value="Dietary Questions">Dietary & Pure Veg Inquiries</option>
+                      <option value="Dietary Questions">Dietary & Ingredient Questions</option>
                     </select>
                   </div>
                 </div>

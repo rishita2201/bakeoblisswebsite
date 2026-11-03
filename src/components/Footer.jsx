@@ -26,14 +26,14 @@ export const Footer = () => {
               <span className="font-display text-3xl font-bold tracking-wider text-[#FFFDF9]">
                 {BAKERY_CONFIG.brandName}
               </span>
-              <span className="text-[11px] font-serif uppercase tracking-[0.25em] text-emerald-400 font-bold flex items-center gap-1.5 mt-1">
-                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-                100% Pure Veg & Eggless
+              <span className="text-[11px] font-serif uppercase tracking-[0.25em] text-gold-300 font-bold flex items-center gap-1.5 mt-1">
+                <span className="w-2 h-2 rounded-full bg-gold-400"></span>
+                Artisanal Home Bakery
               </span>
             </div>
             
             <p className="text-xs sm:text-sm font-serif text-[#FFF5EA] leading-relaxed">
-              Chennai's 100% pure vegetarian home bakery in Perambur. Freshly baked cakes, fudgy brownies, and delicious treats made with pure butter and love.
+              Chennai's artisanal home bakery in Perambur. Freshly baked cakes, fudgy brownies, and delicious treats made with pure butter and love.
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
@@ -163,7 +163,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-serif text-[#FFF5EA] gap-4">
-          <p>© {new Date().getFullYear()} {BAKERY_CONFIG.brandName}. 100% Pure Vegetarian & Eggless.</p>
+          <p>© {new Date().getFullYear()} {BAKERY_CONFIG.brandName}. Handcrafted Fresh in Chennai.</p>
           
           <div className="flex items-center gap-4">
             <Link to="/admin" className="text-[#FFDE99] hover:text-white transition-colors uppercase tracking-widest text-[11px] font-bold underline">

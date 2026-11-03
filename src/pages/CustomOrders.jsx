@@ -113,7 +113,7 @@ export const CustomOrders = () => {
         </h1>
         <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-          Order a special 100% pure vegetarian and eggless cake tailored to your celebration, favourite flavours, and design in Chennai.
+          Order a special custom cake tailored to your celebration, favourite flavours, and design in Chennai.
         </p>
       </div>
 
@@ -159,11 +159,11 @@ export const CustomOrders = () => {
           <p className="text-espresso/90 leading-relaxed">Custom tiered and decorated cakes require a minimum of <strong className="font-bold text-espresso">48 to 72 hours</strong> advance notice so we can bake and decorate fresh.</p>
         </div>
         <div className="space-y-1.5">
-          <h4 className="font-bold text-emerald-800 text-base flex items-center gap-1.5">
-            <span>🌱</span>
-            <span>100% Pure Veg & Eggless</span>
+          <h4 className="font-bold text-espresso text-base flex items-center gap-1.5">
+            <span className="text-gold-600">✦</span>
+            <span>Pure Dairy Butter</span>
           </h4>
-          <p className="text-espresso/90 leading-relaxed">Every cake is prepared with pure dairy butter in our dedicated vegetarian kitchen. Zero gelatin, zero eggs.</p>
+          <p className="text-espresso/90 leading-relaxed">Every cake is prepared with pure dairy butter and rich chocolate from scratch. Zero gelatin, zero eggs.</p>
         </div>
         <div className="space-y-1.5">
           <h4 className="font-bold text-espresso text-base flex items-center gap-1.5">

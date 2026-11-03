@@ -53,8 +53,8 @@ export const Home = () => {
     },
     {
       icon: ShieldCheck,
-      title: '100% Pure Vegetarian',
-      description: 'Dedicated vegetarian kitchen with pure utensils. Zero gelatin, zero eggs.',
+      title: 'Sanitized Kitchen',
+      description: 'Dedicated utensils and pure ingredients. Zero gelatin, zero eggs.',
     },
     {
       icon: Award,
@@ -70,7 +70,7 @@ export const Home = () => {
 
   const sampleTestimonials = [
     {
-      quote: "Finding an authentic 100% pure veg home bakery in Chennai with this level of delicious quality is a dream come true! The Raspberry Rose cake was the star of our anniversary.",
+      quote: "Finding an authentic artisanal home bakery in Chennai with this level of delicious quality is a dream come true! The Raspberry Rose cake was the star of our anniversary.",
       author: 'Deepika & Karthik',
       occasion: 'Anniversary Celebration (Kilpauk, Chennai)',
       stars: 5,
@@ -107,7 +107,7 @@ export const Home = () => {
           </h2>
           <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-2 mx-auto" />
           <p className="text-sm font-serif text-espresso/70 italic">
-            Baked fresh to order with pure dairy butter in our vegetarian home studio in Perambur, Chennai.
+            Baked fresh to order with pure dairy butter in our home studio in Perambur, Chennai.
           </p>
         </div>
 
@@ -217,7 +217,7 @@ export const Home = () => {
               <NouveauFloralDivider className="w-48 h-5 text-gold-500 my-1" />
 
               <p className="text-base text-espresso/80 leading-relaxed font-serif font-light">
-                At <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, our home bakery in North Town Apartment, Perambur was started with a simple belief: that 100% pure vegetarian and eggless cakes should taste delicious, moist, and richer than commercial shop cakes.
+                At <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, our home bakery in North Town Apartment, Perambur was started with a simple belief: that homemade cakes should taste delicious, moist, and richer than commercial shop cakes.
               </p>
 
               <div className="space-y-3 pt-2 text-sm font-serif text-espresso/80">
@@ -226,7 +226,7 @@ export const Home = () => {
                     ✦
                   </span>
                   <p>
-                    <strong>100% Pure Vegetarian Kitchen:</strong> Dedicated vegetarian utensils. Zero gelatin, zero eggs, zero animal fats.
+                    <strong>Clean Dedicated Kitchen:</strong> Sanitized bake-ware. Zero gelatin, zero eggs, zero animal fats.
                   </p>
                 </div>
                 <div className="flex items-start gap-3">
@@ -408,7 +408,7 @@ export const Home = () => {
             </h2>
             <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-2 mx-auto" />
             <p className="text-sm font-serif text-gold-100/80 max-w-lg mx-auto font-light leading-relaxed">
-              Tell us what design and flavour you would love for your special occasion. Every cake is baked fresh from scratch in our 100% pure vegetarian home kitchen in Perambur, Chennai.
+              Tell us what design and flavour you would love for your special occasion. Every cake is baked fresh from scratch in our home kitchen in Perambur, Chennai.
             </p>
             <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link

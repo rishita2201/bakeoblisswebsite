@@ -417,8 +417,8 @@ export const Checkout = () => {
                   <span className="font-bold text-espresso">{formatCurrency(subtotal)}</span>
                 </div>
                 <div className="flex justify-between text-espresso/70">
-                  <span>Dietary Guarantee</span>
-                  <span className="font-bold text-emerald-800">🌱 100% Pure Veg</span>
+                  <span>Baking Standard</span>
+                  <span className="font-bold text-espresso">Fresh to Order</span>
                 </div>
                 <div className="flex justify-between items-baseline pt-2 border-t border-gold-500/20">
                   <span className="font-bold text-espresso">Estimated Total</span>

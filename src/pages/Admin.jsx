@@ -413,7 +413,7 @@ export const Admin = () => {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-xs uppercase font-bold tracking-widest text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
-              100% Pure Veg Home Studio
+              Artisanal Home Studio
             </span>
           </div>
           <h1 className="font-serif text-3xl font-bold text-chocolate mt-1">
@@ -484,7 +484,7 @@ export const Admin = () => {
           <div className="bg-white p-5 rounded-3xl border border-blush/70 shadow-soft space-y-1">
             <span className="text-[11px] font-bold uppercase tracking-wider text-chocolate/60">Kitchen Studio</span>
             <div className="text-xs text-chocolate/80 space-y-0.5 pt-1">
-              <p className="font-bold text-emerald-800">🌱 100% Pure Veg</p>
+              <p className="font-bold text-emerald-800">🌱 Dedicated Kitchen</p>
               <p className="truncate">Tower 4, North Town</p>
             </div>
           </div>
@@ -668,8 +668,8 @@ export const Admin = () => {
                         <p className="font-serif text-lg font-bold text-chocolate mt-0.5">
                           {formatCurrency(order.total_amount)}
                         </p>
-                        <span className="text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md font-medium">
-                          100% Pure Veg
+                        <span className="text-[10px] text-espresso/70 bg-cream px-2 py-0.5 rounded-md font-medium">
+                          Fresh Bakes
                         </span>
                       </div>
                     </div>
@@ -825,7 +825,7 @@ export const Admin = () => {
 
                       <div>
                         <span className="text-[10px] uppercase font-bold text-chocolate/50 block">Dietary Standard</span>
-                        <p className="font-bold text-emerald-800 mt-0.5">🌱 100% Pure Veg & Eggless</p>
+                        <p className="font-bold text-emerald-800 mt-0.5">🌱 Dedicated Kitchen</p>
                       </div>
                     </div>
 

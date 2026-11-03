@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { BAKERY_CONFIG } from '../data/config';
-import { NouveauFloralDivider, NouveauCorner, NouveauVegCameo } from './ArtNouveauDecorations';
+import { NouveauFloralDivider, NouveauCorner } from './ArtNouveauDecorations';
 
 export const Hero = () => {
   return (
@@ -19,15 +19,21 @@ export const Hero = () => {
           {/* Left Column: Brand Copy & Poetic Typography */}
           <div className="lg:col-span-7 space-y-7 text-center lg:text-left">
             
-            {/* Pure Veg Cameo Seal */}
+            {/* Artisanal Heritage Cameo */}
             <div className="flex items-center justify-center lg:justify-start">
-              <NouveauVegCameo />
+              <div className="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-parchment-50 border border-gold-500/70 shadow-xs font-serif text-xs font-medium text-espresso">
+                <span className="text-gold-600">✦</span>
+                <span className="text-gold-800 font-serif font-bold uppercase tracking-widest text-[11px]">
+                  Handcrafted Homemade Bakes
+                </span>
+                <span className="text-gold-600">✦</span>
+              </div>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-2">
               <span className="font-serif italic text-base sm:text-xl text-gold-700 block tracking-wide">
-                Fresh Homemade Pure Veg Bakery
+                Artisanal Homemade Bakery
               </span>
               <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-espresso leading-[1.15] sm:leading-[1.12]">
                 Baked with Love, <br />
@@ -44,7 +50,7 @@ export const Hero = () => {
 
             {/* Simple, Warm Description */}
             <p className="text-base sm:text-lg text-espresso/80 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-serif font-light">
-              Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, Chennai’s 100% pure vegetarian home bakery located at North Town Apartment, Perambur. Every celebration cake, fudgy brownie, and cookie is baked fresh to order using pure dairy butter, rich chocolate, and quality ingredients.
+              Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>, Chennai’s artisanal home bakery located at North Town Apartment, Perambur. Every celebration cake, fudgy brownie, and cookie is baked fresh to order using pure dairy butter, rich chocolate, and quality ingredients.
             </p>
 
             {/* Call to Actions with High-Contrast Gilded Buttons */}
@@ -68,8 +74,8 @@ export const Hero = () => {
             {/* Triptych Guarantees with Filigree Borders */}
             <div className="pt-6 border-t border-gold-500/30 grid grid-cols-3 gap-2 sm:gap-3 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
               <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
-                <span className="font-serif text-base sm:text-xl font-bold text-espresso block">100%</span>
-                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Pure Veg & Eggless</span>
+                <span className="font-serif text-base sm:text-xl font-bold text-espresso block">Fresh</span>
+                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Baked to Order</span>
               </div>
               <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
                 <span className="font-serif text-base sm:text-xl font-bold text-espresso block">Pure</span>
@@ -77,7 +83,7 @@ export const Hero = () => {
               </div>
               <div className="p-2 sm:p-2.5 rounded-xl border border-gold-500/25 bg-white/50">
                 <span className="font-serif text-base sm:text-xl font-bold text-espresso block">Perambur</span>
-                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Chennai Bakery</span>
+                <span className="text-[9px] sm:text-xs text-gold-800 font-serif uppercase tracking-wider block">Chennai Studio</span>
               </div>
             </div>
 

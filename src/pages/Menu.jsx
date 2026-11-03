@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { ProductGrid } from '../components/ProductGrid';
 import { BAKERY_CONFIG } from '../data/config';
-import { NouveauFloralDivider, NouveauArchCrest, NouveauVegCameo } from '../components/ArtNouveauDecorations';
+import { NouveauFloralDivider, NouveauArchCrest } from '../components/ArtNouveauDecorations';
 
 export const Menu = () => {
   const [searchParams] = useSearchParams();
@@ -24,21 +24,18 @@ export const Menu = () => {
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
           Explore our freshly baked cakes, fudgy chocolate brownies, cupcakes, and sweet treats baked fresh to order in Perambur, Chennai.
         </p>
-        <div className="pt-2 flex justify-center">
-          <NouveauVegCameo size="small" />
-        </div>
       </div>
 
       {/* Main Product Grid with Filters & Search */}
       <ProductGrid initialCategory={activeCategoryParam} showHeader={true} />
 
-      {/* Dietary Promise Card */}
+      {/* Quality Promise Card */}
       <div className="mt-16 p-8 sm:p-10 rounded-[36px] bg-parchment-100/70 border border-gold-500/40 text-center max-w-3xl mx-auto space-y-3 shadow-nouveau">
         <h3 className="font-serif text-2xl font-bold text-espresso">
-          100% Pure Vegetarian Kitchen
+          Freshly Baked with Pure Butter
         </h3>
         <p className="text-xs sm:text-sm font-serif text-espresso/75 leading-relaxed max-w-xl mx-auto">
-          Every cake, brownie, and treat in our bakery is strictly 100% pure vegetarian and eggless. We bake with dedicated vegetarian utensils and zero gelatin.
+          Every cake, brownie, and treat in our bakery is baked fresh to order using pure dairy butter, rich chocolate, and quality ingredients with zero gelatin.
         </p>
       </div>
 

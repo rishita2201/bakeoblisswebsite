@@ -70,7 +70,7 @@ export const ProductGrid = ({ initialCategory = 'All', showHeader = true, limit 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search pure veg cakes, brownies, macarons..."
+                placeholder="Search cakes, crinkle brownies, cookies..."
                 className="w-full pl-11 pr-10 py-3 rounded-full bg-white border border-gold-500/50 focus:border-gold-600 focus:ring-2 focus:ring-gold-200 text-sm font-serif text-espresso placeholder-espresso/40 outline-none transition-all shadow-xs"
               />
               {searchQuery && (

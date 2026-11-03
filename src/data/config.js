@@ -7,11 +7,11 @@
 
 export const BAKERY_CONFIG = {
   brandName: 'Bake O Bliss',
-  tagline: '100% Pure Vegetarian & Eggless Home Bakery',
-  shortDescription: 'Chennai’s home bakery crafting 100% pure vegetarian celebration cakes, fudgy crinkle-top brownies, cupcakes, and sweet treats made fresh to order with pure dairy butter and rich chocolate.',
+  tagline: 'Artisanal Homemade Bakery',
+  shortDescription: 'Chennai’s home bakery crafting celebration cakes, fudgy crinkle-top brownies, cupcakes, and sweet treats made fresh to order with pure dairy butter and rich chocolate.',
   
   // Dietary Speciality
-  dietaryNote: '100% Pure Vegetarian & Eggless Kitchen • Dedicated vegetarian utensils • Zero gelatin • Zero eggs',
+  dietaryNote: 'Dedicated kitchen • Pure dairy butter • Zero gelatin • Zero eggs',
   isPureVeg: true,
 
   // WhatsApp ordering contact
@@ -40,7 +40,7 @@ export const BAKERY_CONFIG = {
   },
   
   operatingHours: {
-    days: 'Tuesday – Sunday (Closed on Mondays)',
+    days: 'Monday – Sunday (All 7 Days)',
     hours: '10:00 AM – 7:30 PM',
     leadTimeNotice: 'Standard bakes require 24 hours advance notice. Custom celebration cakes require 48-72 hours.',
   },

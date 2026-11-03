@@ -20,7 +20,7 @@ export const About = () => {
         </h1>
         <NouveauFloralDivider className="w-56 h-6 text-gold-500 my-2 mx-auto" />
         <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
-          Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>. We are a dedicated 100% pure vegetarian & eggless home bakery operating from North Town Apartment, Perambur, Chennai.
+          Welcome to <strong className="font-semibold text-espresso">{BAKERY_CONFIG.brandName}</strong>. We are an artisanal home bakery operating from North Town Apartment, Perambur, Chennai.
         </p>
       </div>
 
@@ -59,10 +59,10 @@ export const About = () => {
 
           <div className="space-y-4 text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
             <p>
-              {BAKERY_CONFIG.brandName} began from a home oven and a deep passion for baking fresh, delicious cakes in Perambur, Chennai. In a market where vegetarian celebration cakes are often treated as an afterthought or made with premixes and vegetable shortenings, we set out to prove that eggless cakes can be lighter, more flavorful, and wonderfully moist.
+              {BAKERY_CONFIG.brandName} began from a home oven and a deep passion for baking fresh, delicious cakes in Perambur, Chennai. In a market where cakes are often mass-produced with premixes and vegetable shortenings, we set out to prove that small-batch handcrafted cakes can be lighter, more flavorful, and wonderfully moist.
             </p>
             <p>
-              Operating strictly as a 100% vegetarian kitchen, we never permit eggs or animal gelatin in our kitchen. From birthday cakes baked for family gatherings to tiered wedding cakes, we bake exclusively to order, so each customer receives fresh bakes made specially for them.
+              Operating strictly as a dedicated kitchen, we never permit eggs or animal gelatin. From birthday cakes baked for family gatherings to tiered wedding cakes, we bake exclusively to order, so each customer receives fresh bakes made specially for them.
             </p>
           </div>
 
@@ -93,9 +93,9 @@ export const About = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-[28px] border border-gold-500/35 shadow-xs space-y-2 text-center">
             <span className="font-serif text-gold-700 font-bold text-lg block">I</span>
-            <h3 className="font-serif text-base font-bold text-espresso">100% Pure Vegetarian</h3>
+            <h3 className="font-serif text-base font-bold text-espresso">Pure Quality Ingredients</h3>
             <p className="text-xs font-serif text-espresso/70 leading-relaxed">
-              Dedicated vegetarian utensils. Zero animal fat, zero gelatin, zero compromises.
+              Dedicated sanitized bake-ware. Zero animal fat, zero gelatin, zero compromises.
             </p>
           </div>
 

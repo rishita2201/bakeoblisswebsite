@@ -21,7 +21,7 @@ export const Cart = () => {
             Your Basket is Empty
           </h1>
           <p className="text-sm font-serif text-espresso/70 leading-relaxed">
-            Your sweet basket awaits. Browse our collection of 100% pure vegetarian cakes, crinkle brownies, and French macarons!
+            Your sweet basket awaits. Browse our collection of fresh celebration cakes, crinkle brownies, and delicious treats!
           </p>
         </div>
         <Link
@@ -97,8 +97,8 @@ export const Cart = () => {
                 <span className="font-bold text-espresso text-sm">{formatCurrency(subtotal)}</span>
               </div>
               <div className="flex items-start justify-between text-espresso/70">
-                <span>Dietary Standard</span>
-                <span className="text-right font-bold text-emerald-800">🌱 100% Pure Veg</span>
+                <span>Baking Standard</span>
+                <span className="text-right font-bold text-espresso">Fresh to Order</span>
               </div>
               <div className="flex items-start justify-between text-espresso/70">
                 <span>Studio Location</span>

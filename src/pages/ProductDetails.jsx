@@ -10,7 +10,7 @@ import { formatCurrency } from '../utils/currency';
 import { generateDirectProductWhatsAppUrl } from '../utils/whatsapp';
 import { BAKERY_CONFIG } from '../data/config';
 import { ProductCard } from '../components/ProductCard';
-import { NouveauCorner, NouveauFloralDivider, NouveauVegCameo } from '../components/ArtNouveauDecorations';
+import { NouveauCorner, NouveauFloralDivider } from '../components/ArtNouveauDecorations';
 
 export const ProductDetails = () => {
   const { id } = useParams();
