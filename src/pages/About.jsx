@@ -35,8 +35,8 @@ export const About = () => {
 
             <div className="aspect-[4/3] rounded-[110px_110px_16px_16px] overflow-hidden bg-parchment-200">
               <img
-                src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
-                alt="Bake O Bliss home kitchen studio Chennai"
+                src="/images/cakes/floating-illusion-engagement-cake.jpg"
+                alt="Handmade celebration cake by Bake O Bliss"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -165,8 +165,8 @@ export const About = () => {
           <div className="p-2.5 rounded-[120px_120px_24px_24px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg">
             <div className="aspect-[4/3] rounded-[110px_110px_16px_16px] overflow-hidden bg-parchment-200">
               <img
-                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80"
-                alt="Belgian chocolate cake crafted in Chennai"
+                src="/images/cakes/chocolate-drip-oreo-cake.jpg"
+                alt="Belgian chocolate cake crafted by Bake O Bliss"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -25,10 +25,10 @@ export const PRODUCTS = [
     price: 1450,
     shortDescription: 'Soft vanilla sponge layered with homemade raspberry compote and rosewater buttercream.',
     description: 'A lovely celebration cake baked with fragrant vanilla sponge, sweet homemade raspberry compote, smooth rosewater buttercream, and dried rose petals.',
-    image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/cakes/rose-gold-leaf-2tier-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/lavender-floral-40th-cake.jpg',
+      '/images/cakes/butterflies-pink-ombre-cake.jpg'
     ],
     isBestseller: true,
     isSignature: true,
@@ -48,11 +48,11 @@ export const PRODUCTS = [
     category: 'Cakes',
     price: 1550,
     shortDescription: 'Moist dark chocolate sponge layered with rich chocolate ganache and cocoa dusting.',
-    description: 'The ultimate treat for chocolate lovers. Moist layers baked with rich dark chocolate, filled with smooth chocolate ganache, and topped with chocolate truffles.',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=80',
+    description: 'The ultimate treat for chocolate lovers. Moist layers baked with rich dark chocolate, filled with smooth chocolate ganache, and topped with chocolate truffles and Oreos.',
+    image: '/images/cakes/chocolate-drip-oreo-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/fudge-brownie-lotus-cake.jpg',
+      '/images/cakes/navy-gold-leaf-birthday-cake.jpg'
     ],
     isBestseller: true,
     isSignature: false,
@@ -68,14 +68,14 @@ export const PRODUCTS = [
   },
   {
     id: 'salted-caramel-biscoff-drip-cake',
-    name: 'Salted Caramel Biscoff Drip Cake',
+    name: 'Lotus Biscoff Fudge Drip Cake',
     category: 'Cakes',
     price: 1600,
-    shortDescription: 'Spiced Biscoff sponge layered with caramel drizzle and Lotus biscuit crumb.',
+    shortDescription: 'Spiced Biscoff sponge layered with caramel drizzle and crunchy Lotus biscuit crumb.',
     description: 'Warm spices meet velvety sweetness. Fluffy Biscoff cookie sponge paired with salted caramel cream, finished with a golden caramel drip and crispy Lotus biscuits.',
-    image: 'https://images.unsplash.com/photo-1562440499-64c9a111f713?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/cakes/fudge-brownie-lotus-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/chocolate-drip-oreo-cake.jpg'
     ],
     isBestseller: false,
     isSignature: true,
@@ -96,9 +96,10 @@ export const PRODUCTS = [
     price: 750,
     shortDescription: 'Box of delicate cupcakes piped with pretty buttercream flowers and garden roses.',
     description: 'Fluffy vanilla sponge cupcakes topped with smooth, silky buttercream piped into lovely pastel floral designs.',
-    image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/cakes/pink-rainbow-cloud-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/ballerina-rainbow-birthday-cake.jpg',
+      '/images/cakes/hot-air-balloon-rainbow-cake.jpg'
     ],
     isBestseller: true,
     isSignature: true,
@@ -118,8 +119,10 @@ export const PRODUCTS = [
     price: 680,
     shortDescription: 'Moist chocolate cupcakes topped with whipped dark chocolate ganache swirl.',
     description: 'Delicious chocolate cupcakes made with rich cocoa and pure butter, topped with whipped dark chocolate ganache and chocolate pearls.',
-    image: 'https://images.unsplash.com/photo-1576618148400-f54bed99fcfd?auto=format&fit=crop&w=1000&q=80',
-    additionalImages: [],
+    image: '/images/cakes/spiderman-birthday-cake.jpg',
+    additionalImages: [
+      '/images/cakes/outer-space-galaxy-cake.jpg'
+    ],
     isBestseller: false,
     isSignature: false,
     availability: 'in_stock',
@@ -138,9 +141,9 @@ export const PRODUCTS = [
     price: 650,
     shortDescription: 'Fudgy brownies with that classic shiny paper-thin crinkle crust.',
     description: 'Our customer favourite. Melted dark chocolate blended with pure dairy butter and baked into a dense, gooey center with crisp edges and a shiny crinkle top.',
-    image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/cakes/fudge-brownie-lotus-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/chocolate-drip-oreo-cake.jpg'
     ],
     isBestseller: true,
     isSignature: true,
@@ -161,8 +164,10 @@ export const PRODUCTS = [
     price: 720,
     shortDescription: 'Rich chocolate brownies swirled with homemade salted caramel and roasted walnuts.',
     description: 'Fudgy chocolate brownie squares swirled with homemade salted caramel and toasted walnuts for a delicious crunch.',
-    image: 'https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=1000&q=80',
-    additionalImages: [],
+    image: '/images/cakes/chocolate-drip-oreo-cake.jpg',
+    additionalImages: [
+      '/images/cakes/fudge-brownie-lotus-cake.jpg'
+    ],
     isBestseller: false,
     isSignature: false,
     availability: 'in_stock',
@@ -181,9 +186,9 @@ export const PRODUCTS = [
     price: 520,
     shortDescription: 'Thick golden cookies packed with melted chocolate chunks and a pinch of sea salt.',
     description: 'Crisp on the outside and soft, gooey in the center. Made with pure butter and loaded with rich chocolate chunks.',
-    image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1000&q=80',
+    image: '/images/cakes/festive-hamper-box.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80'
+      '/images/instagram/diwali-hamper-reel.jpg'
     ],
     isBestseller: true,
     isSignature: false,
@@ -203,8 +208,10 @@ export const PRODUCTS = [
     price: 480,
     shortDescription: 'Melt-in-mouth butter cookies infused with rose and roasted pistachios.',
     description: 'Delicately crumbly butter cookies made with pure dairy butter, cardamom, rose petals, and roasted pistachios.',
-    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80',
-    additionalImages: [],
+    image: '/images/cakes/festive-hamper-box.jpg',
+    additionalImages: [
+      '/images/instagram/diwali-hamper-reel.jpg'
+    ],
     isBestseller: false,
     isSignature: true,
     availability: 'in_stock',
@@ -218,14 +225,14 @@ export const PRODUCTS = [
   },
   {
     id: 'paris-macaron-gift-box',
-    name: 'Classic Macaron Box',
+    name: 'Classic Rosette & Macaron Box',
     category: 'Desserts',
     price: 850,
-    shortDescription: 'Crisp egg-free macarons with smooth chocolate and fruit fillings.',
-    description: 'Delicate egg-free macarons made with almond flour and delicious fillings including Rose Lychee, Dark Chocolate, Salted Caramel, and Pistachio.',
-    image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=1000&q=80',
+    shortDescription: 'Delicious party treats with delicate chocolate and fruit fillings.',
+    description: 'Delicate treats made with almond flour and delicious fillings including Rose Lychee, Dark Chocolate, Salted Caramel, and Pistachio.',
+    image: '/images/cakes/peach-rosette-piping-cake.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/sunflower-yellow-heart-cake.jpg'
     ],
     isBestseller: true,
     isSignature: true,
@@ -240,14 +247,15 @@ export const PRODUCTS = [
   },
   {
     id: 'tiered-floral-wedding-cake',
-    name: 'Two-Tiered Celebration Cake',
+    name: 'Royal Wedding & Engagement Tier Cake',
     category: 'Special Occasion Treats',
     price: 4900,
-    shortDescription: 'Two-tiered celebration cake with textured ivory frosting and fresh flowers.',
-    description: 'Perfect for birthdays, engagements, and anniversaries. A lovely two-tier cake with your choice of flavours, textured buttercream, and fresh floral decoration.',
-    image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=1000&q=80',
+    shortDescription: 'Two-tiered celebration cake with textured ivory frosting and fresh roses.',
+    description: 'Perfect for birthdays, engagements, and anniversaries. A lovely multi-tier cake with your choice of flavours, textured buttercream, fresh roses, and gold leafing.',
+    image: '/images/cakes/royal-wedding-gold-leaf-2tier.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80'
+      '/images/cakes/floating-illusion-engagement-cake.jpg',
+      '/images/cakes/gold-crown-butterfly-2tier-cake.jpg'
     ],
     isBestseller: false,
     isSignature: true,
@@ -267,10 +275,9 @@ export const PRODUCTS = [
     price: 1250,
     shortDescription: 'Curated luxury gift box packed with artisanal cookies, fudge brownies, and celebration treats.',
     description: 'As featured on our Instagram Reel! A little sweetness goes a long way 🪔 Our handcrafted festive hampers and gift bags are handmade with love in our Perambur studio and packed in a gorgeous keepsake gift box. Featuring freshly baked gourmet cookies, rich fudge brownies, and sweet delicacies. Perfect for family, friends, colleagues, and corporate gifting in Chennai.',
-    image: '/images/instagram/diwali-hamper-reel.jpg',
+    image: '/images/cakes/festive-hamper-box.jpg',
     additionalImages: [
-      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=80',
-      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80'
+      '/images/instagram/diwali-hamper-reel.jpg'
     ],
     isBestseller: true,
     isSignature: true,

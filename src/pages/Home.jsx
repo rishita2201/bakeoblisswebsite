@@ -17,37 +17,37 @@ export const Home = () => {
       title: 'Celebration Cakes',
       category: 'Cakes',
       description: 'Soft layered cakes with smooth buttercream and lovely decorations.',
-      image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
+      image: '/images/cakes/rose-gold-leaf-2tier-cake.jpg',
     },
     {
-      title: 'Cupcakes',
+      title: 'Cupcakes & Minis',
       category: 'Cupcakes',
       description: 'Fluffy vanilla and chocolate cupcakes with delicious buttercream flowers.',
-      image: 'https://images.unsplash.com/photo-1587668178277-295251f900ce?auto=format&fit=crop&w=600&q=80',
+      image: '/images/cakes/pink-rainbow-cloud-cake.jpg',
     },
     {
       title: 'Fudge Brownies',
       category: 'Brownies',
       description: 'Gooey, rich chocolate brownies with that classic shiny crinkle top.',
-      image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80',
+      image: '/images/cakes/fudge-brownie-lotus-cake.jpg',
     },
     {
       title: 'Fresh Baked Cookies',
       category: 'Cookies',
       description: 'Chunky chocolate chip cookies and melt-in-mouth pistachio butter shortbread.',
-      image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=600&q=80',
+      image: '/images/cakes/festive-hamper-box.jpg',
     },
     {
-      title: 'Desserts & Macarons',
+      title: 'Desserts & Sweets',
       category: 'Desserts',
-      description: 'Crisp egg-free macarons and delicious sweet party treats.',
-      image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=600&q=80',
+      description: 'Crisp egg-free macarons, tarts and delicious sweet party treats.',
+      image: '/images/cakes/peach-rosette-piping-cake.jpg',
     },
     {
       title: 'Gift Hampers',
       category: 'Gift Hampers',
       description: 'Handcrafted festive gift hampers and boxes packed with artisanal treats.',
-      image: '/images/instagram/diwali-hamper-reel.jpg',
+      image: '/images/cakes/festive-hamper-box.jpg',
     },
   ];
 
@@ -360,8 +360,8 @@ export const Home = () => {
                 <div className="p-2 rounded-[110px_110px_20px_20px] border-2 border-gold-500/60 bg-white shadow-nouveau-lg">
                   <div className="aspect-[4/5] rounded-[100px_100px_14px_14px] overflow-hidden bg-parchment-200">
                     <img
-                      src="https://images.unsplash.com/photo-1556911073-38141963c9e0?auto=format&fit=crop&w=1000&q=80"
-                      alt="Bake O Bliss Chennai boutique kitchen studio"
+                      src="/images/cakes/gold-crown-butterfly-2tier-cake.jpg"
+                      alt="Bake O Bliss Chennai boutique kitchen studio creation"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -371,8 +371,8 @@ export const Home = () => {
                 {/* Overlapping Cameo Detail */}
                 <div className="absolute -bottom-6 -right-4 w-44 sm:w-48 aspect-square rounded-[30px] overflow-hidden shadow-nouveau-lg border-2 border-gold-500 bg-white p-1.5 hidden sm:block">
                   <img
-                    src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80"
-                    alt="Cake decorating botanicals"
+                    src="/images/cakes/lavender-floral-40th-cake.jpg"
+                    alt="Handcrafted floral celebration cake by Bake O Bliss"
                     className="w-full h-full object-cover rounded-[22px]"
                     loading="lazy"
                   />

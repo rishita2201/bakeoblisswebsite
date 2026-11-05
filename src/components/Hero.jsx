@@ -107,8 +107,8 @@ export const Hero = () => {
               <div className="p-2.5 rounded-[120px_120px_24px_24px] border-2 border-gold-500/60 bg-parchment-50 shadow-nouveau-lg relative overflow-hidden">
                 <div className="rounded-[110px_110px_18px_18px] overflow-hidden aspect-[4/5] bg-cream relative">
                   <img
-                    src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=1000&q=80"
-                    alt="Fresh Homemade Raspberry Rose Cake by Bake O Bliss"
+                    src="/images/cakes/royal-wedding-gold-leaf-2tier.jpg"
+                    alt="Handcrafted Celebration Cake by Bake O Bliss"
                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     loading="eager"
                   />

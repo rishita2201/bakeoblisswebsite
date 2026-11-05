@@ -25,22 +25,22 @@ export const CustomOrders = () => {
     {
       title: 'Botanical & Fresh Floral',
       description: 'Organic garden roses, delicate eucalyptus sprigs & subtle pastel textures.',
-      image: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=600&q=80',
+      image: '/images/cakes/rose-gold-leaf-2tier-cake.jpg',
     },
     {
-      title: 'Vintage Lambeth Piping',
-      description: 'Intricate royal frills, romantic overpiping, maraschino cherries & nostalgic ribbons.',
-      image: 'https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80',
+      title: 'Pastel Ruffles & Butterflies',
+      description: 'Delicate hand-piped ruffles, 3D wafer butterflies & elegant gold toppers.',
+      image: '/images/cakes/butterfly-pastel-2tier-cake.jpg',
     },
     {
       title: 'Decadent Chocolate Drip',
-      description: 'Belgian ganache dripping over tall tiers, loaded with brownies & edible gold leaf.',
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
+      description: 'Belgian ganache dripping over tall tiers, loaded with brownies, Oreos & chocolates.',
+      image: '/images/cakes/chocolate-drip-oreo-cake.jpg',
     },
     {
-      title: 'Minimalist Modern Buttercream',
-      description: 'Textured stucco knife strokes, monochrome palettes & calligraphy typography.',
-      image: 'https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?auto=format&fit=crop&w=600&q=80',
+      title: 'Floating Tier Illusion Cakes',
+      description: 'Spectacular multi-tiered showstoppers with illuminated hollow floral chambers.',
+      image: '/images/cakes/floating-illusion-engagement-cake.jpg',
     },
   ];
 
