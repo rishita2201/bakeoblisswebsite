@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShoppingBag, ArrowUpRight, Sparkles } from 'lucide-react';
+import { ShoppingBag, ArrowUpRight, Sparkles, Play } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { formatCurrency } from '../utils/currency';
 import { NouveauCorner } from './ArtNouveauDecorations';
@@ -36,13 +36,19 @@ export const ProductCard = ({ product }) => {
 
         {/* Art Nouveau Overlay Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
+          {product.reelUrl && (
+            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-widest uppercase bg-gradient-to-r from-pink-600 to-purple-600 text-white shadow-xs border border-white/40">
+              <Play className="w-2.5 h-2.5 fill-white" />
+              Reel
+            </span>
+          )}
           {product.isBestseller && (
             <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-widest uppercase bg-[#8E4D55] text-gold-100 shadow-xs border border-gold-400/40">
               <Sparkles className="w-2.5 h-2.5" />
               Bestseller
             </span>
           )}
-          {product.isSignature && !product.isBestseller && (
+          {product.isSignature && !product.isBestseller && !product.reelUrl && (
             <span className="inline-flex items-center gap-1 px-3 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-widest uppercase bg-espresso text-gold-200 shadow-xs border border-gold-500/50">
               Signature
             </span>

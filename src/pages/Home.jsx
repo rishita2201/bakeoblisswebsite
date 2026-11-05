@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles, Heart, Award, Clock, Instagram, Star, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Sparkles, Heart, Award, Clock, Instagram, Star, ShieldCheck, Play, MessageCircle, ExternalLink } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { ProductCard } from '../components/ProductCard';
 import { PRODUCTS } from '../data/products';
@@ -42,6 +42,12 @@ export const Home = () => {
       category: 'Desserts',
       description: 'Crisp egg-free macarons and delicious sweet party treats.',
       image: 'https://images.unsplash.com/photo-1569864321390-dc8727ff068f?auto=format&fit=crop&w=600&q=80',
+    },
+    {
+      title: 'Gift Hampers',
+      category: 'Gift Hampers',
+      description: 'Handcrafted festive gift hampers and boxes packed with artisanal treats.',
+      image: '/images/instagram/diwali-hamper-reel.jpg',
     },
   ];
 
@@ -111,7 +117,7 @@ export const Home = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
           {categoryShowcase.map((cat) => (
             <Link
               key={cat.category}
@@ -163,6 +169,178 @@ export const Home = () => {
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
+        </div>
+      </section>
+
+      {/* 3.5. FESTIVE GIFT HAMPERS SPOTLIGHT (AS SEEN ON INSTAGRAM REEL) */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative rounded-[44px] bg-gradient-to-br from-[#2D1B1E] via-espresso to-[#1F1215] text-gold-100 p-6 sm:p-10 lg:p-14 border-2 border-gold-500/70 shadow-nouveau-lg overflow-hidden">
+          
+          {/* Ornamental Art Nouveau Corners */}
+          <NouveauCorner position="top-left" className="absolute top-4 left-4 w-12 h-12 text-gold-400 pointer-events-none" />
+          <NouveauCorner position="top-right" className="absolute top-4 right-4 w-12 h-12 text-gold-400 pointer-events-none" />
+          <NouveauCorner position="bottom-left" className="absolute bottom-4 left-4 w-12 h-12 text-gold-400 pointer-events-none" />
+          <NouveauCorner position="bottom-right" className="absolute bottom-4 right-4 w-12 h-12 text-gold-400 pointer-events-none" />
+
+          {/* Background subtle golden aura */}
+          <div className="absolute -right-24 -top-24 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            {/* Visual Reel Card */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative w-full max-w-xs sm:max-w-sm">
+                
+                {/* Reel Frame with Gilded Arch Border */}
+                <div className="relative p-2 rounded-[40px] bg-gradient-to-b from-gold-400 via-gold-600/50 to-gold-500 shadow-2xl">
+                  <div className="relative aspect-[9/13] rounded-[34px] overflow-hidden bg-espresso/90 border border-gold-300/40 group">
+                    <img
+                      src="/images/instagram/diwali-hamper-reel.jpg"
+                      alt="Bake O Bliss Festive Gift Hamper Reel"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-espresso via-black/20 to-espresso/60 opacity-80" />
+
+                    {/* Top Header inside Reel */}
+                    <div className="absolute top-3.5 inset-x-3.5 flex items-center justify-between z-10">
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-serif font-bold uppercase tracking-wider bg-black/60 text-gold-200 backdrop-blur-md border border-gold-400/40">
+                        <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                        <span>@bakeobliss Reel</span>
+                      </span>
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-serif font-bold tracking-wider uppercase bg-gold-500 text-espresso shadow-xs">
+                        Featured
+                      </span>
+                    </div>
+
+                    {/* Center Play Button Overlay */}
+                    <a
+                      href="https://www.instagram.com/reel/DePZH6ZNT8G/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="absolute inset-0 flex flex-col items-center justify-center gap-3 z-10 text-center p-4 group-hover:scale-105 transition-transform"
+                    >
+                      <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gold-500 hover:bg-gold-400 text-espresso flex items-center justify-center shadow-xl border-2 border-white/80 transition-all hover:scale-110">
+                        <Play className="w-7 h-7 sm:w-8 sm:h-8 fill-espresso text-espresso ml-1" />
+                      </div>
+                      <span className="px-3.5 py-1.5 rounded-full bg-black/75 text-white font-serif text-[11px] font-bold tracking-wider uppercase border border-gold-400/50 backdrop-blur-sm shadow-md">
+                        Watch Reel on Instagram
+                      </span>
+                    </a>
+
+                    {/* Bottom Caption Overlay */}
+                    <div className="absolute bottom-3.5 inset-x-3.5 z-10 space-y-1 bg-black/60 p-3 rounded-2xl backdrop-blur-xs border border-white/10">
+                      <p className="text-xs font-serif font-semibold text-gold-100 line-clamp-2">
+                        ✨ Festive gifting, sorted! A little sweetness goes a long way 🪔
+                      </p>
+                      <span className="text-[10px] font-serif text-gold-300 block">
+                        Handmade with love • North Town Apartment, Perambur
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Narrative & Ordering Options */}
+            <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
+              
+              <div className="space-y-2">
+                <span className="inline-flex items-center gap-2 text-xs font-serif uppercase tracking-[0.25em] text-gold-400 font-bold">
+                  <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+                  Featured On Instagram • Festive Gifting
+                </span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight">
+                  Handcrafted Gift Hampers & <br />
+                  <span className="italic font-serif text-gold-300">Celebration Treat Boxes</span>
+                </h2>
+                <NouveauFloralDivider className="w-48 h-5 text-gold-400 my-1 mx-auto lg:mx-0" />
+              </div>
+
+              <p className="text-sm sm:text-base font-serif text-gold-100/90 font-light leading-relaxed">
+                A little sweetness goes a long way 🪔 Our artisanal hampers and gift bags are handmade with love in our Perambur studio and packed in gorgeous keepsake gift boxes. Packed with freshly baked gourmet cookies, rich fudge brownies, and celebration delicacies.
+              </p>
+
+              {/* Feature Highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left pt-1">
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-gold-400/20">
+                  <span className="w-7 h-7 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    🎁
+                  </span>
+                  <div>
+                    <strong className="text-xs font-serif font-bold text-white block">Keepsake Boxes & Bags</strong>
+                    <span className="text-[11px] font-serif text-gold-200/80">Packed in gorgeous gift boxes with satin ribbon and festive touches.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-gold-400/20">
+                  <span className="w-7 h-7 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    🍪
+                  </span>
+                  <div>
+                    <strong className="text-xs font-serif font-bold text-white block">Gourmet Fresh Bakes</strong>
+                    <span className="text-[11px] font-serif text-gold-200/80">Fudge brownies, melt-in-mouth pistachio shortbread & chunky cookies.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-gold-400/20">
+                  <span className="w-7 h-7 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    🏢
+                  </span>
+                  <div>
+                    <strong className="text-xs font-serif font-bold text-white block">Family & Corporate Gifting</strong>
+                    <span className="text-[11px] font-serif text-gold-200/80">Bulk orders and custom curation for colleagues, clients, and celebrations.</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-2xl bg-white/5 border border-gold-400/20">
+                  <span className="w-7 h-7 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                    ⏳
+                  </span>
+                  <div>
+                    <strong className="text-xs font-serif font-bold text-white block">Limited Slots Available</strong>
+                    <span className="text-[11px] font-serif text-gold-200/80">Baked fresh in small batches. Book early before slots fill up!</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Call to Actions */}
+              <div className="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-3.5">
+                <a
+                  href={createWhatsAppLink("Hello Bake O Bliss! I saw your Festive Hampers on Instagram Reel (DePZH6ZNT8G) and would like to order/inquire about gift hampers.")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-7 py-3.5 rounded-full gold-button text-espresso text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-lg flex items-center gap-2 hover:scale-[1.02] active:scale-95"
+                >
+                  <MessageCircle className="w-4 h-4 text-espresso fill-current" />
+                  <span>Order Hampers on WhatsApp</span>
+                </a>
+
+                <Link
+                  to="/product/luxury-festive-dessert-hamper"
+                  className="px-6 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-gold-400/50 text-xs font-serif font-bold tracking-widest uppercase transition-all shadow-sm"
+                >
+                  <span>View Hamper Options</span>
+                </Link>
+
+                <a
+                  href="https://www.instagram.com/reel/DePZH6ZNT8G/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-3.5 rounded-full bg-pink-950/60 hover:bg-pink-900/80 text-pink-200 border border-pink-400/40 text-xs font-serif font-bold tracking-widest uppercase transition-all flex items-center gap-2"
+                >
+                  <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                  <span>Watch Reel</span>
+                  <ExternalLink className="w-3 h-3 text-pink-300" />
+                </a>
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -374,6 +552,14 @@ export const Home = () => {
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 loading="lazy"
               />
+              {post.isReel && (
+                <div className="absolute top-2 left-2 z-10">
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-serif font-bold uppercase tracking-wider bg-black/80 text-gold-300 backdrop-blur-xs border border-gold-400/50 shadow-md">
+                    <Play className="w-2.5 h-2.5 fill-gold-400 text-gold-400" />
+                    Reel
+                  </span>
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-espresso/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3 text-gold-100">
                 <div className="flex items-center justify-between text-[11px] font-serif mb-1">
                   <span className="flex items-center gap-1 font-bold text-white">

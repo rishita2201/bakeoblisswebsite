@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowLeft, ShoppingBag, MessageCircle, Sparkles, Check, 
-  Clock, ShieldAlert, Heart, Share2, Info 
+  Clock, ShieldAlert, Heart, Share2, Info, Instagram, Play, ExternalLink 
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
 import { useCart } from '../context/CartContext';
@@ -185,6 +185,35 @@ export const ProductDetails = () => {
           <p className="text-sm sm:text-base font-serif text-espresso/80 leading-relaxed font-light">
             {product.description}
           </p>
+
+          {/* Instagram Reel Feature Card */}
+          {product.reelUrl && (
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-pink-500/10 via-purple-500/10 to-amber-500/10 border border-pink-400/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-amber-500 via-pink-500 to-purple-600 text-white flex items-center justify-center shrink-0 shadow-xs">
+                  <Play className="w-4 h-4 fill-white ml-0.5" />
+                </div>
+                <div>
+                  <span className="text-xs font-serif font-bold text-espresso block">
+                    Featured on Instagram Reel
+                  </span>
+                  <span className="text-[11px] font-serif text-espresso/70">
+                    Watch the unboxing, packaging & treats in action!
+                  </span>
+                </div>
+              </div>
+              <a
+                href={product.reelUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white hover:bg-gold-50 text-espresso text-xs font-serif font-bold border border-gold-500/50 shadow-xs transition-colors shrink-0"
+              >
+                <Instagram className="w-3.5 h-3.5 text-pink-600" />
+                <span>Watch Reel</span>
+                <ExternalLink className="w-3 h-3 text-espresso/60" />
+              </a>
+            </div>
+          )}
 
           {/* Studio Guarantee & Freshness */}
           <div className="p-3 rounded-2xl bg-parchment-100/70 border border-gold-500/30 flex items-center justify-between text-xs font-serif text-espresso/75">

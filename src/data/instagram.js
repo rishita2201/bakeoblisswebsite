@@ -16,6 +16,18 @@
 
 export const INSTAGRAM_POSTS = [
   {
+    id: 'reel-festive-hamper',
+    category: 'Festive Hampers & Gifts',
+    caption: '✨ Festive gifting, sorted! A little sweetness goes a long way 🪔 Our hampers & gift bags are handmade with love in Perambur, Chennai — packed in gorgeous gift boxes with artisanal cookies & bakes. #bakeobliss #chennaibakers #diwaligifts',
+    imageUrl: '/images/instagram/diwali-hamper-reel.jpg',
+    localFallback: '/images/instagram/diwali-hamper-reel.jpg',
+    likes: 542,
+    comments: 63,
+    postUrl: 'https://www.instagram.com/reel/DePZH6ZNT8G/',
+    isReel: true,
+    date: 'Featured Reel'
+  },
+  {
     id: 'post-1',
     category: 'Celebration Cakes',
     caption: 'Lovely piped buttercream cake with fresh homemade raspberry compote. Baked fresh to order in our Perambur kitchen ✨ #BakeOBliss #ChennaiBakers #EgglessCakes #CakesOfInstagram',
@@ -67,17 +79,6 @@ export const INSTAGRAM_POSTS = [
     localFallback: '/images/instagram/post-5.jpg',
     likes: 276,
     comments: 38,
-    postUrl: 'https://www.instagram.com/bakeobliss/',
-    date: '2 weeks ago'
-  },
-  {
-    id: 'post-6',
-    category: 'Tiered Cakes',
-    caption: 'Rustic textured ivory buttercream adorned with eucalyptus and garden blush blooms. Made with love at Flat 803, North Town Apartment 🤍🌿 #WeddingCake #CustomCakes',
-    imageUrl: 'https://images.unsplash.com/photo-1535254973040-607b474cb50d?auto=format&fit=crop&w=800&q=80',
-    localFallback: '/images/instagram/post-6.jpg',
-    likes: 421,
-    comments: 67,
     postUrl: 'https://www.instagram.com/bakeobliss/',
     date: '2 weeks ago'
   }

@@ -13,6 +13,7 @@ export const CATEGORIES = [
   'Brownies',
   'Cookies',
   'Desserts',
+  'Gift Hampers',
   'Special Occasion Treats'
 ];
 
@@ -261,22 +262,27 @@ export const PRODUCTS = [
   },
   {
     id: 'luxury-festive-dessert-hamper',
-    name: 'Celebration Gift Hamper',
-    category: 'Special Occasion Treats',
-    price: 2450,
-    shortDescription: 'Curated gift box with brownies, macarons, pistachio cookies, and sweet treats.',
-    description: 'A lovely gift box tied with satin ribbon. Includes 4 fudge brownies, 6 macarons, 1 jar pistachio shortbread, and chocolate treats.',
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=80',
-    additionalImages: [],
+    name: 'Artisanal Festive Gift Hamper & Celebration Box',
+    category: 'Gift Hampers',
+    price: 1250,
+    shortDescription: 'Curated luxury gift box packed with artisanal cookies, fudge brownies, and celebration treats.',
+    description: 'As featured on our Instagram Reel! A little sweetness goes a long way 🪔 Our handcrafted festive hampers and gift bags are handmade with love in our Perambur studio and packed in a gorgeous keepsake gift box. Featuring freshly baked gourmet cookies, rich fudge brownies, and sweet delicacies. Perfect for family, friends, colleagues, and corporate gifting in Chennai.',
+    image: '/images/instagram/diwali-hamper-reel.jpg',
+    additionalImages: [
+      'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=1000&q=80'
+    ],
     isBestseller: true,
     isSignature: true,
-    availability: 'pre_order_only',
-    preparationTime: '48 hours advance notice',
+    reelUrl: 'https://www.instagram.com/reel/DePZH6ZNT8G/',
+    availability: 'in_stock',
+    preparationTime: 'Slots fill up fast — advance booking recommended',
     variants: [
-      { id: 'classic-hamper', label: 'Classic Gift Box', price: 2450 },
-      { id: 'luxury-keepsake-hamper', label: 'Grand Gift Box with Floral Accent', price: 3800 }
+      { id: 'festive-treat-bag', label: 'Festive Treat Gift Bag (Assorted Bakes)', price: 650 },
+      { id: 'signature-hamper-box', label: 'Signature Gift Hamper Box (Cookies & Brownies)', price: 1250 },
+      { id: 'royal-celebration-box', label: 'Grand Celebration Hamper (Complete Treat Selection)', price: 2150 }
     ],
-    flavorNotes: ['Assortment of Best-Selling Bakes'],
-    allergens: 'Varies by item. Contains Pure Dairy Butter, Nuts.'
+    flavorNotes: ['Fudge Brownies', 'Gourmet Cookies', 'Pure Butter Shortbread', 'Festive Treats'],
+    allergens: 'Contains Pure Dairy Butter, Nuts (Almonds/Pistachios), Gluten.'
   }
 ];
